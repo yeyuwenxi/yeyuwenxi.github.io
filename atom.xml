@@ -6,7 +6,7 @@
   <link href="http://yeyuwenxi.gitee.io/atom.xml" rel="self"/>
   
   <link href="http://yeyuwenxi.gitee.io/"/>
-  <updated>2021-03-29T07:46:43.161Z</updated>
+  <updated>2021-03-29T11:40:40.915Z</updated>
   <id>http://yeyuwenxi.gitee.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于《神游》</title>
+    <link href="http://yeyuwenxi.gitee.io/2021/03/29/guan-yu-shen-you/"/>
+    <id>http://yeyuwenxi.gitee.io/2021/03/29/guan-yu-shen-you/</id>
+    <published>2021-03-29T11:38:52.000Z</published>
+    <updated>2021-03-29T11:40:40.915Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近刚刚读完了《神游》，记录一些笔记和自己的想法。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近刚刚读完了《神游》，记录一些笔记和自己的想法。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="心情日记" scheme="http://yeyuwenxi.gitee.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>关于博客的搭建</title>
