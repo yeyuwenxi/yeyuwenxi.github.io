@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeyuwenxi.gitee.io/2021/03/28/zuo-wei-kai-shi/</loc>
+    
+    <lastmod>2021-03-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.gitee.io/2021/03/29/guan-yu-bo-ke-de-da-jian/</loc>
+    
+    <lastmod>2021-03-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yeyuwenxi.gitee.io/friends/index.html</loc>
     
     <lastmod>2021-03-29</lastmod>
@@ -37,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://yeyuwenxi.gitee.io/2021/03/28/zuo-wei-kai-shi/</loc>
-    
-    <lastmod>2021-03-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yeyuwenxi.gitee.io/2021/03/28/hello-world/</loc>
     
     <lastmod>2021-03-28</lastmod>
@@ -60,5 +67,12 @@
 
   
 
+  
+  <url>
+    <loc>http://yeyuwenxi.gitee.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/</loc>
+    <lastmod>2021-03-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>
