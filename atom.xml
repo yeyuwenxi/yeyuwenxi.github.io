@@ -3,11 +3,11 @@
   <title>夜雨闻曦</title>
   
   <subtitle>个人博客</subtitle>
-  <link href="http://yeyuwenxi.github.io/atom.xml" rel="self"/>
+  <link href="http://yeyuwenxi.gitee.io/atom.xml" rel="self"/>
   
-  <link href="http://yeyuwenxi.github.io/"/>
+  <link href="http://yeyuwenxi.gitee.io/"/>
   <updated>2021-03-30T09:08:51.932Z</updated>
-  <id>http://yeyuwenxi.github.io/</id>
+  <id>http://yeyuwenxi.gitee.io/</id>
   
   <author>
     <name>pcl</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>当我看手机的时候我在看些什么</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/30/dang-wo-kan-shou-ji-de-shi-hou-wo-zai-kan-xie-shi-me/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/30/dang-wo-kan-shou-ji-de-shi-hou-wo-zai-kan-xie-shi-me/</id>
+    <link href="http://yeyuwenxi.gitee.io/2021/03/30/dang-wo-kan-shou-ji-de-shi-hou-wo-zai-kan-xie-shi-me/"/>
+    <id>http://yeyuwenxi.gitee.io/2021/03/30/dang-wo-kan-shou-ji-de-shi-hou-wo-zai-kan-xie-shi-me/</id>
     <published>2021-03-30T08:19:45.000Z</published>
     <updated>2021-03-30T09:08:51.932Z</updated>
     
@@ -34,30 +34,30 @@
     
     
     
-    <category term="心情日记" scheme="http://yeyuwenxi.github.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
+    <category term="心情日记" scheme="http://yeyuwenxi.gitee.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>关于《灵山》</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/30/guan-yu-ling-shan/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/30/guan-yu-ling-shan/</id>
+    <link href="http://yeyuwenxi.gitee.io/2021/03/30/guan-yu-ling-shan/"/>
+    <id>http://yeyuwenxi.gitee.io/2021/03/30/guan-yu-ling-shan/</id>
     <published>2021-03-30T08:17:56.000Z</published>
     <updated>2021-03-30T08:22:37.207Z</updated>
     
     
     
     
-    <category term="随笔" scheme="http://yeyuwenxi.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="http://yeyuwenxi.gitee.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
     <title>关于《神游》</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/29/guan-yu-shen-you/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/29/guan-yu-shen-you/</id>
+    <link href="http://yeyuwenxi.gitee.io/2021/03/29/guan-yu-shen-you/"/>
+    <id>http://yeyuwenxi.gitee.io/2021/03/29/guan-yu-shen-you/</id>
     <published>2021-03-29T11:38:52.000Z</published>
     <updated>2021-03-30T08:21:55.449Z</updated>
     
@@ -72,15 +72,15 @@
     
     
     
-    <category term="随笔" scheme="http://yeyuwenxi.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="http://yeyuwenxi.gitee.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
     <title>关于博客的搭建</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/29/guan-yu-bo-ke-de-da-jian/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/29/guan-yu-bo-ke-de-da-jian/</id>
+    <link href="http://yeyuwenxi.gitee.io/2021/03/29/guan-yu-bo-ke-de-da-jian/"/>
+    <id>http://yeyuwenxi.gitee.io/2021/03/29/guan-yu-bo-ke-de-da-jian/</id>
     <published>2021-03-29T07:43:05.000Z</published>
     <updated>2021-03-30T08:21:40.131Z</updated>
     
@@ -95,15 +95,15 @@
     
     
     
-    <category term="博客搭建" scheme="http://yeyuwenxi.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="博客搭建" scheme="http://yeyuwenxi.gitee.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
   </entry>
   
   <entry>
     <title>作为开始</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/28/zuo-wei-kai-shi/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/28/zuo-wei-kai-shi/</id>
+    <link href="http://yeyuwenxi.gitee.io/2021/03/28/zuo-wei-kai-shi/"/>
+    <id>http://yeyuwenxi.gitee.io/2021/03/28/zuo-wei-kai-shi/</id>
     <published>2021-03-28T11:36:16.000Z</published>
     <updated>2021-03-29T07:47:13.069Z</updated>
     
@@ -119,15 +119,15 @@
     
     
     
-    <category term="心情日记" scheme="http://yeyuwenxi.github.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
+    <category term="心情日记" scheme="http://yeyuwenxi.gitee.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/28/hello-world/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/28/hello-world/</id>
+    <link href="http://yeyuwenxi.gitee.io/2021/03/28/hello-world/"/>
+    <id>http://yeyuwenxi.gitee.io/2021/03/28/hello-world/</id>
     <published>2021-03-28T05:09:39.319Z</published>
     <updated>2021-03-28T05:09:39.319Z</updated>
     
