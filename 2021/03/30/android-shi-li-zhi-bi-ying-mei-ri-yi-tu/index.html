@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 夜雨闻曦">
+    <meta name="keywords" content="Android实例之必应每日一图, 夜雨闻曦">
     <meta name="description" content="某学生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 夜雨闻曦</title>
+    <title>Android实例之必应每日一图 | 夜雨闻曦</title>
     <link rel="icon" type="image/png" href="/heart.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -261,12 +261,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Android实例之必应每日一图</h1>
                 </div>
             </div>
         </div>
@@ -387,6 +387,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Android/" class="post-category">
+                                Android
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -394,28 +403,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-28
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-28
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    75
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -430,19 +439,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <h2 id="Android实现每天更新一张图片"><a href="#Android实现每天更新一张图片" class="headerlink" title="Android实现每天更新一张图片"></a>Android实现每天更新一张图片</h2><p>第一次写博客，记录一下自己学习android过程中做过的一些实例。</p>
+<p>必应官网每天都会更新一张图片，我们可以通过这张图片的链接来获取这张图片，并让其显示在android app中。</p>
+<h3 id="一、图片的获取"><a href="#一、图片的获取" class="headerlink" title="一、图片的获取"></a>一、图片的获取</h3><p>必应提供了一个图片的接口，我们可以通过访问这个接口来获取每日更新的图片，接口链接如下所示：<code>https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1</code><br>通过浏览器访问该链接可以得到以下所示数据</p>
+<blockquote>
+<p>{“images”:[{“startdate”:”20210124”,”fullstartdate”:”202101241600”,”enddate”:”20210125”,<strong>“url”:”/th?id=OHR.ChurchRock_ZH-CN6926315999_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg&amp;pid=hp”</strong>,”urlbase”:”/th?id=OHR.ChurchRock_ZH-CN6926315999”,”copyright”:”红石公园教堂岩附近的雷击，新墨西哥州 (© Tim Fitzharris/Minden Pictures)”,”copyrightlink”:”<a target="_blank" rel="noopener" href="https://www.bing.com/search?q=%E7%BA%A2%E7%9F%B3%E5%85%AC%E5%9B%AD%E6%95%99%E5%A0%82&amp;form=hpcapt&amp;mkt=zh-cn&quot;,&quot;title&quot;:&quot;&quot;,&quot;quiz&quot;:&quot;/search?q=Bing+homepage+quiz&amp;filters=WQOskey:%22HPQuiz_20210124_ChurchRock%22&amp;FORM=HPQUIZ&quot;,&quot;wp&quot;:true,&quot;hsh&quot;:&quot;cdae6c57dbb4fe473dfd4f93b7870b8b&quot;,&quot;drk&quot;:1,&quot;top&quot;:1,&quot;bot&quot;:1,&quot;hs&quot;:%5B%5D%7D%5D,&quot;tooltips&quot;:%7B&quot;loading&quot;:&quot;%E6%AD%A3%E5%9C%A8%E5%8A%A0%E8%BD%BD...&quot;,&quot;previous&quot;:&quot;%E4%B8%8A%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F&quot;,&quot;next&quot;:&quot;%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F&quot;,&quot;walle&quot;:&quot;%E6%AD%A4%E5%9B%BE%E7%89%87%E4%B8%8D%E8%83%BD%E4%B8%8B%E8%BD%BD%E7%94%A8%E4%BD%9C%E5%A3%81%E7%BA%B8%E3%80%82&quot;,&quot;walls&quot;:&quot;%E4%B8%8B%E8%BD%BD%E4%BB%8A%E6%97%A5%E7%BE%8E%E5%9B%BE%E3%80%82%E4%BB%85%E9%99%90%E7%94%A8%E4%BD%9C%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E3%80%82&quot;%7D%7D">https://www.bing.com/search?q=%E7%BA%A2%E7%9F%B3%E5%85%AC%E5%9B%AD%E6%95%99%E5%A0%82&amp;form=hpcapt&amp;mkt=zh-cn&quot;,&quot;title&quot;:&quot;&quot;,&quot;quiz&quot;:&quot;/search?q=Bing+homepage+quiz&amp;filters=WQOskey:%22HPQuiz_20210124_ChurchRock%22&amp;FORM=HPQUIZ&quot;,&quot;wp&quot;:true,&quot;hsh&quot;:&quot;cdae6c57dbb4fe473dfd4f93b7870b8b&quot;,&quot;drk&quot;:1,&quot;top&quot;:1,&quot;bot&quot;:1,&quot;hs&quot;:[]}],&quot;tooltips&quot;:{&quot;loading&quot;:&quot;正在加载...&quot;,&quot;previous&quot;:&quot;上一个图像&quot;,&quot;next&quot;:&quot;下一个图像&quot;,&quot;walle&quot;:&quot;此图片不能下载用作壁纸。&quot;,&quot;walls&quot;:&quot;下载今日美图。仅限用作桌面壁纸。&quot;}}</a></p>
+</blockquote>
+<p>其中，url标签后的内容即为我们所需图片的地址，通过访问<code>http://cn.bing.com+该地址</code>就可以得到我们想要的图片，例如，上面得到的url为<br><code> /th?id=OHR.ChurchRock_ZH-CN6926315999_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg&amp;pid=hp</code><br>那我们访问</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//cn.bing.com/th?id=OHR.ChurchRock_ZH-CN6926315999_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg&amp;pid=hp</span></span><br></pre></td></tr></table></figure>
+<p>就可以得到我们想要的图片。</p>
+<h3 id="二、在android上获取并显示图片"><a href="#二、在android上获取并显示图片" class="headerlink" title="二、在android上获取并显示图片"></a>二、在android上获取并显示图片</h3><p>由于android自身的限制，网络操作只能在子线程中完成，这一点是我们写代码中特别需要注意的。因此我们要把访问api接口的代码写在子线程中。此外，在android中，与UI有关的操作只能在主线程或UI线程中完成，所以我们加载图片上要记得更换线程。</p>
+<h4 id="1-访问api接口"><a href="#1-访问api接口" class="headerlink" title="1.访问api接口"></a>1.访问api接口</h4><p>这里我们通过android自带的httpurlconnection来访问，并将访问得到的json返回文件存储到字符串response中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendRequestWithHttpURLConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 开启线程来发起网络请求</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                HttpURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">                BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    URL url = <span class="keyword">new</span> URL(<span class="string">&quot;https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&quot;</span>);</span><br><span class="line">                    connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    connection.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    connection.setConnectTimeout(<span class="number">8000</span>);</span><br><span class="line">                    connection.setReadTimeout(<span class="number">8000</span>);</span><br><span class="line">                    InputStream in = connection.getInputStream();</span><br><span class="line">                    <span class="comment">// 下面对获取到的输入流进行读取</span></span><br><span class="line">                    reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</span><br><span class="line">                    StringBuilder response = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                    String line;</span><br><span class="line">                    <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        response.append(line);</span><br><span class="line">                    &#125;</span><br><span class="line">                    parseJSONWithJSONObject(response.toString());</span><br><span class="line">                   <span class="comment">// showResponse(response.toString());</span></span><br><span class="line">                    <span class="comment">//Ui线程</span></span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            reader.close();</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        connection.disconnect();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-json的解析"><a href="#2-json的解析" class="headerlink" title="2.json的解析"></a>2.json的解析</h4><p>这里我们直接通过android自带的JSONArray和JSONObject来进行json的解析，并将解析到的结果和<code>http://cn.bing.com</code>拼接起来，得到我们想要的图片的链接，并将其存储在字符串url1中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseJSONWithJSONObject</span><span class="params">(String jsonData)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">// JSONArray jsonArray = new JSONArray(jsonData);</span></span><br><span class="line"></span><br><span class="line">            JSONArray jsonArray = <span class="keyword">new</span> JSONObject(jsonData).getJSONArray(<span class="string">&quot;images&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</span><br><span class="line">                JSONObject jsonObject = jsonArray.getJSONObject(i);</span><br><span class="line">                String url = jsonObject.getString(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"></span><br><span class="line">                Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;url is &quot;</span> + url);</span><br><span class="line">String url1=<span class="string">&quot;http://cn.bing.com&quot;</span>+url;</span><br><span class="line">                showResponse(url1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="3-图片的加载"><a href="#3-图片的加载" class="headerlink" title="3.图片的加载"></a>3.图片的加载</h4><p>利用开源框架Glide进行图片的加载。<br>注意，图片的加载要写在UI线程中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showResponse</span><span class="params">(<span class="keyword">final</span> String response)</span> </span>&#123;</span><br><span class="line">        runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 在这里进行UI操作，将结果显示到界面上</span></span><br><span class="line">                Glide.with(MainActivity.<span class="keyword">this</span>).load(response).into(img);</span><br><span class="line">              <span class="comment">//  text.setText(response);</span></span><br><span class="line">                Log.i(<span class="string">&quot;123&quot;</span>,response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="三、演示效果"><a href="#三、演示效果" class="headerlink" title="三、演示效果"></a>三、演示效果</h3><p>![-w40](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20210125151637243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/20210125151637243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,color_FFFFFF,t_70</a> =400x800)</p>
+<h3 id="四、源代码"><a href="#四、源代码" class="headerlink" title="四、源代码"></a>四、源代码</h3><p><strong>1.xml</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    xmlns:app=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span><br><span class="line">    xmlns:tools=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="line">    android:orientation=<span class="string">&quot;vertical&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    tools:context=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;ImageView</span><br><span class="line">    android:id=<span class="string">&quot;@+id/img&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span>/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+<p>这部分代码比较简单，就是线性布局中加了一个imageview.</p>
+<p><strong>2.activity</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    TextView text;</span><br><span class="line">    ImageView img;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">// text=findViewById(R.id.text);</span></span><br><span class="line">       img=findViewById(R.id.img);</span><br><span class="line">        sendRequestWithHttpURLConnection();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendRequestWithHttpURLConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 开启线程来发起网络请求</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                HttpURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">                BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    URL url = <span class="keyword">new</span> URL(<span class="string">&quot;https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&quot;</span>);</span><br><span class="line">                    connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    connection.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    connection.setConnectTimeout(<span class="number">8000</span>);</span><br><span class="line">                    connection.setReadTimeout(<span class="number">8000</span>);</span><br><span class="line">                    InputStream in = connection.getInputStream();</span><br><span class="line">                    <span class="comment">// 下面对获取到的输入流进行读取</span></span><br><span class="line">                    reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</span><br><span class="line">                    StringBuilder response = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                    String line;</span><br><span class="line">                    <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        response.append(line);</span><br><span class="line">                    &#125;</span><br><span class="line">                    parseJSONWithJSONObject(response.toString());</span><br><span class="line">                   <span class="comment">// showResponse(response.toString());</span></span><br><span class="line">                    <span class="comment">//Ui线程</span></span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            reader.close();</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        connection.disconnect();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showResponse</span><span class="params">(<span class="keyword">final</span> String response)</span> </span>&#123;</span><br><span class="line">        runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 在这里进行UI操作，将结果显示到界面上</span></span><br><span class="line">                Glide.with(MainActivity.<span class="keyword">this</span>).load(response).into(img);</span><br><span class="line">              <span class="comment">//  text.setText(response);</span></span><br><span class="line">                Log.i(<span class="string">&quot;123&quot;</span>,response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseJSONWithJSONObject</span><span class="params">(String jsonData)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">// JSONArray jsonArray = new JSONArray(jsonData);</span></span><br><span class="line"></span><br><span class="line">            JSONArray jsonArray = <span class="keyword">new</span> JSONObject(jsonData).getJSONArray(<span class="string">&quot;images&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</span><br><span class="line">                JSONObject jsonObject = jsonArray.getJSONObject(i);</span><br><span class="line">                String url = jsonObject.getString(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"></span><br><span class="line">                Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;url is &quot;</span> + url);</span><br><span class="line">String url1=<span class="string">&quot;http://cn.bing.com&quot;</span>+url;</span><br><span class="line">                showResponse(url1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -469,7 +490,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yeyuwenxi.github.io/2021/03/28/hello-world/">http://yeyuwenxi.github.io/2021/03/28/hello-world/</a>
+                    <a href="http://yeyuwenxi.github.io/2021/03/30/android-shi-li-zhi-bi-ying-mei-ri-yi-tu/">http://yeyuwenxi.github.io/2021/03/30/android-shi-li-zhi-bi-ying-mei-ri-yi-tu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -808,58 +829,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/28/zuo-wei-kai-shi/">
+                <a href="/2021/03/30/android-shi-li-zhi-bi-ying-mei-ri-yi-tu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="作为开始">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Android实例之必应每日一图">
                         
-                        <span class="card-title">作为开始</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    心情日记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/28/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Android实例之必应每日一图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -870,17 +851,62 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            pcl
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/30/android-shi-xian-tcp-ke-hu-duan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Android实现TCP客户端">
+                        
+                        <span class="card-title">Android实现TCP客户端</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
                 
             </div>
         </div>
