@@ -410,14 +410,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-30
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
+                    450
                 </div>
                 
 
@@ -439,7 +439,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>记录一些博客搭建过程中遇到的问题和各种bug</p>
+                <p>记录一些hexo博客搭建过程中遇到的问题和各种bug</p>
+<h3 id="node命令找不到"><a href="#node命令找不到" class="headerlink" title="node命令找不到"></a>node命令找不到</h3><p>安装node.js后，无法使用node命令，好像是安装路径的问题，导致了环境变量产生了问题，最后重新使用默认路径安装了一次，解决了这个问题。</p>
+<h3 id="配置主题时产生问题"><a href="#配置主题时产生问题" class="headerlink" title="配置主题时产生问题"></a>配置主题时产生问题</h3><p>配置icarus主题时，样式产生了问题，后来发现yml文件非常注重空格和缩进，关键位置少一个空格都会报错。</p>
+<h3 id="主题的选择"><a href="#主题的选择" class="headerlink" title="主题的选择"></a>主题的选择</h3><p>试过了next,icarus,最后还是觉得matery比较好看。</p>
+<h3 id="评论功能的选择"><a href="#评论功能的选择" class="headerlink" title="评论功能的选择"></a>评论功能的选择</h3><p>使用了matery中内置的valine评论系统，不需要后台，只要注册账号，实名认证，创建应用，配置-config.yml文件即可使用。<br>不过valine也有个缺点，就是会显示评论者的ip地址，这一点可能会涉及到隐私问题，以后有时间了，我也会看看有没有更好的评论系统。</p>
+<h3 id="gitee第一次进入首页部分图标不显示"><a href="#gitee第一次进入首页部分图标不显示" class="headerlink" title="gitee第一次进入首页部分图标不显示"></a>gitee第一次进入首页部分图标不显示</h3><p>查资料，在github上跟开发者交流后发现，好像是gitee配置目录的问题，gitee的默认配置路径是“/+仓库名”。<br>在config.yml中添加“root: yeyuwenxi(我的仓库名)”后，成功地解决了这一问题。</p>
+<h3 id="gitee和github双部署产生的问题"><a href="#gitee和github双部署产生的问题" class="headerlink" title="gitee和github双部署产生的问题"></a>gitee和github双部署产生的问题</h3><p>github上部署目录是“root:/”,与gitee的“root :/+仓库名”上不一样，因此部署在两个位置的同一个博客产生了样式差异。<br>以我的博客为例，不添加“root: /yeyuwenxi”时，github完全正常，gitee上的博客第一次进入首页图标不显示。<br>添加“root: /yeyuwexni”时，gitee完全正常，github上的博客完全没有样式。<br>这一问题暂未解决。<br>未完待续。</p>
 
                 
             </div>
@@ -1080,7 +1086,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.1k</span>&nbsp;字
+                class="white-color">13.9k</span>&nbsp;字
             
             
             
