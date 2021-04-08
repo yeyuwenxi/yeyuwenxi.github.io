@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yeyuwenxi.github.io/2021/04/06/guan-yu-nan-nu-dui-li/</loc>
+    <loc>http://yeyuwenxi.github.io/2021/03/30/du-ren-sheng/</loc>
     
-    <lastmod>2021-04-06</lastmod>
+    <lastmod>2021-04-08</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yeyuwenxi.github.io/2021/04/05/tan-tan-xin-xi-chong-fang/</loc>
+    <loc>http://yeyuwenxi.github.io/2021/03/30/du-tou-ying-zi-de-ren/</loc>
     
-    <lastmod>2021-04-06</lastmod>
+    <lastmod>2021-04-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/2021/03/29/guan-yu-shen-you/</loc>
+    
+    <lastmod>2021-04-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/2021/03/30/guan-yu-ling-shan/</loc>
+    
+    <lastmod>2021-04-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/2021/04/08/guan-yu-xin-qing-ri-ji/</loc>
+    
+    <lastmod>2021-04-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/2021/04/08/yun-he-jiang-fu-qi-xin/</loc>
+    
+    <lastmod>2021-04-08</lastmod>
     
   </url>
   
@@ -45,13 +73,6 @@
   
   <url>
     <loc>http://yeyuwenxi.github.io/2021/03/29/guan-yu-bo-ke-de-da-jian/</loc>
-    
-    <lastmod>2021-04-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeyuwenxi.github.io/2021/03/30/guan-yu-ling-shan/</loc>
     
     <lastmod>2021-04-01</lastmod>
     
@@ -100,35 +121,7 @@
   </url>
   
   <url>
-    <loc>http://yeyuwenxi.github.io/2021/03/30/du-tou-ying-zi-de-ren/</loc>
-    
-    <lastmod>2021-03-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeyuwenxi.github.io/2021/03/30/du-ren-sheng/</loc>
-    
-    <lastmod>2021-03-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeyuwenxi.github.io/2021/03/29/guan-yu-shen-you/</loc>
-    
-    <lastmod>2021-03-30</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yeyuwenxi.github.io/2021/03/30/dang-wo-kan-shou-ji-de-shi-hou-wo-zai-kan-xie-shi-me/</loc>
-    
-    <lastmod>2021-03-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeyuwenxi.github.io/2021/03/30/du-zhui-feng-zheng-de-ren/</loc>
     
     <lastmod>2021-03-30</lastmod>
     
@@ -169,13 +162,6 @@
     
   </url>
   
-  <url>
-    <loc>http://yeyuwenxi.github.io/2021/03/28/hello-world/</loc>
-    
-    <lastmod>2021-03-28</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>http://yeyuwenxi.github.io/</loc>
@@ -202,20 +188,6 @@
   </url>
   
   <url>
-    <loc>http://yeyuwenxi.github.io/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2021-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yeyuwenxi.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2021-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yeyuwenxi.github.io/categories/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
@@ -223,7 +195,14 @@
   </url>
   
   <url>
-    <loc>http://yeyuwenxi.github.io/categories/%E5%A5%BD%E6%96%87%E5%88%86%E4%BA%AB/</loc>
+    <loc>http://yeyuwenxi.github.io/categories/%E8%AF%BB%E4%B9%A6/</loc>
+    <lastmod>2021-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
