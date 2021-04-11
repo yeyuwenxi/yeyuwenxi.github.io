@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Android实例之必应每日一图, 夜雨闻曦">
+    <meta name="keywords" content="单片机温度、压力信息采集与电机控制系统, 夜雨闻曦">
     <meta name="description" content="某学生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Android实例之必应每日一图 | 夜雨闻曦</title>
+    <title>单片机温度、压力信息采集与电机控制系统 | 夜雨闻曦</title>
     <link rel="icon" type="image/png" href="/heart.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -261,12 +261,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Android实例之必应每日一图</h1>
+                    <h1 class="description center-align post-title">单片机温度、压力信息采集与电机控制系统</h1>
                 </div>
             </div>
         </div>
@@ -380,9 +380,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                                <span class="chip bg-color">单片机</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B1%87%E7%BC%96/">
+                                <span class="chip bg-color">汇编</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -390,8 +398,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Android/" class="post-category">
-                                Android
+                            <a href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                51单片机
                             </a>
                         
                     </div>
@@ -403,28 +411,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-30
+                    2021-04-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-30
+                    2021-04-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    14 分
                 </div>
                 
 
@@ -439,31 +447,77 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Android实现每天更新一张图片"><a href="#Android实现每天更新一张图片" class="headerlink" title="Android实现每天更新一张图片"></a>Android实现每天更新一张图片</h2><p>第一次写博客，记录一下自己学习android过程中做过的一些实例。</p>
-<p>必应官网每天都会更新一张图片，我们可以通过这张图片的链接来获取这张图片，并让其显示在android app中。</p>
-<h3 id="一、图片的获取"><a href="#一、图片的获取" class="headerlink" title="一、图片的获取"></a>一、图片的获取</h3><p>必应提供了一个图片的接口，我们可以通过访问这个接口来获取每日更新的图片，接口链接如下所示：<code>https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1</code><br>通过浏览器访问该链接可以得到以下所示数据</p>
-<blockquote>
-<p>{“images”:[{“startdate”:”20210124”,”fullstartdate”:”202101241600”,”enddate”:”20210125”,<strong>“url”:”/th?id=OHR.ChurchRock_ZH-CN6926315999_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg&amp;pid=hp”</strong>,”urlbase”:”/th?id=OHR.ChurchRock_ZH-CN6926315999”,”copyright”:”红石公园教堂岩附近的雷击，新墨西哥州 (© Tim Fitzharris/Minden Pictures)”,”copyrightlink”:”<a target="_blank" rel="noopener" href="https://www.bing.com/search?q=%E7%BA%A2%E7%9F%B3%E5%85%AC%E5%9B%AD%E6%95%99%E5%A0%82&amp;form=hpcapt&amp;mkt=zh-cn&quot;,&quot;title&quot;:&quot;&quot;,&quot;quiz&quot;:&quot;/search?q=Bing+homepage+quiz&amp;filters=WQOskey:%22HPQuiz_20210124_ChurchRock%22&amp;FORM=HPQUIZ&quot;,&quot;wp&quot;:true,&quot;hsh&quot;:&quot;cdae6c57dbb4fe473dfd4f93b7870b8b&quot;,&quot;drk&quot;:1,&quot;top&quot;:1,&quot;bot&quot;:1,&quot;hs&quot;:%5B%5D%7D%5D,&quot;tooltips&quot;:%7B&quot;loading&quot;:&quot;%E6%AD%A3%E5%9C%A8%E5%8A%A0%E8%BD%BD...&quot;,&quot;previous&quot;:&quot;%E4%B8%8A%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F&quot;,&quot;next&quot;:&quot;%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F&quot;,&quot;walle&quot;:&quot;%E6%AD%A4%E5%9B%BE%E7%89%87%E4%B8%8D%E8%83%BD%E4%B8%8B%E8%BD%BD%E7%94%A8%E4%BD%9C%E5%A3%81%E7%BA%B8%E3%80%82&quot;,&quot;walls&quot;:&quot;%E4%B8%8B%E8%BD%BD%E4%BB%8A%E6%97%A5%E7%BE%8E%E5%9B%BE%E3%80%82%E4%BB%85%E9%99%90%E7%94%A8%E4%BD%9C%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E3%80%82&quot;%7D%7D">https://www.bing.com/search?q=%E7%BA%A2%E7%9F%B3%E5%85%AC%E5%9B%AD%E6%95%99%E5%A0%82&amp;form=hpcapt&amp;mkt=zh-cn&quot;,&quot;title&quot;:&quot;&quot;,&quot;quiz&quot;:&quot;/search?q=Bing+homepage+quiz&amp;filters=WQOskey:%22HPQuiz_20210124_ChurchRock%22&amp;FORM=HPQUIZ&quot;,&quot;wp&quot;:true,&quot;hsh&quot;:&quot;cdae6c57dbb4fe473dfd4f93b7870b8b&quot;,&quot;drk&quot;:1,&quot;top&quot;:1,&quot;bot&quot;:1,&quot;hs&quot;:[]}],&quot;tooltips&quot;:{&quot;loading&quot;:&quot;正在加载...&quot;,&quot;previous&quot;:&quot;上一个图像&quot;,&quot;next&quot;:&quot;下一个图像&quot;,&quot;walle&quot;:&quot;此图片不能下载用作壁纸。&quot;,&quot;walls&quot;:&quot;下载今日美图。仅限用作桌面壁纸。&quot;}}</a></p>
-</blockquote>
-<p>其中，url标签后的内容即为我们所需图片的地址，通过访问<code>http://cn.bing.com+该地址</code>就可以得到我们想要的图片，例如，上面得到的url为<br><code> /th?id=OHR.ChurchRock_ZH-CN6926315999_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg&amp;pid=hp</code><br>那我们访问</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//cn.bing.com/th?id=OHR.ChurchRock_ZH-CN6926315999_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg&amp;pid=hp</span></span><br></pre></td></tr></table></figure>
-<p>就可以得到我们想要的图片。</p>
-<h3 id="二、在android上获取并显示图片"><a href="#二、在android上获取并显示图片" class="headerlink" title="二、在android上获取并显示图片"></a>二、在android上获取并显示图片</h3><p>由于android自身的限制，网络操作只能在子线程中完成，这一点是我们写代码中特别需要注意的。因此我们要把访问api接口的代码写在子线程中。此外，在android中，与UI有关的操作只能在主线程或UI线程中完成，所以我们加载图片上要记得更换线程。</p>
-<h4 id="1-访问api接口"><a href="#1-访问api接口" class="headerlink" title="1.访问api接口"></a>1.访问api接口</h4><p>这里我们通过android自带的httpurlconnection来访问，并将访问得到的json返回文件存储到字符串response中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendRequestWithHttpURLConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 开启线程来发起网络请求</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                HttpURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">                BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    URL url = <span class="keyword">new</span> URL(<span class="string">&quot;https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&quot;</span>);</span><br><span class="line">                    connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    connection.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    connection.setConnectTimeout(<span class="number">8000</span>);</span><br><span class="line">                    connection.setReadTimeout(<span class="number">8000</span>);</span><br><span class="line">                    InputStream in = connection.getInputStream();</span><br><span class="line">                    <span class="comment">// 下面对获取到的输入流进行读取</span></span><br><span class="line">                    reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</span><br><span class="line">                    StringBuilder response = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                    String line;</span><br><span class="line">                    <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        response.append(line);</span><br><span class="line">                    &#125;</span><br><span class="line">                    parseJSONWithJSONObject(response.toString());</span><br><span class="line">                   <span class="comment">// showResponse(response.toString());</span></span><br><span class="line">                    <span class="comment">//Ui线程</span></span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            reader.close();</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        connection.disconnect();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-json的解析"><a href="#2-json的解析" class="headerlink" title="2.json的解析"></a>2.json的解析</h4><p>这里我们直接通过android自带的JSONArray和JSONObject来进行json的解析，并将解析到的结果和<code>http://cn.bing.com</code>拼接起来，得到我们想要的图片的链接，并将其存储在字符串url1中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseJSONWithJSONObject</span><span class="params">(String jsonData)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">// JSONArray jsonArray = new JSONArray(jsonData);</span></span><br><span class="line"></span><br><span class="line">            JSONArray jsonArray = <span class="keyword">new</span> JSONObject(jsonData).getJSONArray(<span class="string">&quot;images&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</span><br><span class="line">                JSONObject jsonObject = jsonArray.getJSONObject(i);</span><br><span class="line">                String url = jsonObject.getString(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"></span><br><span class="line">                Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;url is &quot;</span> + url);</span><br><span class="line">String url1=<span class="string">&quot;http://cn.bing.com&quot;</span>+url;</span><br><span class="line">                showResponse(url1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-图片的加载"><a href="#3-图片的加载" class="headerlink" title="3.图片的加载"></a>3.图片的加载</h4><p>利用开源框架Glide进行图片的加载。<br>注意，图片的加载要写在UI线程中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showResponse</span><span class="params">(<span class="keyword">final</span> String response)</span> </span>&#123;</span><br><span class="line">        runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 在这里进行UI操作，将结果显示到界面上</span></span><br><span class="line">                Glide.with(MainActivity.<span class="keyword">this</span>).load(response).into(img);</span><br><span class="line">              <span class="comment">//  text.setText(response);</span></span><br><span class="line">                Log.i(<span class="string">&quot;123&quot;</span>,response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="三、演示效果"><a href="#三、演示效果" class="headerlink" title="三、演示效果"></a>三、演示效果</h3><p>![-w40](<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20210125151637243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,color_FFFFFF,t_70">https://img-blog.csdnimg.cn/20210125151637243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,color_FFFFFF,t_70</a> =400x800)</p>
-<h3 id="四、源代码"><a href="#四、源代码" class="headerlink" title="四、源代码"></a>四、源代码</h3><p><strong>1.xml</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    xmlns:app=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span><br><span class="line">    xmlns:tools=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="line">    android:orientation=<span class="string">&quot;vertical&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    tools:context=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;ImageView</span><br><span class="line">    android:id=<span class="string">&quot;@+id/img&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span>/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
-<p>这部分代码比较简单，就是线性布局中加了一个imageview.</p>
-<p><strong>2.activity</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    TextView text;</span><br><span class="line">    ImageView img;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">// text=findViewById(R.id.text);</span></span><br><span class="line">       img=findViewById(R.id.img);</span><br><span class="line">        sendRequestWithHttpURLConnection();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendRequestWithHttpURLConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 开启线程来发起网络请求</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                HttpURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">                BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    URL url = <span class="keyword">new</span> URL(<span class="string">&quot;https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&quot;</span>);</span><br><span class="line">                    connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    connection.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    connection.setConnectTimeout(<span class="number">8000</span>);</span><br><span class="line">                    connection.setReadTimeout(<span class="number">8000</span>);</span><br><span class="line">                    InputStream in = connection.getInputStream();</span><br><span class="line">                    <span class="comment">// 下面对获取到的输入流进行读取</span></span><br><span class="line">                    reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</span><br><span class="line">                    StringBuilder response = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                    String line;</span><br><span class="line">                    <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        response.append(line);</span><br><span class="line">                    &#125;</span><br><span class="line">                    parseJSONWithJSONObject(response.toString());</span><br><span class="line">                   <span class="comment">// showResponse(response.toString());</span></span><br><span class="line">                    <span class="comment">//Ui线程</span></span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            reader.close();</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        connection.disconnect();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showResponse</span><span class="params">(<span class="keyword">final</span> String response)</span> </span>&#123;</span><br><span class="line">        runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 在这里进行UI操作，将结果显示到界面上</span></span><br><span class="line">                Glide.with(MainActivity.<span class="keyword">this</span>).load(response).into(img);</span><br><span class="line">              <span class="comment">//  text.setText(response);</span></span><br><span class="line">                Log.i(<span class="string">&quot;123&quot;</span>,response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseJSONWithJSONObject</span><span class="params">(String jsonData)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">// JSONArray jsonArray = new JSONArray(jsonData);</span></span><br><span class="line"></span><br><span class="line">            JSONArray jsonArray = <span class="keyword">new</span> JSONObject(jsonData).getJSONArray(<span class="string">&quot;images&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</span><br><span class="line">                JSONObject jsonObject = jsonArray.getJSONObject(i);</span><br><span class="line">                String url = jsonObject.getString(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"></span><br><span class="line">                Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;url is &quot;</span> + url);</span><br><span class="line">String url1=<span class="string">&quot;http://cn.bing.com&quot;</span>+url;</span><br><span class="line">                showResponse(url1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+                <h3 id="第一章-系统整体概述"><a href="#第一章-系统整体概述" class="headerlink" title="第一章 系统整体概述"></a>第一章 系统整体概述</h3><p>本次单片机温度、压力信息采集与电机控制系统实验是基于模数转换，数模转换，LCD显示，键盘扫描，脉冲控制等知识的一个综合性的实验模块。<br>本次实验作品主要包括温度的采集与显示，压力的采集与显示，步进电机的驱动与控制三个模块。<br>温度的采集采用DS18B20模块，DS18B20采集温度后将温度转换为数字量并将数字量通过串行通信的方式发送给单片机。压力的采集采用称重传感器和HX711模块，HX711可将称重传感器的小信号放大并转换为数字量，最后再通过串行通信的方式将数字量传送给单片机。单片机处理完HX711和DS18B20的数据后，将压力值和温度值显示再LCD1602上。步进电机模块采用了一个四相五线的步进电机和一个ULN2003A驱动板，单片机连接驱动板，驱动板放大单片机的脉冲信号后驱动步进电机转动。<br>本次实验的硬件部分主要包括单片机最小系统，LCD1602显示屏，DS18B20测温模块，步进电机和驱动板以及称重传感器和HX711模块。</p>
+<h3 id="第二章-硬件设计与实现"><a href="#第二章-硬件设计与实现" class="headerlink" title="第二章 硬件设计与实现"></a>第二章 硬件设计与实现</h3><p>1.准备电路元器件及焊接工具：STC89C52RC芯片1个、IC插座、40p排针2个、12MHz晶振1个、30pF瓷片电容2个、10uF电解电容1个、排阻一个、电阻若干、LCD1602A显示屏1个、称重传感器1个、HX711模块1个、DS18B20模块1个、步进电机1个、ULN2003A驱动板1个、蜂鸣器1个、10*15cm洞洞板一个、电源线、杜邦线、下载器、电烙铁、焊锡丝等。<br>2.焊接电路板：按照设计好的原理图进行焊接。<br>3.调试：下载程序，将单片机系统与各个模块相连，观察LCD是否正常显示压力、温度等信息，若正常显示，说明压力，温度模块正常，按动按键，观察步进电机是否随按键控制正常转动，若转动正常，说明步进电机模块正常。 </p>
+<ul>
+<li>焊接成果图<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_12.jpg" width="60%" height="60%">
+### 第三章 软件设计与编程</li>
+</ul>
+<p>1.编写代码：利用keil软件进行编程，本次设计使用了汇编语言来进行编写。<br>2.设计仿真电路图：将电源、时钟电路、复位电路、51单片机、DS18B20模块、称重传感器模块、HX711模块及LCD1602显示屏正确连接。电源选用+5v，晶振选用12MHz，时钟电路选用30pF电容，复位电路选用10kΩ电阻、10uF电容。<br>3.仿真调试：用proteus进行仿真测试，将事先编好的程序导入51单片机中，以测试程序是否能达到目标要求。</p>
+<ul>
+<li>编程<br>ORG 0000H<br>//接口初始化<br>DOUT EQU P2.2<br>SCK EQU P2.3</li>
+</ul>
+<p>RS EQU P2.5<br>RW EQU P2.6<br>E EQU P2.7 </p>
+<p>DQ EQU P2.4<br>GEWEI1 EQU 35H<br>SHIWEI1 EQU 36H</p>
+<p>QIAN EQU 31H<br>BAI EQU 32H<br>SHI EQU 33H<br>GEWEI EQU 34H</p>
+<p>FENGMING EQU P3.7<br>LJMP MAIN</p>
+<p>ORG 000BH<br>LJMP IT00 //中断入口<br>ORG 0100H<br>MAIN:<br>MOV P0,#00000001B<br>ACALL ENABLE<br>MOV P0,#00111000B<br>ACALL ENABLE<br>MOV P0,#00001100B<br>ACALL ENABLE<br>MOV P0,#00000110B<br>ACALL ENABLE<br>MOV P0,#80H<br>ACALL ENABLE<br>MOV P0,#’W’<br>ACALL WRITELCD</p>
+<p>MOV P0,#’E’<br>ACALL WRITELCD</p>
+<p>MOV P0,#’N’<br>ACALL WRITELCD</p>
+<p>MOV P0,#’D’<br>ACALL WRITELCD</p>
+<p>MOV P0,#’U’<br>ACALL WRITELCD</p>
+<p>MOV P0,#’:’<br>ACALL WRITELCD<br>MOV P0,#0C0H<br>ACALL ENABLE</p>
+<p>MOV P0,#’Y’<br>ACALL WRITELCD<br>MOV P0,#’A’<br>ACALL WRITELCD<br>MOV P0,#’L’<br>ACALL WRITELCD<br>MOV P0,#’I’<br>ACALL WRITELCD<br>MOV P0,#’:’<br>ACALL WRITELCD</p>
+<p>MOV P0,#0C9H<br>ACALL ENABLE</p>
+<p>MOV P0,#’g’<br>ACALL WRITELCD<br>MOV 40H,#00H</p>
+<p>MOV TMOD,#01H<br>MOV TH0,#3CH<br>MOV TL0,#0B0H<br>SETB EA<br>SETB ET0<br>SETB TR0</p>
+<p>ACALL DIANJI<br>LJMP MAIN<br>IT00:<br>INC 40H<br>MOV A,40H<br>CJNE A,#3AH,L11</p>
+<p>L10: MOV 40H,#00H<br>ACALL AD</p>
+<p>L11:MOV TH0,#3CH<br>MOV TL0,#0B0H<br>RETI<br>AD:<br>ACALL READTEM<br>ACALL YALI</p>
+<p>ACALL XIANSHI</p>
+<p>MOV P0,#86H<br>ACALL ENABLE<br>MOV P0,SHIWEI1<br>ACALL WRITELCD<br>MOV P0,#87H<br>ACALL ENABLE<br>MOV P0,GEWEI1<br>ACALL WRITELCD</p>
+<p>CLR C<br>MOV A,#00H<br>SUBB A,GEWEI1<br>MOV A,#03H<br>SUBB A,SHIWEI1<br>JNC L12<br>CLR P3.7<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>ACALL DELAY1<br>SETB P3.7<br>L12:<br>MOV P0,#0C5H<br>ACALL ENABLE<br>MOV P0,QIAN<br>ACALL WRITELCD<br>MOV P0,#0C6H<br>ACALL ENABLE<br>MOV P0,BAI<br>ACALL WRITELCD<br>MOV P0,#0C7H<br>ACALL ENABLE<br>MOV P0,SHI<br>ACALL WRITELCD<br>MOV P0,#0C8H<br>ACALL ENABLE<br>MOV P0,GEWEI<br>ACALL WRITELCD</p>
+<p>RET<br>//步进电机<br>DIANJI:<br>MOV 38H,#00H<br>JNB P3.0,START1<br>JNB P3.1,START2<br>JNB P3.2,START3</p>
+<p>LJMP DIANJI<br>START1:<br>MOV DPTR,#TABLE1<br>LJMP LOOP<br>START2:<br>MOV DPTR,#TABLE2<br>LJMP LOOP<br>START3:<br>MOV DPTR,#TABLE3<br>LJMP LOOP<br>LOOP:<br>MOV A,38H<br>MOVC A,@A+DPTR<br>MOV P1,A<br>LCALL DELAY1<br>INC 38H<br>MOV A,38H<br>CJNE A,#08H,LOOP</p>
+<p>JNB P3.0,L1<br>JNB P3.1,L1<br>JNB P3.2,L1<br>MOV 38H,#00H<br>LJMP LOOP<br>L1:<br>LJMP DIANJI<br>RET</p>
+<p>DELAY1:MOV R5,#25  //步进电机的延时<br>DEL1:MOV R6,#50<br>     DJNZ R6,$<br>     DJNZ R5,DEL1<br>     RET<br>//步进电机码表<br>TABLE1:<br>DB 02H,06H,04H,0CH,08H,09H,01H,03H<br>TABLE2:<br>DB 03h,01H,09H,08H,0CH,04H,06H,02H<br>TABLE3:<br>DB 00H,00H,00H,00H,00H,00H,00H,00H</p>
+<p>//温度传感器</p>
+<p>READTEM:</p>
+<p>ACALL RST</p>
+<p>MOV R1,#30<br>DJNZ R1,$<br>MOV A,#0CCH<br>ACALL WRITE<br>MOV A,#44H<br>ACALL WRITE<br>ACALL RST<br>MOV R1,#30<br>DJNZ R1,$<br>MOV A,#0CCH<br>ACALL WRITE<br>MOV A,#0BEH<br>ACALL WRITE</p>
+<p>ACALL READ<br>MOV 30H,A     ;读低八位<br>ACALL READ<br>MOV 31H,A       ;读高八位</p>
+<p>ANL 30H,#0F0H<br>ANL 31H,#0FH<br>MOV A,30H<br>ORL A,31H<br>SWAP A</p>
+<p>MOV R3,A</p>
+<p>MOV B,#10<br>DIV AB<br>ADD A,#30H<br>MOV SHIWEI1,A<br>MOV A,B<br>ADD A,#30H<br>MOV GEWEI1,A<br>RET</p>
+<p>RST:SETB DQ                       ;  总线释放<br>      NOP                           ;  保持高电平，延时<br>      CLR DQ                    ;  总线置 0，请求响应<br>      MOV R0,#0FBH<br>TSR1: DJNZ R0,TSR1                    ;  延时<br>      SETB DQ                        ;  再释放<br>      MOV R0,#25H<br>TSR2: JNB DQ,TSR3                    ;  改变为 0，则代表得到对应<br>      DJNZ R0,TSR2                ;  未得到则继续等待，判断<br>TSR3:                     ;  得到相应则标志位置 1，代表传感器正常存在<br>      MOV R0,#06BH<br>TSR4: DJNZ R0,TSR4                    ;  延时<br>      SETB DQ<br>RET</p>
+<p>WRITE:MOV R0,#8<br>LOOP1:<br>CLR C<br>CLR DQ</p>
+<p>RRC A<br>MOV R1,#6<br>DJNZ R1,$<br>MOV DQ,C<br>MOV R1,#23<br>DJNZ R1,$<br>SETB DQ<br>NOP</p>
+<p>DJNZ R0,LOOP1<br>SETB DQ<br>MOV R1,#05<br>DJNZ R1,$<br>RET</p>
+<p>READ:;<br>MOV R0,#8<br>LOOP2:<br>CLR C<br>SETB DQ<br>NOP<br>NOP<br>CLR DQ<br>NOP<br>NOP<br>NOP<br>SETB DQ<br>MOV R1,#7<br>DJNZ R1,$<br>MOV C,DQ<br>RRC A<br>MOV R1,#23<br>DJNZ R1,$</p>
+<p>DJNZ R0,LOOP2<br>RET</p>
+<p>ENABLE:CLR RS<br>CLR RW<br>CLR E<br>ACALL DELAY2<br>SETB E<br>RET<br>WRITELCD:SETB RS<br>CLR RW<br>CLR E<br>ACALL DELAY2<br>SETB E<br>RET</p>
+<p>DELAY2:<br>MOV R4,#200<br>D1:MOV R5,#200<br>D2:DJNZ R5,D2<br>DJNZ R4,D1<br>RET</p>
+<p>//压力传感器<br>YALI:</p>
+<p>CLR SCK<br>JB DOUT,$<br>MOV R0,#24<br>LOOP3:<br>SETB SCK<br>NOP<br>CLR SCK<br>MOV C,DOUT</p>
+<p>XCH A,R4<br>RLC A<br>XCH A,R4        //低八位<br>XCH A,R3<br>RLC A<br>XCH A,R3      //中八位<br>XCH A,R2<br>RLC A<br>XCH A,R2  //高八位</p>
+<p>DJNZ R0,LOOP3</p>
+<p>SETB SCK<br>NOP<br>CLR SCK              ;采集部分到此结束</p>
+<p>RET</p>
+<p>ZHUANHUAN:<br>NDIV31:<br>    MOV A,R2<br>    MOV B,R7<br>    DIV AB<br>    PUSH ACC<br>    MOV R2,B<br>    MOV B,#10H<br>NDV311:<br>    CLR C<br>    MOV A,R4<br>    RLC A<br>    MOV R4,A<br>    MOV A,R3<br>    RLC A<br>    MOV R3,A<br>    MOV A,R2<br>    RLC A<br>    MOV R2,A<br>    MOV F0,C<br>    CLR C<br>    SUBB A,R7<br>    JB F0,NDV312<br>    JC NDV313<br>NDV312:<br>    MOV R2,A<br>    INC R4<br>NDV313:<br>    DJNZ B,NDV311<br>    POP ACC<br>    ;CLR OV<br>    JZ NDV314<br>    ;SETB OV<br>NDV314:<br>    XCH A,R2<br>    MOV R7,A<br>RET</p>
+<p>XIANSHI:<br>MOV A,R2<br>XRL A,#80H<br>MOV R2,A</p>
+<p>MOV R7,#40<br>LCALL ZHUANHUAN</p>
+<p>MOV R7,#10<br>LCALL ZHUANHUAN//到此温度转换结束</p>
+<p>//去皮，减去初始重量<br>MOV R0,#04H<br>L3:CLR C<br>MOV A,R4<br>SUBB A,#208<br>MOV R4,A<br>JC JIAN<br>LJMP L2<br>JIAN:DEC R3<br>L2:DJNZ R0,L3</p>
+<p>MOV R7,#10<br>LCALL ZHUANHUAN<br>MOV A,R7<br>ADD A,#30H<br>MOV GEWEI,A</p>
+<p>MOV R7,#10<br>LCALL ZHUANHUAN<br>MOV A,R7<br>ADD A,#30H<br>MOV SHI,A</p>
+<p>MOV R7,#10<br>LCALL ZHUANHUAN<br>MOV A,R7<br>ADD A,#30H<br>MOV BAI,A</p>
+<p>MOV R7,#10<br>LCALL ZHUANHUAN<br>MOV A,R7<br>ADD A,#30H<br>MOV QIAN,A</p>
+<p>RET</p>
+<p>END</p>
+<p>*Proteus 仿真电路图<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_13.jpg" ></p>
+<h3 id="第四章-作品调试与分析"><a href="#第四章-作品调试与分析" class="headerlink" title="第四章 作品调试与分析"></a>第四章 作品调试与分析</h3><p>相比于之前的几次实验，这次的实验难度明显要高出一个数量级。从拿到实验方案开始，每一步都充满了许多问题，光是确立实验的基本方案和实验器件的选取就花费了好长时间。经过反复的筛选、比较，温度传感器选择了12位精度的DS18B20，蜂鸣器选择了有源的蜂鸣器，最麻烦的还是压力传感器的选取了，在反复查找信息之后，我简单地罗列出了三套方案：<br>1.使用压片传感器加上一个电压转换模块和ADC0809来完成压力的测试。压片传感器将压力值转换为电阻值，电压转换模块再将电阻值转换为电压值，最后再由ADC0809将电压值转换为数字量，送交单片机处理。<br>2.使用称重传感器和小信号放大芯片以及ADC0809芯片来实现。称重传感器将压力值转换为一个电压值，信号放大芯片将这个电压值放大到ADC0809可以处理的状态，最后由ADC0809将数字量送交给单片机。<br>3.使用称重传感器加上一个HX711芯片来实现。HX711是一个自带增益的AD芯片，可以放大称重传感器产生的电压值并将它转换为数字量，最后HX711通过串行通信的方式将数字量传送给单片机。<br>反复考虑各个方案的实用性，精度，稳定性以及可实现性之后，我选择了第三个方案，通过HX711来实现本次的压力测量。<br>本次实验模块在硬件的焊接上并没有遇到太大的问题，最大的难点还是在程序的编写和仿真的实现上。<br>相对来说，步进电机的程序编写还是比较简单的，通过调制脉冲来驱动步进电机的转动，仿真的演示也没有遇到什么困难。但在进行实物制作的时候还是遇到了一些问题，明明仿真可以执行的程序，但在实物里步进电机就是无法转动，经过反复排查，发现原来是程序的延时存在问题，修改了延时之后，步进电机终于开始了转动。<br>DS18B20是一个具有12位精度的温度采集模块，DS18B20的时序相对来说比较复杂，在编写汇编程序的时候，我上网查找了很多资料，分析了好多时序图，也在这个过程中认识到了时序对于单片机程序的重要性。在DS18B20的实物实现时，也遇到了仿真时没有遇到的问题，后来发现原来是晶振的问题，更换晶振之后，DS18B20也终于正常读取显示了温度。<br>最麻烦的还是HX711模块的使用了，HX711模块是一个高精度的24位的自带增益的AD模块，可以将模拟量转换为数字量之后以串行通信的方式发送给单片机。由于51单片机一次只能处理8位数据，所以24位的数据必须读取到3个寄存器中来处理，而且HX711读取的的数值必须要做一个除法才能得到压力值，这样就特别的麻烦，我花时间最长的地方也是在这里，经过反复地查找资料，不断修改自己的程序，最后通过移位相减的方法把HX711的数据给处理了。最后做出的实物总有一个不为零的初始值，经过反复考虑，我觉得是传感器本身所造成的，最后通过把所有的压力值都减去这一个初始值，获得了真实的重量。</p>
+<p>在三个模块都各自制作完毕，没有什么问题之后，我试着把这三个模块综合起来。温度和压力模块都通过不断扫描，反复执行的方法结合在了一起，但是在结合步进电机的时候遇到了麻烦，如果把温度和压力模块直接嵌入到步进电机的程序中，步进电机的转动就会产生问题。经过反复思索后，我写了一个定时中断的程序，把步进电机的程序放在了主程序中，而把温度和压力扫描的程序放在了中断中，这样每隔一段时间，单片机就会扫描显示一次温度和压力值，而在其他时间，都在扫描按键，执行步进电机的程序。最终，通过这样一个中断，终于把几个模块完美地结合在了一起。 </p>
+<h3 id="第五章-制作感受"><a href="#第五章-制作感受" class="headerlink" title="第五章 制作感受"></a>第五章 制作感受</h3><p> 本次实验模块的设计与制作相比之前的三个实验确实难了好多，自己花费的时间也长了好多，在整个模块的制作过程中前前后后遇到了好多困难，但自己在不断克服困难的过程中也得到了很大的提高与成长。<br>从实验方案的设计，实验器件的选取，汇编语言的编写，到仿真的演示和实物的实现，每一步充满了各种挫折和困顿。第一次自己接到一个只有题目，没有例子的方案，从零开始设计制作，每一步都比之前的实验难了很多。中间好多时候都感到很沮丧，甚至都不太想做了，整个人状态就很不好，尤其是写代码的时候，反反复复，改来改去就是得不到想要的结果，甚至有时候都不想用汇编了，想之间拿c语言把这个程序给写了。但是自己还是逐渐地调整状态，慢慢地解决了一个又一个问题，最终用汇编语言完成了整个实验模块。最终完成的时候，看着整个四五百行的汇编程序，就觉得特别有成就感。<br>写代码和做实物的过程中虽然遇到过很多挫败，也有过很多心情沮丧的时候，但更多的是知识的成长以及心中不断燃烧的好奇与热情，我想正是在这样的热情和兴趣下，自己才能一步步克服障碍，完成了这次实验模块的制作。 尽管每一次遇到困难都很沮丧，但当自己战胜一个又一个困难，最后完成整个实验模块的时候，就感觉之前所有的沮丧都不值一提。<br>通过温度压力采集及步进电机的驱动系统设计与制作，自己的的确确学到了很多。从知识方面来看，自己认识到了温度、压力传感器的使用，还对串行通信有了更加深入的认识，看到了串行通信相对于并行通信的优势。另外，自己也对汇编语言有了更加深入而细致的认识，了解到了如何使用汇编语言经行加减运算，位操作以及数据处理，看到了汇编语言相对其他语言在单片机操作上的优势，看到了汇编语言的形象化与底层化。除此之外，自己通过这个过程，也收获了更多新的技能，对单片机有了更加深入而全面的认识，为以后的理论学习和课程实践打下了一个稳健的基础。自己也十分期待在未来的学习和工作中，能够更加深入地学习单片机，并把这些知识和技能应用到未来的工作和生活中。</p>
 
                 
             </div>
@@ -490,7 +544,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yeyuwenxi.github.io/2021/03/30/android-shi-li-zhi-bi-ying-mei-ri-yi-tu/">http://yeyuwenxi.github.io/2021/03/30/android-shi-li-zhi-bi-ying-mei-ri-yi-tu/</a>
+                    <a href="http://yeyuwenxi.github.io/2021/04/11/dan-pian-ji-wen-du-ya-li-xin-xi-cai-ji-yu-dian-ji-kong-zhi-xi-tong/">http://yeyuwenxi.github.io/2021/04/11/dan-pian-ji-wen-du-ya-li-xin-xi-cai-ji-yu-dian-ji-kong-zhi-xi-tong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -527,7 +581,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                                    <span class="chip bg-color">单片机</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B1%87%E7%BC%96/">
+                                    <span class="chip bg-color">汇编</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -829,17 +891,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/31/tan-tan-ao-ye/">
+                <a href="/2021/04/11/dan-pian-ji-wen-du-ya-li-xin-xi-cai-ji-yu-dian-ji-kong-zhi-xi-tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="谈谈熬夜">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="单片机温度、压力信息采集与电机控制系统">
                         
-                        <span class="card-title">谈谈熬夜</span>
+                        <span class="card-title">单片机温度、压力信息采集与电机控制系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -849,20 +912,33 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    心情日记
+                            <a href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                    51单片机
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                        <span class="chip bg-color">单片机</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B1%87%E7%BC%96/">
+                        <span class="chip bg-color">汇编</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -874,13 +950,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/30/android-shi-xian-tcp-ke-hu-duan/">
+                <a href="/2021/04/11/uart-shi-xian-51-dan-pian-ji-shuang-ji-chuan-xing-tong-xin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Android实现TCP客户端">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="UART实现51单片机双机串行通信">
                         
-                        <span class="card-title">Android实现TCP客户端</span>
+                        <span class="card-title">UART实现51单片机双机串行通信</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -891,19 +967,31 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Android/" class="post-category">
-                                    Android
+                            <a href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                    51单片机
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                        <span class="chip bg-color">单片机</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B1%87%E7%BC%96/">
+                        <span class="chip bg-color">汇编</span>
+                    </a>
+                    
                 </div>
                 
             </div>
