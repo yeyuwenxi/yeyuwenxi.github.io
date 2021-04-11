@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeyuwenxi.github.io/2021/04/11/51-dan-pian-ji-zui-xiao-xi-tong/</loc>
+    
+    <lastmod>2021-04-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yeyuwenxi.github.io/2021/03/29/guan-yu-bo-ke-de-da-jian/</loc>
     
-    <lastmod>2021-04-08</lastmod>
+    <lastmod>2021-04-11</lastmod>
     
   </url>
   
@@ -171,6 +178,20 @@
   </url>
 
   
+  <url>
+    <loc>http://yeyuwenxi.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+    <lastmod>2021-04-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/tags/%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2021-04-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -196,6 +217,13 @@
   
   <url>
     <loc>http://yeyuwenxi.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2021-04-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
     <lastmod>2021-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
