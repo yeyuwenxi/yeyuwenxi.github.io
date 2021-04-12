@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于博客的搭建, 夜雨闻曦">
+    <meta name="keywords" content="读《嘉莉妹妹》, 夜雨闻曦">
     <meta name="description" content="某学生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于博客的搭建 | 夜雨闻曦</title>
+    <title>读《嘉莉妹妹》 | 夜雨闻曦</title>
     <link rel="icon" type="image/png" href="/heart.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -261,12 +261,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于博客的搭建</h1>
+                    <h1 class="description center-align post-title">读《嘉莉妹妹》</h1>
                 </div>
             </div>
         </div>
@@ -380,9 +380,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AF%BB%E4%B9%A6/">
+                                <span class="chip bg-color">读书</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -390,8 +394,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                博客搭建
+                            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
+                                读书
                             </a>
                         
                     </div>
@@ -403,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-29
+                    2021-04-12
                 </div>
                 
 
@@ -417,14 +421,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    612
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -439,16 +443,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>记录一些hexo博客搭建过程中遇到的问题和各种bug</p>
-<h3 id="node命令找不到"><a href="#node命令找不到" class="headerlink" title="node命令找不到"></a>node命令找不到</h3><p>安装node.js后，无法使用node命令，好像是安装路径的问题，导致了环境变量产生了问题，最后重新使用默认路径安装了一次，解决了这个问题。</p>
-<h3 id="配置主题时产生问题"><a href="#配置主题时产生问题" class="headerlink" title="配置主题时产生问题"></a>配置主题时产生问题</h3><p>配置icarus主题时，样式产生了问题，后来发现yml文件非常注重空格和缩进，关键位置少一个空格都会报错。</p>
-<h3 id="主题的选择"><a href="#主题的选择" class="headerlink" title="主题的选择"></a>主题的选择</h3><p>试过了next,icarus,最后还是觉得matery比较好看。</p>
-<h3 id="评论功能的选择"><a href="#评论功能的选择" class="headerlink" title="评论功能的选择"></a>评论功能的选择</h3><p>使用了matery中内置的valine评论系统，不需要后台，只要注册账号，实名认证，创建应用，配置-config.yml文件即可使用。<br>不过valine也有个缺点，就是会显示评论者的ip地址，这一点可能会涉及到隐私问题，以后有时间了，我也会看看有没有更好的评论系统。</p>
-<h3 id="gitee第一次进入首页部分图标不显示"><a href="#gitee第一次进入首页部分图标不显示" class="headerlink" title="gitee第一次进入首页部分图标不显示"></a>gitee第一次进入首页部分图标不显示</h3><p>查资料，在github上跟开发者交流后发现，好像是gitee配置目录的问题，gitee的默认配置路径是“/+仓库名”。<br>在config.yml中添加“root: yeyuwenxi(我的仓库名)”后，成功地解决了这一问题。</p>
-<h3 id="gitee和github双部署产生的问题"><a href="#gitee和github双部署产生的问题" class="headerlink" title="gitee和github双部署产生的问题"></a>gitee和github双部署产生的问题</h3><p>github上部署目录是“root:/”,与gitee的“root :/+仓库名”上不一样，因此部署在两个位置的同一个博客产生了样式差异。<br>以我的博客为例，不添加“root: /yeyuwenxi”时，github完全正常，gitee上的博客第一次进入首页图标不显示。<br>添加“root: /yeyuwexni”时，gitee完全正常，github上的博客完全没有样式。<br>这一问题暂未解决。</p>
-<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>在腾讯云添加域名解析<br>在sourse中添加CNAME文件，文件中写明要绑定的域名</p>
-<h3 id="友情链接图标不显示"><a href="#友情链接图标不显示" class="headerlink" title="友情链接图标不显示"></a>友情链接图标不显示</h3><p>好像是图片过大造成的不显示<br>更换图片后，可以正常显示<br>图标的两种调用方式：<br>1.在线图标<br>设置图片链接即可<br>我自己在github中搭建了一个图床，用来存放图片<br>2.本地图片<br>将要使用的图片存放到主题文件下的source文件中即可，使用时直接用图片名调用</p>
-<h3 id="修改文章的默认模板"><a href="#修改文章的默认模板" class="headerlink" title="修改文章的默认模板"></a>修改文章的默认模板</h3><p>在scaffolds文件夹下的post.md中进行修改</p>
+                <p>大二时英文选修课写的一篇小论文，这里是中文版，内容有所删减。</p>
+<p>西奥多·德莱塞，美国伟大的现实主义作家。他的父亲是贫苦的德国移民，家里有很多的孩子，一家人生活很是拮据。德莱赛一生的大部分时间从事新闻工作，他走遍芝加哥、匹兹堡、纽约等大城市，广泛深入地观察了解社会，对资本主义制度有了很深的认识，为日后的文学创作积累了丰富的素材。</p>
+<p>《嘉莉妹妹》是德莱赛的第一部著作，描写了农村姑娘嘉莉来到大城市芝加哥寻找幸福，为摆脱贫困，出卖自己的贞操，先后与推销员和酒店经理同居，后又凭美貌与表演才能成为演员而后走红的故事。其中，嘉莉私奔的情节来源于德莱赛妹妹的真实生活经历，他的妹妹曾跟一个偷钱潜逃的酒店经理私奔。</p>
+<p>嘉莉是一个年轻的，纯朴的，没有经验的农村小姑娘，为了追求幸福的生活来到了大城市芝加哥。</p>
+<p>正如作者在开篇时所写到的，一个年轻的没有经验的来自乡下的小姑娘来到大城市时，通常只有两种可能，得到善良的帮助而成为更好的人，或者被物质的诱惑影响而堕落。</p>
+<p>很遗憾，嘉莉没有遇到能够真正在精神上帮助她的人，她的姐姐以及她的两个情人都不是那样的人，他们所教给嘉莉的，只有对物欲和名利的追求，只有物质至上的幸福观。在他们的影响下，嘉莉对上层社会，充盈的物质生活有了极大的渴望，她要拼劲全力地挤进那个社会，去享受物质上的快感与愉悦。对物欲的追求，让嘉莉迷失了初心，虚荣感让她放弃了一个人身上最淳朴的品质，就这样，嘉莉为了富裕的生活而两次出卖自己的贞操。</p>
+<p>在德莱赛的那个时代，在垄断资本主义盛行的社会背景下，很难出现那样能给嘉莉以正确引导的人，每个人都在为自己的各种欲望而奔波。</p>
+<p>嘉莉早期求职的过程也充分说明，在那个充满压迫，充满剥削的时代里，一个底层的普通人，靠自己的努力和勤奋是难以实现梦想的，是没有真正意义上的出路的，残酷的生活压迫着每一个普通人。</p>
+<p>嘉莉靠美貌和运气以及出卖贞操走向了成功，而许许多多的平凡的人却只能在社会的底层不断地挣扎，承受着这个社会带给他们的苦难。从另一方面来说，获得成功的嘉莉也没有拥有真正意义上的快乐，与她相伴的只有内心的孤苦与空虚。无论成功与否，嘉莉都是痛苦的，物质上的满足并没有带给嘉莉真正的幸福感。</p>
+<p>嘉莉正是作者所处那个时代的一个缩影，作者借嘉莉的视角，展现了资本主义带给人的种种苦难，揭露了资本主义社会的弊端，批判了金钱至上，物欲横流的社会现状。</p>
+<p>在一个病态的资本主义社会里，在物质至上的时代里，是没有真正的幸福可言的。我想，这正是作者想要告诉我们的东西，一个人哪怕有了物质上的充盈，也会因为精神上的匮乏而陷入空虚。这一点对现在的我们也是适用的，我们不能陷于物质的牢笼而忽略了那些精神上值得我们去追寻的东西，不能为了自己的虚荣与欲望而放弃那些珍贵的有价值的道德品质。</p>
 
                 
             </div>
@@ -475,7 +480,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yeyuwenxi.github.io/2021/03/29/guan-yu-bo-ke-de-da-jian/">http://yeyuwenxi.github.io/2021/03/29/guan-yu-bo-ke-de-da-jian/</a>
+                    <a href="http://yeyuwenxi.github.io/2021/04/12/du-jia-li-mei-mei/">http://yeyuwenxi.github.io/2021/04/12/du-jia-li-mei-mei/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -512,7 +517,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AF%BB%E4%B9%A6/">
+                                    <span class="chip bg-color">读书</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -818,13 +827,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/29/guan-yu-shen-you/">
+                <a href="/2021/04/12/matlab-shi-xian-jian-dan-de-yu-yin-xin-hao-chu-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="关于《神游》">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Matlab实现简单的语音信号处理">
                         
-                        <span class="card-title">关于《神游》</span>
+                        <span class="card-title">Matlab实现简单的语音信号处理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -835,19 +844,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
-                                    读书
+                            <a href="/categories/Matlab/" class="post-category">
+                                    Matlab
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Matlab/">
+                        <span class="chip bg-color">Matlab</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -859,13 +876,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/28/zuo-wei-kai-shi/">
+                <a href="/2021/04/11/dan-pian-ji-wen-du-ya-li-xin-xi-cai-ji-yu-dian-ji-kong-zhi-xi-tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="作为开始">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="单片机温度、压力信息采集与电机控制系统">
                         
-                        <span class="card-title">作为开始</span>
+                        <span class="card-title">单片机温度、压力信息采集与电机控制系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -876,19 +893,31 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    心情日记
+                            <a href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                    51单片机
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                        <span class="chip bg-color">单片机</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B1%87%E7%BC%96/">
+                        <span class="chip bg-color">汇编</span>
+                    </a>
+                    
                 </div>
                 
             </div>

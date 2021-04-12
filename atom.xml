@@ -6,7 +6,7 @@
   <link href="http://yeyuwenxi.github.io/atom.xml" rel="self"/>
   
   <link href="http://yeyuwenxi.github.io/"/>
-  <updated>2021-04-11T14:52:40.456Z</updated>
+  <updated>2021-04-12T05:50:19.903Z</updated>
   <id>http://yeyuwenxi.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Matlab实现简单的语音信号处理</title>
+    <link href="http://yeyuwenxi.github.io/2021/04/12/matlab-shi-xian-jian-dan-de-yu-yin-xin-hao-chu-li/"/>
+    <id>http://yeyuwenxi.github.io/2021/04/12/matlab-shi-xian-jian-dan-de-yu-yin-xin-hao-chu-li/</id>
+    <published>2021-04-12T05:06:02.000Z</published>
+    <updated>2021-04-12T05:50:19.903Z</updated>
+    
+    <content type="html"><![CDATA[<p>学习数字信号处理课程时做过的一个实验。</p><h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><p>  1.学习并掌握数字信号处理的基本方法。<br>  2.学会使用MATLAB对语音信号进行处理。<br>  3.学习并掌握MATLAB设计滤波器的方法。</p><h3 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h3><p>   本次实验基于MATLAB R2019a完成，利用MATLAB对录制的语音信号进行了读取，播放，时域分析，频域分析以及滤波处理等操作。<br>   本次实验主要包括以下几个步骤：<br>1.音频的录制与导入<br>    使用手机自带的录音软件录制了格式为wav的一段语音信号。录音完成后，使用MATLAB的audioread函数对语音信号进行采样。<br>2.语音信号的时域分析和频域分析<br>    使用plot函数绘制语音信号的时域波形，对语音信号进行快速傅里叶变换，并绘制出语音信号的频域波形。<br>    <img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_1.jpg" width="60%" height="60%"><br>3.设计滤波器对语音信号进行处理<br>（1）低通滤波器的设计<br>利用buttord和butter函数设计一个模拟巴特沃斯低通滤波器，并利用bilinear函数采用双线性变换法将该滤波器转换为数字低通滤波器。<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_2.jpg" width="60%" height="60%"><br>低通滤波器处理后的信号<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_3.jpg" width="60%" height="60%"><br>（2）高通滤波器的设计<br>利用buttord和butter函数设计一个模拟巴特沃斯高通滤波器，并利用bilinear函数采用双线性变换法将该滤波器转换为数字高通滤波器。<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_4.jpg" width="60%" height="60%"><br>高通滤波器处理后的信号<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_5.jpg" width="60%" height="60%"><br>（3）陷波器的设计<br>根据陷波器的表达式配置参数，设计陷波器如下图所示<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_6.jpg" width="60%" height="60%"><br>使用陷波器处理后的频谱<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_7.jpg" width="60%" height="60%"><br>（4）对语音信号加噪<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210412_8.jpg" width="60%" height="60%"></p><h3 id="三、实验代码"><a href="#三、实验代码" class="headerlink" title="三、实验代码"></a>三、实验代码</h3><p>[x,fs]=audioread(‘yuyin.wav’);%录入语音信号<br>n=length(x);%获取语音信号的长度<br>x_p=fft(x,n);%利用FFT算法对语音信号进行离散傅里叶变换<br>f=fs*(0:n-1)/n;%频率的归一化<br>figure(1);%绘制时域和频域波形<br>subplot(2,1,1);<br>plot(x);<br>title(‘原始语音信号采样后的时域波形’);<br>xlabel(‘时间轴’)<br>ylabel(‘幅值A’)<br>subplot(2,1,2);<br>plot(f,abs(x_p));<br>title(‘原始语音信号采样后的频谱图’);<br>xlabel(‘频率Hz’);<br>ylabel(‘频率幅值’);<br>%噪声<br>% noise=0.2<em>randn(1,n);<br>% x_z=x+noise’;<br>% sound(x_z,fs);<br>% n=length(x);<br>% x_zp=fft(x_z,n);<br>% f=fs</em>(0:n/2-1)/n;<br>% figure(5);<br>% subplot(2,1,1);<br>% plot(x_z);<br>% title(‘加噪语音信号时域波形’);<br>% xlabel(‘时间轴’)<br>% ylabel(‘幅值A’)<br>% subplot(2,1,2);<br>% plot(f,abs(x_zp(1:n/2)));<br>% title(‘加噪语音信号频谱图’);<br>% xlabel(‘频率Hz’);<br>% ylabel(‘频率幅值’);<br>% %低通滤波器<br>fp=800;fs=1300;rs=35;rp=0.5;Fs=44100;<br>wp=2<em>Fs</em>tan(2<em>pi</em>fp/(2<em>Fs));%预畸<br>ws=2</em>Fs<em>tan(2</em>pi<em>fs/(2</em>Fs));<br>[n,wn]=buttord(wp,ws,rp,rs,’s’);<br>[b,a]=butter(n,wn,’s’);<br>[num,den]=bilinear(b,a,Fs);%双线性变换法  模拟滤波器转数字滤波器<br>[h,w]=freqz(num,den,512,Fs);<br>% 512为点数 Fs为频率范围<br>figure(2)<br>plot(w,abs(h));<br>xlabel(‘频率/Hz’);ylabel(‘幅值’);<br>title(‘巴特沃斯低通滤波器幅度特性’);<br>axis([0,5000,0,1.2]);<br>grid on;%网格线<br>%高通滤波器<br>% fp=3800;fs=3300;rs=3;rp=0.5;Fs=44100;<br>% wp=2<em>Fs</em>tan(2<em>pi</em>fp/(2<em>Fs));%预畸<br>% ws=2</em>Fs<em>tan(2</em>pi<em>fs/(2</em>Fs));<br>% [n,wn]=buttord(wp,ws,rp,rs,’s’);<br>% [b,a]=butter(n,wn,’high’,’s’);<br>% [num,den]=bilinear(b,a,Fs);%双线性变换法  模拟滤波器转数字滤波器<br>% [h,w]=freqz(num,den,512,Fs);<br>% % 512为点数 Fs为频率范围<br>% figure(2)<br>% plot(w,abs(h));<br>% xlabel(‘频率/Hz’);ylabel(‘幅值’);<br>% title(‘巴特沃斯高通滤波器幅度特性’);<br>% axis([0,5000,0,1.2]);<br>% grid on;%网格线<br>%陷波器<br>% f0=3000;Fs=44100;r=0.9;<br>% w0=2<em>pi</em>f0/Fs;<br>% num=[1 -2<em>cos(w0) 1];<br>% den=[1 -2</em>r<em>cos(w0) r</em>r];<br>% N=1024;<br>% [H,w]=freqz(num,den,N);<br>% plot(w/pi/2<em>Fs,abs(H));<br>% grid on;<br>% title(‘陷波器的幅频响应’);<br>% [s1,Fs]=audioread(‘yuyin.wav’);<br>% %x1=s1(:,1);%选取一个声道的数据<br>% x1=s1;<br>% %sound(x1,Fs);<br>% N1=length(x1);<br>% Y1=fft(x1,N1);<br>% f1=Fs</em>(0:N1-1)/N1;<br>% %t1=(0:N1-1)/Fs;<br>% figure(3)<br>% plot(f1,abs(Y1))<br>% xlabel(‘频率/Hz’);ylabel(‘幅度’);<br>% title(‘原始信号频谱’);<br>% grid on;axis([0 50000 0 600])<br>y=filter(num,den,x);<br>%sound(y,Fs);<br>N2=length(y);<br>Y2=fft(y,N2);<br>f2=Fs*(0:N2-1)/N2;<br>%t2=(0:N2-1)/Fs;<br>figure(4)<br>plot(f2,abs(Y2))<br>xlabel(‘频率/Hz’);ylabel(‘幅度’);<br>title(‘过滤后信号的频谱’);<br>grid on;<br>axis([0 50000 0 600])</p><h3 id="四、实验总结"><a href="#四、实验总结" class="headerlink" title="四、实验总结"></a>四、实验总结</h3><p>分析语音信号的频谱图可以看出，有效的语音信号主要集中在0到4000Hz之间，根据奈奎斯特定理，最低的采样频率为8000Hz.观察滤波前后语音信号频谱的变化，可以看出滤波器按要求处理了语音信号，本次实验顺利完成。<br>总的来说，通过这次实验我收获了很多，对matlab有了更加深入的认识，了解到了如何利用matlab的各种函数对语音信号进行处理，这次实验也加深了我对离散傅里叶变换和滤波器设计的理解，巩固了课堂上所学到的知识，也让我看到了自己所学的知识在生活中的应用。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;学习数字信号处理课程时做过的一个实验。&lt;/p&gt;
+&lt;h3 id=&quot;一、实验目的&quot;&gt;&lt;a href=&quot;#一、实验目的&quot; class=&quot;headerlink&quot; title=&quot;一、实验目的&quot;&gt;&lt;/a&gt;一、实验目的&lt;/h3&gt;&lt;p&gt;  1.学习并掌握数字信号处理的基本方法。&lt;br&gt;  </summary>
+      
+    
+    
+    
+    <category term="Matlab" scheme="http://yeyuwenxi.github.io/categories/Matlab/"/>
+    
+    
+    <category term="Matlab" scheme="http://yeyuwenxi.github.io/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读《嘉莉妹妹》</title>
+    <link href="http://yeyuwenxi.github.io/2021/04/12/du-jia-li-mei-mei/"/>
+    <id>http://yeyuwenxi.github.io/2021/04/12/du-jia-li-mei-mei/</id>
+    <published>2021-04-12T04:54:13.000Z</published>
+    <updated>2021-04-12T04:59:57.918Z</updated>
+    
+    <content type="html"><![CDATA[<p>大二时英文选修课写的一篇小论文，这里是中文版，内容有所删减。</p><p>西奥多·德莱塞，美国伟大的现实主义作家。他的父亲是贫苦的德国移民，家里有很多的孩子，一家人生活很是拮据。德莱赛一生的大部分时间从事新闻工作，他走遍芝加哥、匹兹堡、纽约等大城市，广泛深入地观察了解社会，对资本主义制度有了很深的认识，为日后的文学创作积累了丰富的素材。</p><p>《嘉莉妹妹》是德莱赛的第一部著作，描写了农村姑娘嘉莉来到大城市芝加哥寻找幸福，为摆脱贫困，出卖自己的贞操，先后与推销员和酒店经理同居，后又凭美貌与表演才能成为演员而后走红的故事。其中，嘉莉私奔的情节来源于德莱赛妹妹的真实生活经历，他的妹妹曾跟一个偷钱潜逃的酒店经理私奔。</p><p>嘉莉是一个年轻的，纯朴的，没有经验的农村小姑娘，为了追求幸福的生活来到了大城市芝加哥。</p><p>正如作者在开篇时所写到的，一个年轻的没有经验的来自乡下的小姑娘来到大城市时，通常只有两种可能，得到善良的帮助而成为更好的人，或者被物质的诱惑影响而堕落。</p><p>很遗憾，嘉莉没有遇到能够真正在精神上帮助她的人，她的姐姐以及她的两个情人都不是那样的人，他们所教给嘉莉的，只有对物欲和名利的追求，只有物质至上的幸福观。在他们的影响下，嘉莉对上层社会，充盈的物质生活有了极大的渴望，她要拼劲全力地挤进那个社会，去享受物质上的快感与愉悦。对物欲的追求，让嘉莉迷失了初心，虚荣感让她放弃了一个人身上最淳朴的品质，就这样，嘉莉为了富裕的生活而两次出卖自己的贞操。</p><p>在德莱赛的那个时代，在垄断资本主义盛行的社会背景下，很难出现那样能给嘉莉以正确引导的人，每个人都在为自己的各种欲望而奔波。</p><p>嘉莉早期求职的过程也充分说明，在那个充满压迫，充满剥削的时代里，一个底层的普通人，靠自己的努力和勤奋是难以实现梦想的，是没有真正意义上的出路的，残酷的生活压迫着每一个普通人。</p><p>嘉莉靠美貌和运气以及出卖贞操走向了成功，而许许多多的平凡的人却只能在社会的底层不断地挣扎，承受着这个社会带给他们的苦难。从另一方面来说，获得成功的嘉莉也没有拥有真正意义上的快乐，与她相伴的只有内心的孤苦与空虚。无论成功与否，嘉莉都是痛苦的，物质上的满足并没有带给嘉莉真正的幸福感。</p><p>嘉莉正是作者所处那个时代的一个缩影，作者借嘉莉的视角，展现了资本主义带给人的种种苦难，揭露了资本主义社会的弊端，批判了金钱至上，物欲横流的社会现状。</p><p>在一个病态的资本主义社会里，在物质至上的时代里，是没有真正的幸福可言的。我想，这正是作者想要告诉我们的东西，一个人哪怕有了物质上的充盈，也会因为精神上的匮乏而陷入空虚。这一点对现在的我们也是适用的，我们不能陷于物质的牢笼而忽略了那些精神上值得我们去追寻的东西，不能为了自己的虚荣与欲望而放弃那些珍贵的有价值的道德品质。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;大二时英文选修课写的一篇小论文，这里是中文版，内容有所删减。&lt;/p&gt;
+&lt;p&gt;西奥多·德莱塞，美国伟大的现实主义作家。他的父亲是贫苦的德国移民，家里有很多的孩子，一家人生活很是拮据。德莱赛一生的大部分时间从事新闻工作，他走遍芝加哥、匹兹堡、纽约等大城市，广泛深入地观察了解社会</summary>
+      
+    
+    
+    
+    <category term="读书" scheme="http://yeyuwenxi.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="读书" scheme="http://yeyuwenxi.github.io/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>单片机温度、压力信息采集与电机控制系统</title>
@@ -423,50 +473,6 @@
     
     
     <category term="心情日记" scheme="http://yeyuwenxi.github.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>关于《灵山》</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/30/guan-yu-ling-shan/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/30/guan-yu-ling-shan/</id>
-    <published>2021-03-30T08:17:56.000Z</published>
-    <updated>2021-04-08T08:34:06.318Z</updated>
-    
-    <content type="html"><![CDATA[<p>之前写了关于神游的一些东西，现在谈谈灵山，记录一些印象深刻的观点。<br>灵山和神游是一脉相成的，核心的价值观和思想是一致的，在关于神游中谈过的一些东西，这里就不再写了。<br>灵山是徐公子仙侠世界的集大成者，不仅描述了一个仙气飘飘的修行世界，更向我们展示了为什么现实世界看不到仙，为什么仙人永隔。</p><h3 id="修行发愿"><a href="#修行发愿" class="headerlink" title="修行发愿"></a>修行发愿</h3><p>没有作恶的菩萨。<br>如果有，那他就配不上菩萨的道果。<br>徐公子的修行世界是讲究愿心的，违背愿心，修行境界也会自然丧失。<br>同样的做人也是如此，违背了做人的原则，那就不是一个真正的人。</p><h3 id="所行即所愿，应为即愿为。"><a href="#所行即所愿，应为即愿为。" class="headerlink" title="所行即所愿，应为即愿为。"></a>所行即所愿，应为即愿为。</h3><p>特别喜欢徐公子的这一句话。<br>每个人做的事情，其实都是他愿意做的，每个人应当做的事情，也都是他愿意做的。<br>做自己想做的事情，才是真的做自己，也正是自己做的这些事情，决定了自己是谁。<br>有人会说，每个人都有被迫做自己不愿意做的事情的时候，但其实所谓的被迫，也只不过是权衡利弊的选择而已，在世人看来，这就是你愿意做的事情。<br>做自己愿意做的事，才是真正地做自己。</p><h3 id="真如常在"><a href="#真如常在" class="headerlink" title="真如常在"></a>真如常在</h3><p>不要管他是谁，且看他如何与你相处。</p><p>去年看的书了，现在写的时候好多东西都忘了…</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;之前写了关于神游的一些东西，现在谈谈灵山，记录一些印象深刻的观点。&lt;br&gt;灵山和神游是一脉相成的，核心的价值观和思想是一致的，在关于神游中谈过的一些东西，这里就不再写了。&lt;br&gt;灵山是徐公子仙侠世界的集大成者，不仅描述了一个仙气飘飘的修行世界，更向我们展示了为什么现实世界看</summary>
-      
-    
-    
-    
-    <category term="读书" scheme="http://yeyuwenxi.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>关于《神游》</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/29/guan-yu-shen-you/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/29/guan-yu-shen-you/</id>
-    <published>2021-03-29T11:38:52.000Z</published>
-    <updated>2021-04-08T08:34:20.274Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近刚刚读完了《神游》，记录一些笔记和自己的想法。<br>自己是读完《灵山》之后，被徐公子构建的仙侠世界所震撼，才开始继续读他的书《神游》的。<br>神游与其说是一本修仙小说，更像是一本都市小说，在神游的世界里，徐公子展示了世俗人与修行人是如何共同生活在现代化的世界里的。<br>尽管神游中有很多修行的方式和境界描写，但抛开这些修仙的外衣，神游更像是在讲为人处世的方式，人在世间的言行举止，才是最大的修行。</p><h3 id="妄心"><a href="#妄心" class="headerlink" title="妄心"></a>妄心</h3><p>妄心劫，徐公子世界中修行人必经的一大劫。<br>人人皆有妄心，有妄心，即有痛苦。<br>金钱，名利，权利，这是世俗众生每个人都有的妄心，得不到，就有了巨大的痛苦。<br>破妄，方成真人，只有破妄，才能变得更加强大。<br>破妄的关键不在于善或恶，而在于真如常在，以真实的方法应对每一件事，做到对自己真诚，修得一颗真心。<br>破妄有两种方式，以真破妄，或是以妄修真。<br>第一种是在妄境中做现实人，也就是刚刚谈到的真心，用真心面对每一件事情。<br>第二种是在现实中做妄境人，努力地把妄境变成现实，这是堕入魔道，真心被妄境所驱使，哪怕拥有再强的手段，也只不过是欲望的奴隶。</p><h3 id="真空"><a href="#真空" class="headerlink" title="真空"></a>真空</h3><p>所谓真空，个人觉得是一种无我的状态。<br>进入真空劫，世间再无这个我，法力尽失，神通皆无，只能以心渡劫，再造自我。<br>接地气一点来说，就是假如你没有了自己所依赖的各种超越平常人的能力，比如说过人的智商，情商，强健的身体，美丽的外貌，巨大的财富与名利等等，接下来你该怎么面对自己的生活，怎么在无我的状态下生活，想通了这一点并平静地面对，才能度过真空天劫。<br>《金刚经》中有一句话叫做“心无所住，而生其心”，我觉得也是对真空的一种阐述，不着迷与一切相，方能度过真空。</p><h3 id="苦海"><a href="#苦海" class="headerlink" title="苦海"></a>苦海</h3><p>苦海劫，照见前世今生，历经人间种种。<br>经历人间的种种修行，在苦海中历练，最终成就真我。</p><h3 id="一流的性情"><a href="#一流的性情" class="headerlink" title="一流的性情"></a>一流的性情</h3><p>神游中一直在讲石野是一流的性情，什么是一流的性情呢？<br>在我看来，所谓一流的性情，就是一种无怨无悔的状态，不论做什么事，最终都无怨无悔，不因选择的结果而怨天尤人，顾影自怜，而是坦然面对，哪怕有机会再相同的情况下再选一次，也仍然坚定自己的选择。</p><h3 id="修行的目的"><a href="#修行的目的" class="headerlink" title="修行的目的"></a>修行的目的</h3><p>修行是为了长生久视，不是为了纵横人间。<br>未完待续</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;最近刚刚读完了《神游》，记录一些笔记和自己的想法。&lt;br&gt;自己是读完《灵山》之后，被徐公子构建的仙侠世界所震撼，才开始继续读他的书《神游》的。&lt;br&gt;神游与其说是一本修仙小说，更像是一本都市小说，在神游的世界里，徐公子展示了世俗人与修行人是如何共同生活在现代化的世界里的。&lt;</summary>
-      
-    
-    
-    
-    <category term="读书" scheme="http://yeyuwenxi.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
     
     
   </entry>
