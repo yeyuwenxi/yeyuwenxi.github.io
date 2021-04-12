@@ -6,7 +6,7 @@
   <link href="http://yeyuwenxi.github.io/atom.xml" rel="self"/>
   
   <link href="http://yeyuwenxi.github.io/"/>
-  <updated>2021-04-12T05:50:19.903Z</updated>
+  <updated>2021-04-12T06:38:04.860Z</updated>
   <id>http://yeyuwenxi.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown语法学习笔记</title>
+    <link href="http://yeyuwenxi.github.io/2021/04/12/markdown-yu-fa-xue-xi-bi-ji/"/>
+    <id>http://yeyuwenxi.github.io/2021/04/12/markdown-yu-fa-xue-xi-bi-ji/</id>
+    <published>2021-04-12T05:58:22.000Z</published>
+    <updated>2021-04-12T06:38:04.860Z</updated>
+    
+    <content type="html"><![CDATA[<p>Markdown是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档。<br>个人认为，Markdown可以看做xml,html的简化版，非常适合用来纯文本编辑。<br>好了，下面直接进入语法部分。</p><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h3><p>markdown使用#来表示标题,支持六级标题<br>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一</span><br><span class="line">## 二</span><br><span class="line">### 三</span><br><span class="line">#### 四</span><br><span class="line">##### 五</span><br><span class="line">###### 六</span><br></pre></td></tr></table></figure><p>显示效果：</p><h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><h3 id="三"><a href="#三" class="headerlink" title="三"></a>三</h3><h4 id="四"><a href="#四" class="headerlink" title="四"></a>四</h4><h5 id="五"><a href="#五" class="headerlink" title="五"></a>五</h5><h6 id="六"><a href="#六" class="headerlink" title="六"></a>六</h6><p>注意：#和文字之间要加1个空格</p><h3 id="2-超链接"><a href="#2-超链接" class="headerlink" title="2.超链接"></a>2.超链接</h3><p>示例：<br><code> [百度](baidu.com)</code><br>显示效果：<br><a href="baidu.com">百度</a></p><p><strong>此外，也可使用html风格的写法</strong><br>示例：<br><code>&lt;a href=&quot;baidu.com&quot;&gt;百度 &lt;/a&gt;</code><br>显示效果：<br><a href="baidu.com">百度 </a></p><h3 id="3-图片"><a href="#3-图片" class="headerlink" title="3.图片"></a>3.图片</h3><h4 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h4><p>示例：<br><code>![图片名称](https://www.baidu.com/img/flexible/logo/pc/result.png)</code><br>显示效果：<br><img src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="图片名称"></p><p><strong>此外，也可使用html风格的写法</strong><br>示例：<br><code>&lt;img src=&quot;https://www.baidu.com/img/flexible/logo/pc/result.png&quot;&gt;</code><br>显示效果：<br><img src="https://www.baidu.com/img/flexible/logo/pc/result.png"></p><h4 id="3-2-设置图片的大小"><a href="#3-2-设置图片的大小" class="headerlink" title="3.2 设置图片的大小"></a>3.2 设置图片的大小</h4><p>示例：<code>&lt;img src=&quot;https://www.baidu.com/img/flexible/logo/pc/result.png&quot;      width=&quot;10%&quot; height=&quot;10%&quot;&gt;</code><br>显示效果：<img src="https://www.baidu.com/img/flexible/logo/pc/result.png" width="10%" height="10%" ></p><h4 id="3-3-设置图片居中显示"><a href="#3-3-设置图片居中显示" class="headerlink" title="3.3 设置图片居中显示"></a>3.3 设置图片居中显示</h4><h3 id="4-代码块"><a href="#4-代码块" class="headerlink" title="4.代码块"></a>4.代码块</h3><h4 id="4-1单行代码"><a href="#4-1单行代码" class="headerlink" title="4.1单行代码"></a>4.1单行代码</h4><h4 id="4-2多行代码"><a href="#4-2多行代码" class="headerlink" title="4.2多行代码"></a>4.2多行代码</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Markdown是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档。&lt;br&gt;个人认为，Markdown可以看做xml,html的简化版，非常适合用来纯文本编辑。&lt;br&gt;好了，下面直接进入语法部分。&lt;/p&gt;
+&lt;h3</summary>
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://yeyuwenxi.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="笔记" scheme="http://yeyuwenxi.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Markdown" scheme="http://yeyuwenxi.github.io/tags/Markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>Matlab实现简单的语音信号处理</title>
@@ -450,29 +477,6 @@
     
     
     <category term="读书" scheme="http://yeyuwenxi.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>当我看手机的时候我在看些什么</title>
-    <link href="http://yeyuwenxi.github.io/2021/03/30/dang-wo-kan-shou-ji-de-shi-hou-wo-zai-kan-xie-shi-me/"/>
-    <id>http://yeyuwenxi.github.io/2021/03/30/dang-wo-kan-shou-ji-de-shi-hou-wo-zai-kan-xie-shi-me/</id>
-    <published>2021-03-30T08:19:45.000Z</published>
-    <updated>2021-03-30T12:28:01.385Z</updated>
-    
-    <content type="html"><![CDATA[<p>2021年3月29日，第1天。</p><p>今天想谈谈手机，自己似乎花费了太多时间在手机上，但好像又什么事情都没有做。<br>往往只是刷着一些毫无意义的信息，自以为在学习，实则什么都没有收获。<br>只有当屏幕亮着时，自己才会跟着网上的段子，奇闻趣事，傻傻地乐一乐，每当屏幕熄灭，自己又能记住什么，总想着做有意义的事情，但这样碎片化地看一些纷繁杂乱的信息，真的对自己有意义吗？手机灭屏之后，乐过的段子，笑过的笑话，也都随之而去，留给自己的，只有身体的疲惫和精神的空虚。<br>每天深夜，在睡前，总会拿着手机上网毫无目的漫游，仿佛只有这样，自己才能得到心灵的宁静与放松，可每天夜晚一刷起来就不知道要到什么时候才会停止，最后得到的往往不是心灵的宁静，而是身心的疲惫，然后在疲惫中关上屏幕，闭上干涩、肿胀的双眼，最后昏昏沉沉地睡去，第二天再无精打采地起来。<br><strong>毫无克制地刷手机，带给自己的只是一时的安慰和舒适，留下的确是杂乱的生活和疲惫不堪的身心。</strong><br>当我看手机时我在看些什么，又在追求些什么？<br>看了一下今天的手机屏幕使用时间，6小时39分，在最近几天里不算是比较多的，平均每天，自己使用手机的时间都在7小时以上，那么当我看手机的时候我在看些什么呢？<br>分析了一下上一周手机屏幕的使用时间，具体如下：</p><blockquote><p>微信读书：14时42分<br>王者荣耀：10时47分<br>知乎：7时34分<br>QQ:6时24分<br>微信：6时13分<br>抖音：5时1分<br>学习强国：2时54分<br>百度贴吧：2时40分<br>低于2小时的未列出</p></blockquote><p>这只是最近一周的数据，或许每周使用情况不太一样，但这些数据还是有很有的代表性的。<br>自己玩手机的时间基本上花在了聊天社交、图书阅读和游戏上，下面依次分析一下这几项。<br><strong>聊天社交</strong><br>无论是在自己看来还是在别人看来，自己从来都不是一个热爱社交的人，但在聊天社交这一项花的时间确实那么长。<br>微信、QQ用了那么久，自己真的是在跟人聊天吗？<br>好像不是的，大部分时间都是在刷朋友圈，毫无目的地随便看一看，自己根本就没有那么多的时间用在聊天上，这似乎早就不是真正的社交了，更多的是排解无聊与空虚的无意义行为，行为过后，带来的是更多的空虚与无聊，然后就在这个陷阱里反反复复。<br>朋友圈真的有那么好看吗？<br>这个时代，我们似乎都太过于在乎别人的生活，而往往忘记了自己真正的生活所在。<br>关注别人再多，又对自己的生活有什么好处呢？<br>这样的事情，并没有拉近自己与朋友的距离，反而会在朋友圈被包装的信息下，变得越来越陌生。<br>偶尔刷一刷，获取一些信息，了解一下朋友的最新动态，这无可厚非，但把太多的时间花在朋友圈上，就有过之而无不及了。<br>同样的，知乎也是如此，刷知乎或许在某种程度上让自己获取到了一些信息，但更多的，是信息背后无止尽的焦虑，刷知乎，并不能让自己成长，能让自己真正成长的是关闭知乎后深刻的思索和内省。<br><strong>图书阅读</strong><br>这一点就不多说什么了，最近正在培养阅读的习惯，希望接下来能坚持下去，读一些经典之作。<br><strong>游戏</strong><br>最近这一年，打的最多的游戏就是王者荣耀了，从去年春天疫情在家开始，到今年春天，自己入坑王者1年出头了。<br>自己以前一直是个不怎么打游戏的人，王者荣耀也是自己游戏时长最长的游戏了。<br>打王者这一年，自己收获了些什么呢？<br>最初打王者，是为了排解无聊，加强与朋友之间的联系，但一年以来，这一点似乎并没有做到自己想象的样子，自己更多的时间是一个人沉迷于游戏中，打王者，并没有让自己变得更会社交，更加不无聊，反而更加的空虚，更加的因为游戏中的各种逆风而情绪化。<br>打王者，早就违背了自己最开始的初衷。<br>所以，我决定卸载这个游戏，开始自己新的生活。<br><strong>结语</strong><br>未完待续……</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;2021年3月29日，第1天。&lt;/p&gt;
-&lt;p&gt;今天想谈谈手机，自己似乎花费了太多时间在手机上，但好像又什么事情都没有做。&lt;br&gt;往往只是刷着一些毫无意义的信息，自以为在学习，实则什么都没有收获。&lt;br&gt;只有当屏幕亮着时，自己才会跟着网上的段子，奇闻趣事，傻傻地乐一乐，每当屏</summary>
-      
-    
-    
-    
-    <category term="心情日记" scheme="http://yeyuwenxi.github.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
     
     
   </entry>
