@@ -425,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    718
+                    716
                 </div>
                 
 
@@ -480,28 +480,7 @@
 <li>运行效果<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210417_7.jpg" ></li>
 </ul>
 <h3 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h3><p> void delay(){<br>        int i=0;<br>        for(i=0;i&lt;1000000;i++);<br>    }</p>
-<p>void *mainThread(void <em>arg0)<br>{<br>    /</em> Call driver unit functions */<br>    GPIO_init();</p>
-<pre><code>/* Configure the LED and button pins */
-GPIO_setConfig(CONFIG_GPIO_1, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
-GPIO_setConfig(CONFIG_GPIO_2, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
-GPIO_setConfig(CONFIG_GPIO_3, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
-GPIO_setConfig(CONFIG_GPIO_4, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
-
-while(1)&#123;
-    delay();
-    GPIO_toggle(CONFIG_GPIO_1);
-    delay();
-    GPIO_toggle(CONFIG_GPIO_2);
-    delay();
-    GPIO_toggle(CONFIG_GPIO_3);
-    delay();
-    GPIO_toggle(CONFIG_GPIO_4);
-&#125;
-
-
-return (NULL);
-</code></pre>
-<p>}</p>
+<p>void *mainThread(void <em>arg0)<br>{<br>    /</em> Call driver unit functions <em>/<br>    GPIO_init();<br>    /</em> Configure the LED and button pins */<br>    GPIO_setConfig(CONFIG_GPIO_1, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);<br>    GPIO_setConfig(CONFIG_GPIO_2, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);<br>    GPIO_setConfig(CONFIG_GPIO_3, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);<br>    GPIO_setConfig(CONFIG_GPIO_4, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);<br>    while(1){<br>        delay();<br>        GPIO_toggle(CONFIG_GPIO_1);<br>        delay();<br>        GPIO_toggle(CONFIG_GPIO_2);<br>        delay();<br>        GPIO_toggle(CONFIG_GPIO_3);<br>        delay();<br>        GPIO_toggle(CONFIG_GPIO_4);<br>    }<br>    return (NULL);<br>}</p>
 
                 
             </div>
