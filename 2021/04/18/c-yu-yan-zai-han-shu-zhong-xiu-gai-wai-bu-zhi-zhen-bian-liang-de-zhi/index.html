@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -421,7 +421,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    660
+                    648
                 </div>
                 
 
@@ -445,54 +445,54 @@
             <div id="articleContent">
                 <p>最近又开始学数据结构了，总结一下之前写链表时遇到的一个问题。<br>如何在函数中修改一个外部指针变量的值，注意，是指针变量本身的值，而不是指针指向的变量的值，也就是说，我们要在函数中改变指针的指向。<br>先来看一个例子吧</p>
 <ul>
-<li>示例1<pre><code>void redirect(int *s) &#123;
+<li>示例1<pre><code>void redirect(int *s) {
   int b = 5;
   s = &amp;b;
-&#125;
-int main() &#123;
+}
+int main() {
   int* p;
   int a = 10;
   p = &amp;a;
   redirect(p);
   printf(&quot;p=%d,a=%d&quot;, *p,a);
   return 0;
-&#125;
+}
 输出：p=10,a=10
 </code></pre>
 在redirect函数中，s指向了b，但是p并未指向b,p中储存的仍然是a的地址。<br>这是为什么呢？<br>指针s并不是指针p本身，它仅仅是指针p的一个副本，储存了指针p的值，也就是说，指针s其实是另一个变量，它储存的地址和p储存的地址是一样的，但是改变s储存的地址，并不会改变p储存的地址。</li>
 </ul>
 <p>那我们怎么才能在函数中改变指针的指向呢？<br>我们知道，函数是默认传递值的，而不是传递地址，想要改变一个普通变量的值，我们就需要传递它的指针给函数。<br>那么，想要改变指针变量的值，我们就需要传递指针的指针给函数，没错，需要使用二级指针来改变指针的值。</p>
 <ul>
-<li>示例2<pre><code>void redirect(int **s) &#123;
+<li>示例2<pre><code>void redirect(int **s) {
   int b = 5;
   *s = &amp;b;
-&#125;
-int main() &#123;
+}
+int main() {
   int* p;
   int a = 10;
   p = &amp;a;
   redirect(&amp;p);
   printf(&quot;p=%d,a=%d&quot;, *p,a);
   return 0;
-&#125;
+}
 输出：p=5,a=10
 </code></pre>
 可以看出，这时p已经指向了b,即我们成功地在函数中改变了指针p的值。</li>
 </ul>
 <p>此外，我们也可以通过引用在函数中改变指针的值。</p>
 <ul>
-<li>示例3：<pre><code>void redirect(int *&amp;s) &#123;
+<li>示例3：<pre><code>void redirect(int *&amp;s) {
   int b = 5;
   s = &amp;b;
-&#125;
-int main() &#123;
+}
+int main() {
   int* p;
   int a = 10;
   p = &amp;a;
   redirect(p);
   printf(&quot;p=%d,a=%d&quot;, *p,a);
   return 0;
-&#125;
+}
 输出：p=5,a=10
 </code></pre>
 可以看出，此时p也指向了b.</li>
@@ -1164,7 +1164,7 @@ int main() &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">29.1k</span>&nbsp;字
+                class="white-color">28.8k</span>&nbsp;字
             
             
             
