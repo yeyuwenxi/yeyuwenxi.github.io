@@ -410,7 +410,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-30
+                    2021-04-18
                 </div>
                 
 
@@ -440,276 +440,276 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1-获取本机ip地址"><a href="#1-获取本机ip地址" class="headerlink" title="1.获取本机ip地址"></a>1.获取本机ip地址</h2><p>建立socket连接之前，我们首先要获取本地的ip地址，这样，才能让客户端通过ip地址连接到服务器</p>
-<pre class=" language-java"><code class="language-java">  <span class="token comment" spellcheck="true">/**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*/</span>
-     String <span class="token function">getIPAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        Context context<span class="token operator">=</span>MainActivity<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">;</span>
-        NetworkInfo info <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ConnectivityManager<span class="token punctuation">)</span> context
-                <span class="token punctuation">.</span><span class="token function">getSystemService</span><span class="token punctuation">(</span>Context<span class="token punctuation">.</span>CONNECTIVITY_SERVICE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getActiveNetworkInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>info <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> info<span class="token punctuation">.</span><span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> ConnectivityManager<span class="token punctuation">.</span>TYPE_MOBILE<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//当前使用2G/3G/4G网络</span>
-                <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    <span class="token comment" spellcheck="true">//Enumeration&lt;NetworkInterface> en=NetworkInterface.getNetworkInterfaces();</span>
-                    <span class="token keyword">for</span> <span class="token punctuation">(</span>Enumeration<span class="token operator">&lt;</span>NetworkInterface<span class="token operator">></span> en <span class="token operator">=</span> NetworkInterface<span class="token punctuation">.</span><span class="token function">getNetworkInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> en<span class="token punctuation">.</span><span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                        NetworkInterface intf <span class="token operator">=</span> en<span class="token punctuation">.</span><span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token keyword">for</span> <span class="token punctuation">(</span>Enumeration<span class="token operator">&lt;</span>InetAddress<span class="token operator">></span> enumIpAddr <span class="token operator">=</span> intf<span class="token punctuation">.</span><span class="token function">getInetAddresses</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> enumIpAddr<span class="token punctuation">.</span><span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            InetAddress inetAddress <span class="token operator">=</span> enumIpAddr<span class="token punctuation">.</span><span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>inetAddress<span class="token punctuation">.</span><span class="token function">isLoopbackAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> inetAddress <span class="token keyword">instanceof</span> <span class="token class-name">Inet4Address</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                                <span class="token keyword">return</span> inetAddress<span class="token punctuation">.</span><span class="token function">getHostAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SocketException</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> ConnectivityManager<span class="token punctuation">.</span>TYPE_WIFI<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//当前使用无线网络</span>
-                WifiManager wifiManager <span class="token operator">=</span> <span class="token punctuation">(</span>WifiManager<span class="token punctuation">)</span> context<span class="token punctuation">.</span><span class="token function">getSystemService</span><span class="token punctuation">(</span>Context<span class="token punctuation">.</span>WIFI_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                WifiInfo wifiInfo <span class="token operator">=</span> wifiManager<span class="token punctuation">.</span><span class="token function">getConnectionInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">//调用方法将int转换为地址字符串</span>
-                String ipAddress <span class="token operator">=</span> <span class="token function">intIP2StringIP</span><span class="token punctuation">(</span>wifiInfo<span class="token punctuation">.</span><span class="token function">getIpAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//得到IPV4地址</span>
-                <span class="token keyword">return</span> ipAddress<span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//当前无网络连接,请在设置中打开网络</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
+<pre><code>  /**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*/
+     String getIPAddress() &#123;
+        Context context=MainActivity.this;
+        NetworkInfo info = ((ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+        if (info != null &amp;&amp; info.isConnected()) &#123;
+            if (info.getType() == ConnectivityManager.TYPE_MOBILE) &#123;//当前使用2G/3G/4G网络
+                try &#123;
+                    //Enumeration&lt;NetworkInterface&gt; en=NetworkInterface.getNetworkInterfaces();
+                    for (Enumeration&lt;NetworkInterface&gt; en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) &#123;
+                        NetworkInterface intf = en.nextElement();
+                        for (Enumeration&lt;InetAddress&gt; enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) &#123;
+                            InetAddress inetAddress = enumIpAddr.nextElement();
+                            if (!inetAddress.isLoopbackAddress() &amp;&amp; inetAddress instanceof Inet4Address) &#123;
+                                return inetAddress.getHostAddress();
+                            &#125;
+                        &#125;
+                    &#125;
+                &#125; catch (SocketException e) &#123;
+                    e.printStackTrace();
+                &#125;
+            &#125; else if (info.getType() == ConnectivityManager.TYPE_WIFI) &#123;//当前使用无线网络
+                WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                //调用方法将int转换为地址字符串
+                String ipAddress = intIP2StringIP(wifiInfo.getIpAddress());//得到IPV4地址
+                return ipAddress;
+            &#125;
+        &#125; else &#123;
+            //当前无网络连接,请在设置中打开网络
+        &#125;
+        return null;
+    &#125;
+    /**
      * 将得到的int类型的IP转换为String类型
      * @param ip
      * @return
-     */</span>
-     String <span class="token function">intIP2StringIP</span><span class="token punctuation">(</span><span class="token keyword">int</span> ip<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>ip <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span>
-                <span class="token punctuation">(</span><span class="token punctuation">(</span>ip <span class="token operator">>></span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span>
-                <span class="token punctuation">(</span><span class="token punctuation">(</span>ip <span class="token operator">>></span> <span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span>
-                <span class="token punctuation">(</span>ip <span class="token operator">>></span> <span class="token number">24</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+     */
+     String intIP2StringIP(int ip) &#123;
+        return (ip &amp; 0xFF) + &quot;.&quot; +
+                ((ip &gt;&gt; 8) &amp; 0xFF) + &quot;.&quot; +
+                ((ip &gt;&gt; 16) &amp; 0xFF) + &quot;.&quot; +
+                (ip &gt;&gt; 24 &amp; 0xFF);
+    &#125;
 </code></pre>
 <p>这里需要注意的是，我们要添加以下几个权限<br>使得app可以访问网络状态</p>
-<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="token operator">/</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.INTERNET"</span><span class="token operator">/</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.CHANGE_WIFI_STATE"</span><span class="token operator">/</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>uses<span class="token operator">-</span>permission android<span class="token operator">:</span>name<span class="token operator">=</span><span class="token string">"android.permission.ACCESS_WIFI_STATE"</span> <span class="token operator">/</span><span class="token operator">></span>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
 </code></pre>
 <h2 id="2-建立socket连接"><a href="#2-建立socket连接" class="headerlink" title="2.建立socket连接"></a>2.建立socket连接</h2><p>建立一个子线程，在子线程中建立socket连接</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">ConnectThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        OutputStream os<span class="token punctuation">;</span>
-        Socket socket<span class="token punctuation">;</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre><code>class ConnectThread extends Thread&#123;
+        OutputStream os;
+        Socket socket;
+        @Override
+        public void run() &#123;
+            try &#123;
                
-                <span class="token comment" spellcheck="true">// 1.新建ServerSocket对象，创建指定端口的连接</span>
-                ServerSocket serverSocket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerSocket</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                // 1.新建ServerSocket对象，创建指定端口的连接
+                ServerSocket serverSocket = new ServerSocket(10000);
 
-                <span class="token comment" spellcheck="true">// 2.进行监听</span>
-                socket <span class="token operator">=</span> serverSocket<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 开始监听10000端口，并接收到此套接字的连接。&amp;#125;&amp;#125;&amp;#125;</span>
+                // 2.进行监听
+                socket = serverSocket.accept();// 开始监听10000端口，并接收到此套接字的连接。&#125;&#125;&#125;
 </code></pre>
 <h2 id="3-通过输入流接收消息"><a href="#3-通过输入流接收消息" class="headerlink" title="3.通过输入流接收消息"></a>3.通过输入流接收消息</h2><p>建立一个死循环，监听输入流来自客户端的消息</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
-                <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    <span class="token keyword">final</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//创建接收缓冲区</span>
-                   InputStream inputStream <span class="token operator">=</span> socket<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">final</span> <span class="token keyword">int</span> len <span class="token operator">=</span> inputStream<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//数据读出来，并且返回数据的长度</span>
-                    <span class="token function">runOnUiThread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//不允许其他线程直接操作组件，用提供的此方法可以</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            <span class="token comment" spellcheck="true">// TODO Auto-generated method stub</span>
-                            text1<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>buffer<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\r\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<pre><code>while (true)
+                &#123;
+                    final byte[] buffer = new byte[1024];//创建接收缓冲区
+                   InputStream inputStream = socket.getInputStream();
+                    final int len = inputStream.read(buffer);//数据读出来，并且返回数据的长度
+                    runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
+                    &#123;
+                        public void run()
+                        &#123;
+                            // TODO Auto-generated method stub
+                            text1.append(new String(buffer,0,len)+&quot;\r\n&quot;);
+                        &#125;
+                    &#125;);    &#125;
 </code></pre>
 <h2 id="4-通过输出流发送消息"><a href="#4-通过输出流发送消息" class="headerlink" title="4.通过输出流发送消息"></a>4.通过输出流发送消息</h2><p>  通过输出流的write()方法将消息发送到客户端</p>
-<pre class=" language-java"><code class="language-java">os <span class="token operator">=</span> socket<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                String text<span class="token operator">=</span><span class="token string">"我是服务器"</span><span class="token punctuation">;</span>
-                os<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>text<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code>os = socket.getOutputStream();
+                String text=&quot;我是服务器&quot;;
+                os.write(text.getBytes());
 </code></pre>
 <p>下面实现通过Edittext发送输入的内容</p>
-<pre class=" language-java"><code class="language-java"> fasong<span class="token punctuation">.</span><span class="token function">setOnClickListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">View<span class="token punctuation">.</span>OnClickListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onClick</span><span class="token punctuation">(</span>View v<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>connectThread<span class="token punctuation">.</span>socket<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                String a<span class="token operator">=</span>fasong_text<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code> fasong.setOnClickListener(new View.OnClickListener() &#123;
+            @Override
+            public void onClick(View v) &#123;
+                if(connectThread.socket!=null)&#123;
+                String a=fasong_text.getText().toString();
 
-                <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                        <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            connectThread<span class="token punctuation">.</span>os<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                new Thread(new Runnable() &#123;
+                    @Override
+                    public void run() &#123;
+                        try &#123;
+                            connectThread.os.write(a.getBytes());
+                        &#125; catch (IOException e) &#123;
+                            e.printStackTrace();
+                        &#125;
+                    &#125;
+                &#125;).start();
 
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>MainActivity<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">"请先建立连接"</span><span class="token punctuation">,</span>Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            &#125;else&#123;
+                    Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
+                &#125;&#125;
 
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        &#125;);
 </code></pre>
 <h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h2><p><strong>注意，由于模拟器的原因，模拟器ip无法作为tcp服务器被访问，所以这一部分测试只能在真机上进行。</strong><br>经过测试，服务器可以正常地和客户端进行通信。<br>这里偷点懒，放一张界面图，懒得再截真机测试的图片了。<br><img src="https://img-blog.csdnimg.cn/20210321165721149.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h2 id="6-源代码"><a href="#6-源代码" class="headerlink" title="6.源代码"></a>6.源代码</h2><p>xml</p>
-<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">?</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>LinearLayout xmlns<span class="token operator">:</span>android<span class="token operator">=</span><span class="token string">"http://schemas.android.com/apk/res/android"</span>
-    xmlns<span class="token operator">:</span>app<span class="token operator">=</span><span class="token string">"http://schemas.android.com/apk/res-auto"</span>
-    xmlns<span class="token operator">:</span>tools<span class="token operator">=</span><span class="token string">"http://schemas.android.com/tools"</span>
-    android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"match_parent"</span>
-    android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"match_parent"</span>
-    android<span class="token operator">:</span>orientation<span class="token operator">=</span><span class="token string">"vertical"</span>
-    tools<span class="token operator">:</span>context<span class="token operator">=</span><span class="token string">".MainActivity"</span><span class="token operator">></span>
-   <span class="token operator">&lt;</span>EditText
-       android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@+id/fasong_text"</span>
-       android<span class="token operator">:</span>hint<span class="token operator">=</span><span class="token string">"请输入要发送的内容"</span>
-       android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"wrap_content"</span>
-       android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"wrap_content"</span><span class="token operator">/</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>Button
-        android<span class="token operator">:</span>text<span class="token operator">=</span><span class="token string">"发送"</span>
-        android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@+id/fasong"</span>
-        android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"wrap_content"</span>
-        android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"wrap_content"</span><span class="token operator">/</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>TextView
-        android<span class="token operator">:</span>id<span class="token operator">=</span><span class="token string">"@+id/text1"</span>
-        android<span class="token operator">:</span>layout_width<span class="token operator">=</span><span class="token string">"wrap_content"</span>
-        android<span class="token operator">:</span>layout_height<span class="token operator">=</span><span class="token string">"wrap_content"</span>
-        android<span class="token operator">:</span>text<span class="token operator">=</span><span class="token string">"\n"</span>
-        app<span class="token operator">:</span>layout_constraintBottom_toBottomOf<span class="token operator">=</span><span class="token string">"parent"</span>
-        app<span class="token operator">:</span>layout_constraintLeft_toLeftOf<span class="token operator">=</span><span class="token string">"parent"</span>
-        app<span class="token operator">:</span>layout_constraintRight_toRightOf<span class="token operator">=</span><span class="token string">"parent"</span>
-        app<span class="token operator">:</span>layout_constraintTop_toTopOf<span class="token operator">=</span><span class="token string">"parent"</span> <span class="token operator">/</span><span class="token operator">></span>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+   &lt;EditText
+       android:id=&quot;@+id/fasong_text&quot;
+       android:hint=&quot;请输入要发送的内容&quot;
+       android:layout_width=&quot;wrap_content&quot;
+       android:layout_height=&quot;wrap_content&quot;/&gt;
+    &lt;Button
+        android:text=&quot;发送&quot;
+        android:id=&quot;@+id/fasong&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;/&gt;
+    &lt;TextView
+        android:id=&quot;@+id/text1&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;\n&quot;
+        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
+        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;
+        app:layout_constraintRight_toRightOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;
 
-<span class="token operator">&lt;</span><span class="token operator">/</span>LinearLayout<span class="token operator">></span>
+&lt;/LinearLayout&gt;
 </code></pre>
 <p>Mainactivity</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    TextView text1<span class="token punctuation">;</span>
-    EditText fasong_text<span class="token punctuation">;</span>
-    ConnectThread connectThread<span class="token punctuation">;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//Toast.makeText(MainActivity.this,"123",Toast.LENGTH_SHORT).show();</span>
-        text1<span class="token operator">=</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>text1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        fasong_text<span class="token operator">=</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>fasong_text<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Button fasong<span class="token operator">=</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>fasong<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code>public class MainActivity extends AppCompatActivity &#123;
+    TextView text1;
+    EditText fasong_text;
+    ConnectThread connectThread;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //Toast.makeText(MainActivity.this,&quot;123&quot;,Toast.LENGTH_SHORT).show();
+        text1=findViewById(R.id.text1);
+        fasong_text=findViewById(R.id.fasong_text);
+        Button fasong=findViewById(R.id.fasong);
 
-         connectThread<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ConnectThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        connectThread<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//获取本地ip地址</span>
-        text1<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"本地ip地址为："</span><span class="token operator">+</span><span class="token function">getIPAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" 端口号为10000"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        text1<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         connectThread=new ConnectThread();
+        connectThread.start();
+   //获取本地ip地址
+        text1.append(&quot;本地ip地址为：&quot;+getIPAddress()+&quot; 端口号为10000&quot;);
+        text1.append(&quot;\n&quot;);
 
 
-        fasong<span class="token punctuation">.</span><span class="token function">setOnClickListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">View<span class="token punctuation">.</span>OnClickListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onClick</span><span class="token punctuation">(</span>View v<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>connectThread<span class="token punctuation">.</span>socket<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                String a<span class="token operator">=</span>fasong_text<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        fasong.setOnClickListener(new View.OnClickListener() &#123;
+            @Override
+            public void onClick(View v) &#123;
+                if(connectThread.socket!=null)&#123;
+                String a=fasong_text.getText().toString();
 
-                <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                        <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            connectThread<span class="token punctuation">.</span>os<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                new Thread(new Runnable() &#123;
+                    @Override
+                    public void run() &#123;
+                        try &#123;
+                            connectThread.os.write(a.getBytes());
+                        &#125; catch (IOException e) &#123;
+                            e.printStackTrace();
+                        &#125;
+                    &#125;
+                &#125;).start();
 
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>MainActivity<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">"请先建立连接"</span><span class="token punctuation">,</span>Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            &#125;else&#123;
+                    Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
+                &#125;&#125;
 
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        &#125;);
+    &#125;
 
-    <span class="token comment" spellcheck="true">/**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*/</span>
-     String <span class="token function">getIPAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        Context context<span class="token operator">=</span>MainActivity<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">;</span>
-        NetworkInfo info <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ConnectivityManager<span class="token punctuation">)</span> context
-                <span class="token punctuation">.</span><span class="token function">getSystemService</span><span class="token punctuation">(</span>Context<span class="token punctuation">.</span>CONNECTIVITY_SERVICE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getActiveNetworkInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>info <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> info<span class="token punctuation">.</span><span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> ConnectivityManager<span class="token punctuation">.</span>TYPE_MOBILE<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//当前使用2G/3G/4G网络</span>
-                <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    <span class="token comment" spellcheck="true">//Enumeration&lt;NetworkInterface> en=NetworkInterface.getNetworkInterfaces();</span>
-                    <span class="token keyword">for</span> <span class="token punctuation">(</span>Enumeration<span class="token operator">&lt;</span>NetworkInterface<span class="token operator">></span> en <span class="token operator">=</span> NetworkInterface<span class="token punctuation">.</span><span class="token function">getNetworkInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> en<span class="token punctuation">.</span><span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                        NetworkInterface intf <span class="token operator">=</span> en<span class="token punctuation">.</span><span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token keyword">for</span> <span class="token punctuation">(</span>Enumeration<span class="token operator">&lt;</span>InetAddress<span class="token operator">></span> enumIpAddr <span class="token operator">=</span> intf<span class="token punctuation">.</span><span class="token function">getInetAddresses</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> enumIpAddr<span class="token punctuation">.</span><span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            InetAddress inetAddress <span class="token operator">=</span> enumIpAddr<span class="token punctuation">.</span><span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>inetAddress<span class="token punctuation">.</span><span class="token function">isLoopbackAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> inetAddress <span class="token keyword">instanceof</span> <span class="token class-name">Inet4Address</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                                <span class="token keyword">return</span> inetAddress<span class="token punctuation">.</span><span class="token function">getHostAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SocketException</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> ConnectivityManager<span class="token punctuation">.</span>TYPE_WIFI<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//当前使用无线网络</span>
-                WifiManager wifiManager <span class="token operator">=</span> <span class="token punctuation">(</span>WifiManager<span class="token punctuation">)</span> context<span class="token punctuation">.</span><span class="token function">getSystemService</span><span class="token punctuation">(</span>Context<span class="token punctuation">.</span>WIFI_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                WifiInfo wifiInfo <span class="token operator">=</span> wifiManager<span class="token punctuation">.</span><span class="token function">getConnectionInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">//调用方法将int转换为地址字符串</span>
-                String ipAddress <span class="token operator">=</span> <span class="token function">intIP2StringIP</span><span class="token punctuation">(</span>wifiInfo<span class="token punctuation">.</span><span class="token function">getIpAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//得到IPV4地址</span>
-                <span class="token keyword">return</span> ipAddress<span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//当前无网络连接,请在设置中打开网络</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
+    /**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*/
+     String getIPAddress() &#123;
+        Context context=MainActivity.this;
+        NetworkInfo info = ((ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+        if (info != null &amp;&amp; info.isConnected()) &#123;
+            if (info.getType() == ConnectivityManager.TYPE_MOBILE) &#123;//当前使用2G/3G/4G网络
+                try &#123;
+                    //Enumeration&lt;NetworkInterface&gt; en=NetworkInterface.getNetworkInterfaces();
+                    for (Enumeration&lt;NetworkInterface&gt; en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) &#123;
+                        NetworkInterface intf = en.nextElement();
+                        for (Enumeration&lt;InetAddress&gt; enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) &#123;
+                            InetAddress inetAddress = enumIpAddr.nextElement();
+                            if (!inetAddress.isLoopbackAddress() &amp;&amp; inetAddress instanceof Inet4Address) &#123;
+                                return inetAddress.getHostAddress();
+                            &#125;
+                        &#125;
+                    &#125;
+                &#125; catch (SocketException e) &#123;
+                    e.printStackTrace();
+                &#125;
+            &#125; else if (info.getType() == ConnectivityManager.TYPE_WIFI) &#123;//当前使用无线网络
+                WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                //调用方法将int转换为地址字符串
+                String ipAddress = intIP2StringIP(wifiInfo.getIpAddress());//得到IPV4地址
+                return ipAddress;
+            &#125;
+        &#125; else &#123;
+            //当前无网络连接,请在设置中打开网络
+        &#125;
+        return null;
+    &#125;
+    /**
      * 将得到的int类型的IP转换为String类型
      * @param ip
      * @return
-     */</span>
-     String <span class="token function">intIP2StringIP</span><span class="token punctuation">(</span><span class="token keyword">int</span> ip<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>ip <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span>
-                <span class="token punctuation">(</span><span class="token punctuation">(</span>ip <span class="token operator">>></span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span>
-                <span class="token punctuation">(</span><span class="token punctuation">(</span>ip <span class="token operator">>></span> <span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span>
-                <span class="token punctuation">(</span>ip <span class="token operator">>></span> <span class="token number">24</span> <span class="token operator">&amp;</span> <span class="token number">0xFF</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">class</span> <span class="token class-name">ConnectThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        OutputStream os<span class="token punctuation">;</span>
-        Socket socket<span class="token punctuation">;</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     */
+     String intIP2StringIP(int ip) &#123;
+        return (ip &amp; 0xFF) + &quot;.&quot; +
+                ((ip &gt;&gt; 8) &amp; 0xFF) + &quot;.&quot; +
+                ((ip &gt;&gt; 16) &amp; 0xFF) + &quot;.&quot; +
+                (ip &gt;&gt; 24 &amp; 0xFF);
+    &#125;
+    class ConnectThread extends Thread&#123;
+        OutputStream os;
+        Socket socket;
+        @Override
+        public void run() &#123;
+            try &#123;
 
-                <span class="token comment" spellcheck="true">// 1.新建ServerSocket对象，创建指定端口的连接</span>
-                ServerSocket serverSocket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerSocket</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                // 1.新建ServerSocket对象，创建指定端口的连接
+                ServerSocket serverSocket = new ServerSocket(10000);
 
-                <span class="token comment" spellcheck="true">// 2.进行监听</span>
-                socket <span class="token operator">=</span> serverSocket<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 开始监听10000端口，并接收到此套接字的连接。</span>
-                <span class="token comment" spellcheck="true">// 3.拿到输入流（客户端发送的信息就在这里）</span>
+                // 2.进行监听
+                socket = serverSocket.accept();// 开始监听10000端口，并接收到此套接字的连接。
+                // 3.拿到输入流（客户端发送的信息就在这里）
 
-                Log<span class="token punctuation">.</span><span class="token function">i</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"连接成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                 os <span class="token operator">=</span> socket<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                String text<span class="token operator">=</span><span class="token string">"我是服务器"</span><span class="token punctuation">;</span>
-                os<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>text<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                Log.i(&quot;a&quot;,&quot;连接成功&quot;);
+                 os = socket.getOutputStream();
+                String text=&quot;我是服务器&quot;;
+                os.write(text.getBytes());
 
-                <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
-                <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                    <span class="token keyword">final</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//创建接收缓冲区</span>
-                   InputStream inputStream <span class="token operator">=</span> socket<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">final</span> <span class="token keyword">int</span> len <span class="token operator">=</span> inputStream<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//数据读出来，并且返回数据的长度</span>
-                    <span class="token function">runOnUiThread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//不允许其他线程直接操作组件，用提供的此方法可以</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                            <span class="token comment" spellcheck="true">// TODO Auto-generated method stub</span>
-                            text1<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>buffer<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\r\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
-
-                <span class="token comment" spellcheck="true">// 关闭输入流</span>
-               <span class="token comment" spellcheck="true">// socket.shutdownInput();</span>
+                while (true)
+                &#123;
+                    final byte[] buffer = new byte[1024];//创建接收缓冲区
+                   InputStream inputStream = socket.getInputStream();
+                    final int len = inputStream.read(buffer);//数据读出来，并且返回数据的长度
+                    runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
+                    &#123;
+                        public void run()
+                        &#123;
+                            // TODO Auto-generated method stub
+                            text1.append(new String(buffer,0,len)+&quot;\r\n&quot;);
+                        &#125;
+                    &#125;);    &#125;
 
 
+                // 关闭输入流
+               // socket.shutdownInput();
 
-                <span class="token comment" spellcheck="true">/*os.flush();
+
+
+                /*os.flush();
                 // 关闭输出流
                 socket.shutdownOutput();
                 os.close();
@@ -720,17 +720,17 @@
                 is.close();
 
                 socket.close();// 关闭socket
-                serverSocket.close();// 关闭ServerSocket*/</span>
+                serverSocket.close();// 关闭ServerSocket*/
 
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125; catch (Exception e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+    &#125;
 
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+&#125;
 </code></pre>
 <h2 id="7-参考文章"><a href="#7-参考文章" class="headerlink" title="7.参考文章"></a>7.参考文章</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenxihanhui/article/details/115050849">Android实现TCP客户端</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/pingping_010/article/details/86527609">Android网络编程之–Socket编程</a><br><a target="_blank" rel="noopener" href="https://www.jb51.net/article/153245.htm">Android获得设备状态信息、Mac地址、IP地址的方法</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyndon_li/article/details/82263172?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160611526819725225053660%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=160611526819725225053660&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-82263172.first_rank_ecpm_v3_pc_rank_v2&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF&spm=1018.2118.3001.4449">Android 一步步实现TCP客户端</a></p>
 
@@ -1373,7 +1373,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">29.2k</span>&nbsp;字
+                class="white-color">29.1k</span>&nbsp;字
             
             
             
