@@ -421,7 +421,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    648
+                    642
                 </div>
                 
 
@@ -445,55 +445,55 @@
             <div id="articleContent">
                 <p>最近又开始学数据结构了，总结一下之前写链表时遇到的一个问题。<br>如何在函数中修改一个外部指针变量的值，注意，是指针变量本身的值，而不是指针指向的变量的值，也就是说，我们要在函数中改变指针的指向。<br>先来看一个例子吧</p>
 <ul>
-<li>示例1<pre><code>void redirect(int *s) {
-  int b = 5;
-  s = &amp;b;
-}
-int main() {
-  int* p;
-  int a = 10;
-  p = &amp;a;
-  redirect(p);
-  printf(&quot;p=%d,a=%d&quot;, *p,a);
-  return 0;
-}
-输出：p=10,a=10
+<li>示例1<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">redirect</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+  s <span class="token operator">=</span> <span class="token operator">&amp;</span>b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span><span class="token operator">*</span> p<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
+  <span class="token function">redirect</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"p=%d,a=%d"</span><span class="token punctuation">,</span> <span class="token operator">*</span>p<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+输出：p<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span>a<span class="token operator">=</span><span class="token number">10</span>
 </code></pre>
 在redirect函数中，s指向了b，但是p并未指向b,p中储存的仍然是a的地址。<br>这是为什么呢？<br>指针s并不是指针p本身，它仅仅是指针p的一个副本，储存了指针p的值，也就是说，指针s其实是另一个变量，它储存的地址和p储存的地址是一样的，但是改变s储存的地址，并不会改变p储存的地址。</li>
 </ul>
 <p>那我们怎么才能在函数中改变指针的指向呢？<br>我们知道，函数是默认传递值的，而不是传递地址，想要改变一个普通变量的值，我们就需要传递它的指针给函数。<br>那么，想要改变指针变量的值，我们就需要传递指针的指针给函数，没错，需要使用二级指针来改变指针的值。</p>
 <ul>
-<li>示例2<pre><code>void redirect(int **s) {
-  int b = 5;
-  *s = &amp;b;
-}
-int main() {
-  int* p;
-  int a = 10;
-  p = &amp;a;
-  redirect(&amp;p);
-  printf(&quot;p=%d,a=%d&quot;, *p,a);
-  return 0;
-}
-输出：p=5,a=10
+<li>示例2<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">redirect</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token operator">&amp;</span>b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span><span class="token operator">*</span> p<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
+  <span class="token function">redirect</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"p=%d,a=%d"</span><span class="token punctuation">,</span> <span class="token operator">*</span>p<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+输出：p<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>a<span class="token operator">=</span><span class="token number">10</span>
 </code></pre>
 可以看出，这时p已经指向了b,即我们成功地在函数中改变了指针p的值。</li>
 </ul>
 <p>此外，我们也可以通过引用在函数中改变指针的值。</p>
 <ul>
-<li>示例3：<pre><code>void redirect(int *&amp;s) {
-  int b = 5;
-  s = &amp;b;
-}
-int main() {
-  int* p;
-  int a = 10;
-  p = &amp;a;
-  redirect(p);
-  printf(&quot;p=%d,a=%d&quot;, *p,a);
-  return 0;
-}
-输出：p=5,a=10
+<li>示例3：<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">redirect</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+  s <span class="token operator">=</span> <span class="token operator">&amp;</span>b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span><span class="token operator">*</span> p<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  p <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
+  <span class="token function">redirect</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"p=%d,a=%d"</span><span class="token punctuation">,</span> <span class="token operator">*</span>p<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+输出：p<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>a<span class="token operator">=</span><span class="token number">10</span>
 </code></pre>
 可以看出，此时p也指向了b.</li>
 </ul>
