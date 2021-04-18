@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
+</head>
 
 
 
@@ -417,14 +417,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -434,322 +434,321 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+            <link rel="stylesheet" type="text/css" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1-添加相关权限，使得android-app可以访问网络"><a href="#1-添加相关权限，使得android-app可以访问网络" class="headerlink" title="1.添加相关权限，使得android app可以访问网络"></a>1.添加相关权限，使得android app可以访问网络</h2><p>在AndroidManiffest.xml中添加</p>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;uses-permission android:name&#x3D;&quot;android.permission.INTERNET&quot;&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="2-socket的连接"><a href="#2-socket的连接" class="headerlink" title="2.socket的连接"></a>2.socket的连接</h2><p>由于android平台的限制，与网络相关的操作只能在子线程中进行，所以这里我们单独建立一个线程用于socket的连接</p>
-<pre><code> //子线程中进行网络相关操作
-    class connectthread extends Thread {
+<pre class="line-numbers language-none"><code class="language-none"> &#x2F;&#x2F;子线程中进行网络相关操作
+    class connectthread extends Thread &#123;
 
-        OutputStream outputStream=null;
-        InputStream inputStream=null;
+        OutputStream outputStream&#x3D;null;
+        InputStream inputStream&#x3D;null;
         @Override
-        public void run() {
+        public void run() &#123;
 
-            //连接
-            try {
-                socket=new Socket(a, b);
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
+            &#x2F;&#x2F;连接
+            try &#123;
+                socket&#x3D;new Socket(a, b);
+                runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                &#123;
                     public void run()
-                    {
-                        // TODO Auto-generated method stub
+                    &#123;
+                        &#x2F;&#x2F; TODO Auto-generated method stub
                         Toast.makeText(MainActivity.this,&quot;连接成功&quot;,Toast.LENGTH_SHORT).show();
 
-                    }
-                });
-            } catch (UnknownHostException e) {
-                // TODO Auto-generated catch block
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
+                    &#125;
+                &#125;);
+            &#125; catch (UnknownHostException e) &#123;
+                &#x2F;&#x2F; TODO Auto-generated catch block
+                runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                &#123;
                     public void run()
-                    {
-                        // TODO Auto-generated method stub
+                    &#123;
+                        &#x2F;&#x2F; TODO Auto-generated method stub
                         Toast.makeText(MainActivity.this,&quot;连接失败&quot;,Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    &#125;
+                &#125;);
                 e.printStackTrace();
-            }catch (IOException e) {
+            &#125;catch (IOException e) &#123;
                 e.printStackTrace();
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
+                runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                &#123;
                     public void run()
-                    {
-                        // TODO Auto-generated method stub
+                    &#123;
+                        &#x2F;&#x2F; TODO Auto-generated method stub
                         Toast.makeText(MainActivity.this,&quot;连接失败&quot;,Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-}
-</code></pre>
+                    &#125;
+                &#125;);
+            &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>socket=new socket(a,b)这一方法可以建立一个tcp连接,其中，a为ip地址，b为端口号<br>如果连接成功，我们及通过Toast在屏幕中显示“连接成功”，若连接失败，则会转到异常中，我们通过Toast显示“连接失败”。</p>
 <h2 id="3-通过输出流发送消息"><a href="#3-通过输出流发送消息" class="headerlink" title="3.通过输出流发送消息"></a>3.通过输出流发送消息</h2><p>在子线程中添加以下代码，获取socket的输出流对象<br>并通过输出流对象的write()方法向服务器发送“123”</p>
-<pre><code> try {
-                outputStream=socket.getOutputStream();
-                outputStream.write(123);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">try &#123;
+               outputStream&#x3D;socket.getOutputStream();
+               outputStream.write(123);
+           &#125; catch (IOException e) &#123;
+               e.printStackTrace();
+           &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>以上就是最简单的消息发送，下面我们通过edittext获取输入的内容，并将输入的内容发送给服务器</p>
-<pre><code>  //发送
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //子线程中进行网络操作
-    new Thread(new Runnable() {
-        @Override
-        public void run() {
-            if(socket!=null){
-            try {
-                String text=out.getText().toString();
-                lianjie.outputStream.write(text.getBytes());
-            } catch (UnknownHostException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;发送
+      send.setOnClickListener(new View.OnClickListener() &#123;
+          @Override
+          public void onClick(View v) &#123;
+              &#x2F;&#x2F;子线程中进行网络操作
+  new Thread(new Runnable() &#123;
+      @Override
+      public void run() &#123;
+          if(socket!&#x3D;null)&#123;
+          try &#123;
+              String text&#x3D;out.getText().toString();
+              lianjie.outputStream.write(text.getBytes());
+          &#125; catch (UnknownHostException e) &#123;
+              &#x2F;&#x2F; TODO Auto-generated catch block
+              e.printStackTrace();
 
-            }catch (IOException e) {
-                e.printStackTrace();
-            }}else{
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
-                    public void run()
-                    {
-                        // TODO Auto-generated method stub
-                        Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }
-    }).start();
+          &#125;catch (IOException e) &#123;
+              e.printStackTrace();
+          &#125;&#125;else&#123;
+              runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+              &#123;
+                  public void run()
+                  &#123;
+                      &#x2F;&#x2F; TODO Auto-generated method stub
+                      Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
+                  &#125;
+              &#125;);
+          &#125;
+      &#125;
+  &#125;).start();
 
-            }
-        });
-</code></pre>
+          &#125;
+      &#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>需要注意的是，发送的操作需要在子线程中进行，所以这里我又建立了一个线程来进行发送的操作，在线程中获取socket的输出流对象即可进行内容的发送。<br>在这里我加了一个提示信息，如果socket为空的话，则提示“请先建立连接”。</p>
 <h2 id="4-通过输入流获取消息"><a href="#4-通过输入流获取消息" class="headerlink" title="4.通过输入流获取消息"></a>4.通过输入流获取消息</h2><p>在子线程中建立一个死循环，时刻监听输入流，读取服务器发送来的消息</p>
-<pre><code> try{
-                while (true)
-                {
-                    final byte[] buffer = new byte[1024];//创建接收缓冲区
-                    inputStream = socket.getInputStream();
-                    final int len = inputStream.read(buffer);//数据读出来，并且返回数据的长度
-                    runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                    {
-                        public void run()
-                        {
-                            // TODO Auto-generated method stub
-                            receive.append(new String(buffer,0,len)+&quot;\r\n&quot;);
-                        }
-                    });
-                }
-            }
-            catch (IOException e) {
+<pre class="line-numbers language-none"><code class="language-none">try&#123;
+               while (true)
+               &#123;
+                   final byte[] buffer &#x3D; new byte[1024];&#x2F;&#x2F;创建接收缓冲区
+                   inputStream &#x3D; socket.getInputStream();
+                   final int len &#x3D; inputStream.read(buffer);&#x2F;&#x2F;数据读出来，并且返回数据的长度
+                   runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                   &#123;
+                       public void run()
+                       &#123;
+                           &#x2F;&#x2F; TODO Auto-generated method stub
+                           receive.append(new String(buffer,0,len)+&quot;\r\n&quot;);
+                       &#125;
+                   &#125;);
+               &#125;
+           &#125;
+           catch (IOException e) &#123;
 
-        }
-</code></pre>
+       &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="5-测试结果"><a href="#5-测试结果" class="headerlink" title="5.测试结果"></a>5.测试结果</h2><p>客户端<br><img src="https://img-blog.csdnimg.cn/20210321163105573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,size_10,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>服务器<br><img src="https://img-blog.csdnimg.cn/202103211631546.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>经过测试，服务器和客户端之间可以正常的发送和接收信息。</p>
 <h2 id="6-源代码"><a href="#6-源代码" class="headerlink" title="6.源代码"></a>6.源代码</h2><p>xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:orientation=&quot;vertical&quot;
-    tools:context=&quot;.MainActivity&quot;&gt;
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    xmlns:app&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res-auto&quot;
+    xmlns:tools&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;tools&quot;
+    android:layout_width&#x3D;&quot;match_parent&quot;
+    android:layout_height&#x3D;&quot;match_parent&quot;
+    android:orientation&#x3D;&quot;vertical&quot;
+    tools:context&#x3D;&quot;.MainActivity&quot;&gt;
 
     &lt;EditText
-        android:id=&quot;@+id/ip&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:hint=&quot;ip&quot;
-        /&gt;
+        android:id&#x3D;&quot;@+id&#x2F;ip&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;
+        android:hint&#x3D;&quot;ip&quot;
+        &#x2F;&gt;
     &lt;EditText
-        android:id=&quot;@+id/port&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:hint=&quot;port&quot;
-        /&gt;
+        android:id&#x3D;&quot;@+id&#x2F;port&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;
+        android:hint&#x3D;&quot;port&quot;
+        &#x2F;&gt;
     &lt;EditText
-        android:id=&quot;@+id/out&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:hint=&quot;请输入要发送的内容&quot;
-        /&gt;
+        android:id&#x3D;&quot;@+id&#x2F;out&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;
+        android:hint&#x3D;&quot;请输入要发送的内容&quot;
+        &#x2F;&gt;
     &lt;Button
-        android:id=&quot;@+id/connect&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;连接&quot;/&gt;
+        android:id&#x3D;&quot;@+id&#x2F;connect&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;
+        android:text&#x3D;&quot;连接&quot;&#x2F;&gt;
     &lt;Button
-        android:id=&quot;@+id/send&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;发送&quot;/&gt;
+        android:id&#x3D;&quot;@+id&#x2F;send&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;
+        android:text&#x3D;&quot;发送&quot;&#x2F;&gt;
     &lt;TextView
-        android:id=&quot;@+id/receive&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;/&gt;
+        android:id&#x3D;&quot;@+id&#x2F;receive&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;&#x2F;&gt;
 
-&lt;/LinearLayout&gt;
-</code></pre>
+&lt;&#x2F;LinearLayout&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Mainactivity</p>
-<pre><code>public class MainActivity extends AppCompatActivity {
+<pre class="line-numbers language-none"><code class="language-none">public class MainActivity extends AppCompatActivity &#123;
     String a;
     int b;
     connectthread lianjie;
     TextView receive;
-    Socket socket=null;
+    Socket socket&#x3D;null;
     Button connect;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) &#123;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        EditText ip=findViewById(R.id.ip);
-        EditText port=findViewById(R.id.port);
-        EditText out=findViewById(R.id.out);
-         receive=findViewById(R.id.receive);
-         connect=findViewById(R.id.connect);
-        Button send=findViewById(R.id.send);
+        EditText ip&#x3D;findViewById(R.id.ip);
+        EditText port&#x3D;findViewById(R.id.port);
+        EditText out&#x3D;findViewById(R.id.out);
+         receive&#x3D;findViewById(R.id.receive);
+         connect&#x3D;findViewById(R.id.connect);
+        Button send&#x3D;findViewById(R.id.send);
 
 
-        connect.setOnClickListener(new View.OnClickListener() {
+        connect.setOnClickListener(new View.OnClickListener() &#123;
             @Override
-            public void onClick(View v) {
-                a=ip.getText().toString();
-                String c=port.getText().toString();
-                if(&quot;&quot;.equals(a)||&quot;&quot;.equals(c)){
+            public void onClick(View v) &#123;
+                a&#x3D;ip.getText().toString();
+                String c&#x3D;port.getText().toString();
+                if(&quot;&quot;.equals(a)||&quot;&quot;.equals(c))&#123;
                     Toast.makeText(MainActivity.this,&quot;请输入ip和端口号&quot;,Toast.LENGTH_SHORT).show();
-                }
-                else{b=Integer.valueOf(c);
-                 lianjie=new connectthread();
-                lianjie.start();}
+                &#125;
+                else&#123;b&#x3D;Integer.valueOf(c);
+                 lianjie&#x3D;new connectthread();
+                lianjie.start();&#125;
 
-            }
-        });
+            &#125;
+        &#125;);
 
 
 
-        //发送
-        send.setOnClickListener(new View.OnClickListener() {
+        &#x2F;&#x2F;发送
+        send.setOnClickListener(new View.OnClickListener() &#123;
             @Override
-            public void onClick(View v) {
-                //子线程中进行网络操作
-    new Thread(new Runnable() {
+            public void onClick(View v) &#123;
+                &#x2F;&#x2F;子线程中进行网络操作
+    new Thread(new Runnable() &#123;
         @Override
-        public void run() {
-            if(socket!=null){
-            try {
-                String text=out.getText().toString();
+        public void run() &#123;
+            if(socket!&#x3D;null)&#123;
+            try &#123;
+                String text&#x3D;out.getText().toString();
                 lianjie.outputStream.write(text.getBytes());
-            } catch (UnknownHostException e) {
-                // TODO Auto-generated catch block
+            &#125; catch (UnknownHostException e) &#123;
+                &#x2F;&#x2F; TODO Auto-generated catch block
                 e.printStackTrace();
 
-            }catch (IOException e) {
+            &#125;catch (IOException e) &#123;
                 e.printStackTrace();
-            }}else{
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
+            &#125;&#125;else&#123;
+                runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                &#123;
                     public void run()
-                    {
-                        // TODO Auto-generated method stub
+                    &#123;
+                        &#x2F;&#x2F; TODO Auto-generated method stub
                         Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }
-    }).start();
+                    &#125;
+                &#125;);
+            &#125;
+        &#125;
+    &#125;).start();
 
-            }
-        });
-
-
+            &#125;
+        &#125;);
 
 
 
 
-    }
-    //子线程中进行网络相关操作
-    class connectthread extends Thread {
 
-        OutputStream outputStream=null;
-        InputStream inputStream=null;
+
+    &#125;
+    &#x2F;&#x2F;子线程中进行网络相关操作
+    class connectthread extends Thread &#123;
+
+        OutputStream outputStream&#x3D;null;
+        InputStream inputStream&#x3D;null;
         @Override
-        public void run() {
+        public void run() &#123;
 
-            //连接
-            try {
-                socket=new Socket(a, b);
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
+            &#x2F;&#x2F;连接
+            try &#123;
+                socket&#x3D;new Socket(a, b);
+                runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                &#123;
                     public void run()
-                    {
-                        // TODO Auto-generated method stub
+                    &#123;
+                        &#x2F;&#x2F; TODO Auto-generated method stub
                         Toast.makeText(MainActivity.this,&quot;连接成功&quot;,Toast.LENGTH_SHORT).show();
 
-                    }
-                });
-            } catch (UnknownHostException e) {
-                // TODO Auto-generated catch block
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
+                    &#125;
+                &#125;);
+            &#125; catch (UnknownHostException e) &#123;
+                &#x2F;&#x2F; TODO Auto-generated catch block
+                runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                &#123;
                     public void run()
-                    {
-                        // TODO Auto-generated method stub
+                    &#123;
+                        &#x2F;&#x2F; TODO Auto-generated method stub
                         Toast.makeText(MainActivity.this,&quot;连接失败&quot;,Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    &#125;
+                &#125;);
                 e.printStackTrace();
-            }catch (IOException e) {
+            &#125;catch (IOException e) &#123;
                 e.printStackTrace();
-                runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                {
+                runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                &#123;
                     public void run()
-                    {
-                        // TODO Auto-generated method stub
+                    &#123;
+                        &#x2F;&#x2F; TODO Auto-generated method stub
                         Toast.makeText(MainActivity.this,&quot;连接失败&quot;,Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-           if(socket!=null){
-            //获取输出流对象
-            try {
-                outputStream=socket.getOutputStream();
+                    &#125;
+                &#125;);
+            &#125;
+           if(socket!&#x3D;null)&#123;
+            &#x2F;&#x2F;获取输出流对象
+            try &#123;
+                outputStream&#x3D;socket.getOutputStream();
                 outputStream.write(123);
-            } catch (IOException e) {
+            &#125; catch (IOException e) &#123;
                 e.printStackTrace();
-            }
+            &#125;
 
-            try{
+            try&#123;
                 while (true)
-                {
-                    final byte[] buffer = new byte[1024];//创建接收缓冲区
-                    inputStream = socket.getInputStream();
-                    final int len = inputStream.read(buffer);//数据读出来，并且返回数据的长度
-                    runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                    {
+                &#123;
+                    final byte[] buffer &#x3D; new byte[1024];&#x2F;&#x2F;创建接收缓冲区
+                    inputStream &#x3D; socket.getInputStream();
+                    final int len &#x3D; inputStream.read(buffer);&#x2F;&#x2F;数据读出来，并且返回数据的长度
+                    runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                    &#123;
                         public void run()
-                        {
-                            // TODO Auto-generated method stub
+                        &#123;
+                            &#x2F;&#x2F; TODO Auto-generated method stub
                             receive.append(new String(buffer,0,len)+&quot;\r\n&quot;);
-                        }
-                    });
-                }
-            }
-            catch (IOException e) {
+                        &#125;
+                    &#125;);
+                &#125;
+            &#125;
+            catch (IOException e) &#123;
 
-        }}
-    };
-}}
-</code></pre>
-<h2 id="7-参考文章"><a href="#7-参考文章" class="headerlink" title="7.参考文章"></a>7.参考文章</h2><p><a href="https://blog.csdn.net/lyndon_li/article/details/82263172?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160611526819725225053660%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=160611526819725225053660&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-82263172.first_rank_ecpm_v3_pc_rank_v2&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF&spm=1018.2118.3001.4449" target="_blank" rel="noopener">Android 一步步实现TCP客户端</a><br><a href="https://blog.csdn.net/pingping_010/article/details/86527609" target="_blank" rel="noopener">Android网络编程之–Socket编程</a><br><a href="https://blog.csdn.net/qq_39400113/article/details/108183449?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161579882416780271565422%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=161579882416780271565422&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-108183449.first_rank_v2_pc_rank_v29&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF" target="_blank" rel="noopener">android 之TCP客户端编程</a><br><a href="https://blog.csdn.net/weixin_48848716/article/details/107429683?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161579882416780271525479%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=161579882416780271525479&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-16-107429683.first_rank_v2_pc_rank_v29&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF" target="_blank" rel="noopener">Android Studio TCP客户端实现</a><br><a href="https://blog.csdn.net/ASWaterbenben/article/details/90172103?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&dist_request_id=1328642.52964.16157988951892531&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control" target="_blank" rel="noopener">Android的SocketTCP客户端发送信息</a></p>
+        &#125;&#125;
+    &#125;;
+&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="7-参考文章"><a href="#7-参考文章" class="headerlink" title="7.参考文章"></a>7.参考文章</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyndon_li/article/details/82263172?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160611526819725225053660%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=160611526819725225053660&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-82263172.first_rank_ecpm_v3_pc_rank_v2&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF&spm=1018.2118.3001.4449">Android 一步步实现TCP客户端</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/pingping_010/article/details/86527609">Android网络编程之–Socket编程</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39400113/article/details/108183449?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161579882416780271565422%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=161579882416780271565422&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-108183449.first_rank_v2_pc_rank_v29&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF">android 之TCP客户端编程</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_48848716/article/details/107429683?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161579882416780271525479%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=161579882416780271525479&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-16-107429683.first_rank_v2_pc_rank_v29&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF">Android Studio TCP客户端实现</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ASWaterbenben/article/details/90172103?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&dist_request_id=1328642.52964.16157988951892531&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control">Android的SocketTCP客户端发送信息</a></p>
 
                 
             </div>
@@ -1390,7 +1389,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.8k</span>&nbsp;字
+                class="white-color">29.6k</span>&nbsp;字
             
             
             

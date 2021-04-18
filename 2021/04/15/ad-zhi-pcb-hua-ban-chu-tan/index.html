@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
+</head>
 
 
 
@@ -442,6 +442,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+            <link rel="stylesheet" type="text/css" href="/libs/prism/prism.css">
+        
 
         
 
@@ -451,7 +454,7 @@
 <h3 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h3><p>1.三个开关控制一盏灯<br>2.使用按钮实现开关的功能</p>
 <h3 id="实验思路"><a href="#实验思路" class="headerlink" title="实验思路"></a>实验思路</h3><p>1.三个开关控制一盏灯，算是比较基础的数电问题了，这里我采用了74LS86（异或门）来实现这一逻辑功能。</p>
 <p>2.按钮实现开关的功能，这一点我上网查资料发现都是采用模拟电路实现的，采用电容充放电实现开关的功能，电路较为复杂，实现原理也较为复杂，这里就不讲了。</p>
-<p>分享一篇文章，有兴趣的可以自己看看<a href="https://baijiahao.baidu.com/s?id=1603206971622118062&wfr=spider&for=pc&qq-pf-to=pcqq.group" target="_blank" rel="noopener">点按式轻触开关如何实现自锁轻触开关带锁按键开关功能？</a><br>3.后来想了想，还是采用数字电路实现比较简单，通过JK触发器的电平翻转来实现电路开关的功能，最后通过带JK触发器的74LS109实现了这一功能。</p>
+<p>分享一篇文章，有兴趣的可以自己看看<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1603206971622118062&wfr=spider&for=pc&qq-pf-to=pcqq.group">点按式轻触开关如何实现自锁轻触开关带锁按键开关功能？</a><br>3.后来想了想，还是采用数字电路实现比较简单，通过JK触发器的电平翻转来实现电路开关的功能，最后通过带JK触发器的74LS109实现了这一功能。</p>
 <h3 id="PCB绘制流程"><a href="#PCB绘制流程" class="headerlink" title="PCB绘制流程"></a>PCB绘制流程</h3><p>1.原理图库的绘制<br>由于官方封装库中的门电路芯片都是只显示部分的，所以这里我自己绘制了74LS86和74LS109芯片的原理图。</p>
 <ul>
 <li>74LS86<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210416_1.png" ></li>
@@ -1145,7 +1148,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.8k</span>&nbsp;字
+                class="white-color">29.6k</span>&nbsp;字
             
             
             

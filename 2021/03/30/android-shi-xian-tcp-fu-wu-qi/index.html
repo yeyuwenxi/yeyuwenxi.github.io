@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜雨闻曦" type="application/atom+xml">
+</head>
 
 
 
@@ -417,14 +417,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -434,305 +434,305 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+            <link rel="stylesheet" type="text/css" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1-获取本机ip地址"><a href="#1-获取本机ip地址" class="headerlink" title="1.获取本机ip地址"></a>1.获取本机ip地址</h2><p>建立socket连接之前，我们首先要获取本地的ip地址，这样，才能让客户端通过ip地址连接到服务器</p>
-<pre><code>  /**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*/
-     String getIPAddress() {
-        Context context=MainActivity.this;
-        NetworkInfo info = ((ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
-        if (info != null &amp;&amp; info.isConnected()) {
-            if (info.getType() == ConnectivityManager.TYPE_MOBILE) {//当前使用2G/3G/4G网络
-                try {
-                    //Enumeration&lt;NetworkInterface&gt; en=NetworkInterface.getNetworkInterfaces();
-                    for (Enumeration&lt;NetworkInterface&gt; en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
-                        NetworkInterface intf = en.nextElement();
-                        for (Enumeration&lt;InetAddress&gt; enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
-                            InetAddress inetAddress = enumIpAddr.nextElement();
-                            if (!inetAddress.isLoopbackAddress() &amp;&amp; inetAddress instanceof Inet4Address) {
-                                return inetAddress.getHostAddress();
-                            }
-                        }
-                    }
-                } catch (SocketException e) {
-                    e.printStackTrace();
-                }
-            } else if (info.getType() == ConnectivityManager.TYPE_WIFI) {//当前使用无线网络
-                WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-                //调用方法将int转换为地址字符串
-                String ipAddress = intIP2StringIP(wifiInfo.getIpAddress());//得到IPV4地址
-                return ipAddress;
-            }
-        } else {
-            //当前无网络连接,请在设置中打开网络
-        }
-        return null;
-    }
-    /**
-     * 将得到的int类型的IP转换为String类型
-     * @param ip
-     * @return
-     */
-     String intIP2StringIP(int ip) {
-        return (ip &amp; 0xFF) + &quot;.&quot; +
-                ((ip &gt;&gt; 8) &amp; 0xFF) + &quot;.&quot; +
-                ((ip &gt;&gt; 16) &amp; 0xFF) + &quot;.&quot; +
-                (ip &gt;&gt; 24 &amp; 0xFF);
-    }
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*&#x2F;
+   String getIPAddress() &#123;
+      Context context&#x3D;MainActivity.this;
+      NetworkInfo info &#x3D; ((ConnectivityManager) context
+              .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+      if (info !&#x3D; null &amp;&amp; info.isConnected()) &#123;
+          if (info.getType() &#x3D;&#x3D; ConnectivityManager.TYPE_MOBILE) &#123;&#x2F;&#x2F;当前使用2G&#x2F;3G&#x2F;4G网络
+              try &#123;
+                  &#x2F;&#x2F;Enumeration&lt;NetworkInterface&gt; en&#x3D;NetworkInterface.getNetworkInterfaces();
+                  for (Enumeration&lt;NetworkInterface&gt; en &#x3D; NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) &#123;
+                      NetworkInterface intf &#x3D; en.nextElement();
+                      for (Enumeration&lt;InetAddress&gt; enumIpAddr &#x3D; intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) &#123;
+                          InetAddress inetAddress &#x3D; enumIpAddr.nextElement();
+                          if (!inetAddress.isLoopbackAddress() &amp;&amp; inetAddress instanceof Inet4Address) &#123;
+                              return inetAddress.getHostAddress();
+                          &#125;
+                      &#125;
+                  &#125;
+              &#125; catch (SocketException e) &#123;
+                  e.printStackTrace();
+              &#125;
+          &#125; else if (info.getType() &#x3D;&#x3D; ConnectivityManager.TYPE_WIFI) &#123;&#x2F;&#x2F;当前使用无线网络
+              WifiManager wifiManager &#x3D; (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+              WifiInfo wifiInfo &#x3D; wifiManager.getConnectionInfo();
+              &#x2F;&#x2F;调用方法将int转换为地址字符串
+              String ipAddress &#x3D; intIP2StringIP(wifiInfo.getIpAddress());&#x2F;&#x2F;得到IPV4地址
+              return ipAddress;
+          &#125;
+      &#125; else &#123;
+          &#x2F;&#x2F;当前无网络连接,请在设置中打开网络
+      &#125;
+      return null;
+  &#125;
+  &#x2F;**
+   * 将得到的int类型的IP转换为String类型
+   * @param ip
+   * @return
+   *&#x2F;
+   String intIP2StringIP(int ip) &#123;
+      return (ip &amp; 0xFF) + &quot;.&quot; +
+              ((ip &gt;&gt; 8) &amp; 0xFF) + &quot;.&quot; +
+              ((ip &gt;&gt; 16) &amp; 0xFF) + &quot;.&quot; +
+              (ip &gt;&gt; 24 &amp; 0xFF);
+  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里需要注意的是，我们要添加以下几个权限<br>使得app可以访问网络状态</p>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
-    &lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;uses-permission android:name&#x3D;&quot;android.permission.ACCESS_NETWORK_STATE&quot; &#x2F;&gt;
+    &lt;uses-permission android:name&#x3D;&quot;android.permission.INTERNET&quot;&#x2F;&gt;
+    &lt;uses-permission android:name&#x3D;&quot;android.permission.CHANGE_WIFI_STATE&quot;&#x2F;&gt;
+    &lt;uses-permission android:name&#x3D;&quot;android.permission.ACCESS_WIFI_STATE&quot; &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-建立socket连接"><a href="#2-建立socket连接" class="headerlink" title="2.建立socket连接"></a>2.建立socket连接</h2><p>建立一个子线程，在子线程中建立socket连接</p>
-<pre><code>class ConnectThread extends Thread{
+<pre class="line-numbers language-none"><code class="language-none">class ConnectThread extends Thread&#123;
         OutputStream os;
         Socket socket;
         @Override
-        public void run() {
-            try {
+        public void run() &#123;
+            try &#123;
                
-                // 1.新建ServerSocket对象，创建指定端口的连接
-                ServerSocket serverSocket = new ServerSocket(10000);
+                &#x2F;&#x2F; 1.新建ServerSocket对象，创建指定端口的连接
+                ServerSocket serverSocket &#x3D; new ServerSocket(10000);
 
-                // 2.进行监听
-                socket = serverSocket.accept();// 开始监听10000端口，并接收到此套接字的连接。}}}
-</code></pre>
+                &#x2F;&#x2F; 2.进行监听
+                socket &#x3D; serverSocket.accept();&#x2F;&#x2F; 开始监听10000端口，并接收到此套接字的连接。&#125;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="3-通过输入流接收消息"><a href="#3-通过输入流接收消息" class="headerlink" title="3.通过输入流接收消息"></a>3.通过输入流接收消息</h2><p>建立一个死循环，监听输入流来自客户端的消息</p>
-<pre><code>while (true)
-                {
-                    final byte[] buffer = new byte[1024];//创建接收缓冲区
-                   InputStream inputStream = socket.getInputStream();
-                    final int len = inputStream.read(buffer);//数据读出来，并且返回数据的长度
-                    runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                    {
+<pre class="line-numbers language-none"><code class="language-none">while (true)
+                &#123;
+                    final byte[] buffer &#x3D; new byte[1024];&#x2F;&#x2F;创建接收缓冲区
+                   InputStream inputStream &#x3D; socket.getInputStream();
+                    final int len &#x3D; inputStream.read(buffer);&#x2F;&#x2F;数据读出来，并且返回数据的长度
+                    runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                    &#123;
                         public void run()
-                        {
-                            // TODO Auto-generated method stub
+                        &#123;
+                            &#x2F;&#x2F; TODO Auto-generated method stub
                             text1.append(new String(buffer,0,len)+&quot;\r\n&quot;);
-                        }
-                    });    }
-</code></pre>
+                        &#125;
+                    &#125;);	&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="4-通过输出流发送消息"><a href="#4-通过输出流发送消息" class="headerlink" title="4.通过输出流发送消息"></a>4.通过输出流发送消息</h2><p>  通过输出流的write()方法将消息发送到客户端</p>
-<pre><code>os = socket.getOutputStream();
-                String text=&quot;我是服务器&quot;;
-                os.write(text.getBytes());
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">os &#x3D; socket.getOutputStream();
+                String text&#x3D;&quot;我是服务器&quot;;
+                os.write(text.getBytes());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>下面实现通过Edittext发送输入的内容</p>
-<pre><code> fasong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(connectThread.socket!=null){
-                String a=fasong_text.getText().toString();
+<pre class="line-numbers language-none"><code class="language-none">fasong.setOnClickListener(new View.OnClickListener() &#123;
+           @Override
+           public void onClick(View v) &#123;
+               if(connectThread.socket!&#x3D;null)&#123;
+               String a&#x3D;fasong_text.getText().toString();
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            connectThread.os.write(a.getBytes());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
+               new Thread(new Runnable() &#123;
+                   @Override
+                   public void run() &#123;
+                       try &#123;
+                           connectThread.os.write(a.getBytes());
+                       &#125; catch (IOException e) &#123;
+                           e.printStackTrace();
+                       &#125;
+                   &#125;
+               &#125;).start();
 
-            }else{
-                    Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
-                }}
+           &#125;else&#123;
+                   Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
+               &#125;&#125;
 
-        });
-</code></pre>
+       &#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h2><p><strong>注意，由于模拟器的原因，模拟器ip无法作为tcp服务器被访问，所以这一部分测试只能在真机上进行。</strong><br>经过测试，服务器可以正常地和客户端进行通信。<br>这里偷点懒，放一张界面图，懒得再截真机测试的图片了。<br><img src="https://img-blog.csdnimg.cn/20210321165721149.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54aWhhbmh1aQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h2 id="6-源代码"><a href="#6-源代码" class="headerlink" title="6.源代码"></a>6.源代码</h2><p>xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:orientation=&quot;vertical&quot;
-    tools:context=&quot;.MainActivity&quot;&gt;
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;
+    xmlns:app&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res-auto&quot;
+    xmlns:tools&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;tools&quot;
+    android:layout_width&#x3D;&quot;match_parent&quot;
+    android:layout_height&#x3D;&quot;match_parent&quot;
+    android:orientation&#x3D;&quot;vertical&quot;
+    tools:context&#x3D;&quot;.MainActivity&quot;&gt;
    &lt;EditText
-       android:id=&quot;@+id/fasong_text&quot;
-       android:hint=&quot;请输入要发送的内容&quot;
-       android:layout_width=&quot;wrap_content&quot;
-       android:layout_height=&quot;wrap_content&quot;/&gt;
+       android:id&#x3D;&quot;@+id&#x2F;fasong_text&quot;
+       android:hint&#x3D;&quot;请输入要发送的内容&quot;
+       android:layout_width&#x3D;&quot;wrap_content&quot;
+       android:layout_height&#x3D;&quot;wrap_content&quot;&#x2F;&gt;
     &lt;Button
-        android:text=&quot;发送&quot;
-        android:id=&quot;@+id/fasong&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;/&gt;
+        android:text&#x3D;&quot;发送&quot;
+        android:id&#x3D;&quot;@+id&#x2F;fasong&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;&#x2F;&gt;
     &lt;TextView
-        android:id=&quot;@+id/text1&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;\n&quot;
-        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
-        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;
-        app:layout_constraintRight_toRightOf=&quot;parent&quot;
-        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;
+        android:id&#x3D;&quot;@+id&#x2F;text1&quot;
+        android:layout_width&#x3D;&quot;wrap_content&quot;
+        android:layout_height&#x3D;&quot;wrap_content&quot;
+        android:text&#x3D;&quot;\n&quot;
+        app:layout_constraintBottom_toBottomOf&#x3D;&quot;parent&quot;
+        app:layout_constraintLeft_toLeftOf&#x3D;&quot;parent&quot;
+        app:layout_constraintRight_toRightOf&#x3D;&quot;parent&quot;
+        app:layout_constraintTop_toTopOf&#x3D;&quot;parent&quot; &#x2F;&gt;
 
-&lt;/LinearLayout&gt;
-</code></pre>
+&lt;&#x2F;LinearLayout&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Mainactivity</p>
-<pre><code>public class MainActivity extends AppCompatActivity {
+<pre class="line-numbers language-none"><code class="language-none">public class MainActivity extends AppCompatActivity &#123;
     TextView text1;
     EditText fasong_text;
     ConnectThread connectThread;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) &#123;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Toast.makeText(MainActivity.this,&quot;123&quot;,Toast.LENGTH_SHORT).show();
-        text1=findViewById(R.id.text1);
-        fasong_text=findViewById(R.id.fasong_text);
-        Button fasong=findViewById(R.id.fasong);
+        &#x2F;&#x2F;Toast.makeText(MainActivity.this,&quot;123&quot;,Toast.LENGTH_SHORT).show();
+        text1&#x3D;findViewById(R.id.text1);
+        fasong_text&#x3D;findViewById(R.id.fasong_text);
+        Button fasong&#x3D;findViewById(R.id.fasong);
 
-         connectThread=new ConnectThread();
+         connectThread&#x3D;new ConnectThread();
         connectThread.start();
-   //获取本地ip地址
+   &#x2F;&#x2F;获取本地ip地址
         text1.append(&quot;本地ip地址为：&quot;+getIPAddress()+&quot; 端口号为10000&quot;);
         text1.append(&quot;\n&quot;);
 
 
-        fasong.setOnClickListener(new View.OnClickListener() {
+        fasong.setOnClickListener(new View.OnClickListener() &#123;
             @Override
-            public void onClick(View v) {
-                if(connectThread.socket!=null){
-                String a=fasong_text.getText().toString();
+            public void onClick(View v) &#123;
+                if(connectThread.socket!&#x3D;null)&#123;
+                String a&#x3D;fasong_text.getText().toString();
 
-                new Thread(new Runnable() {
+                new Thread(new Runnable() &#123;
                     @Override
-                    public void run() {
-                        try {
+                    public void run() &#123;
+                        try &#123;
                             connectThread.os.write(a.getBytes());
-                        } catch (IOException e) {
+                        &#125; catch (IOException e) &#123;
                             e.printStackTrace();
-                        }
-                    }
-                }).start();
+                        &#125;
+                    &#125;
+                &#125;).start();
 
-            }else{
+            &#125;else&#123;
                     Toast.makeText(MainActivity.this,&quot;请先建立连接&quot;,Toast.LENGTH_SHORT).show();
-                }}
+                &#125;&#125;
 
-        });
-    }
+        &#125;);
+    &#125;
 
-    /**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*/
-     String getIPAddress() {
-        Context context=MainActivity.this;
-        NetworkInfo info = ((ConnectivityManager) context
+    &#x2F;**获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的*&#x2F;
+     String getIPAddress() &#123;
+        Context context&#x3D;MainActivity.this;
+        NetworkInfo info &#x3D; ((ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
-        if (info != null &amp;&amp; info.isConnected()) {
-            if (info.getType() == ConnectivityManager.TYPE_MOBILE) {//当前使用2G/3G/4G网络
-                try {
-                    //Enumeration&lt;NetworkInterface&gt; en=NetworkInterface.getNetworkInterfaces();
-                    for (Enumeration&lt;NetworkInterface&gt; en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
-                        NetworkInterface intf = en.nextElement();
-                        for (Enumeration&lt;InetAddress&gt; enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
-                            InetAddress inetAddress = enumIpAddr.nextElement();
-                            if (!inetAddress.isLoopbackAddress() &amp;&amp; inetAddress instanceof Inet4Address) {
+        if (info !&#x3D; null &amp;&amp; info.isConnected()) &#123;
+            if (info.getType() &#x3D;&#x3D; ConnectivityManager.TYPE_MOBILE) &#123;&#x2F;&#x2F;当前使用2G&#x2F;3G&#x2F;4G网络
+                try &#123;
+                    &#x2F;&#x2F;Enumeration&lt;NetworkInterface&gt; en&#x3D;NetworkInterface.getNetworkInterfaces();
+                    for (Enumeration&lt;NetworkInterface&gt; en &#x3D; NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) &#123;
+                        NetworkInterface intf &#x3D; en.nextElement();
+                        for (Enumeration&lt;InetAddress&gt; enumIpAddr &#x3D; intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) &#123;
+                            InetAddress inetAddress &#x3D; enumIpAddr.nextElement();
+                            if (!inetAddress.isLoopbackAddress() &amp;&amp; inetAddress instanceof Inet4Address) &#123;
                                 return inetAddress.getHostAddress();
-                            }
-                        }
-                    }
-                } catch (SocketException e) {
+                            &#125;
+                        &#125;
+                    &#125;
+                &#125; catch (SocketException e) &#123;
                     e.printStackTrace();
-                }
-            } else if (info.getType() == ConnectivityManager.TYPE_WIFI) {//当前使用无线网络
-                WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-                //调用方法将int转换为地址字符串
-                String ipAddress = intIP2StringIP(wifiInfo.getIpAddress());//得到IPV4地址
+                &#125;
+            &#125; else if (info.getType() &#x3D;&#x3D; ConnectivityManager.TYPE_WIFI) &#123;&#x2F;&#x2F;当前使用无线网络
+                WifiManager wifiManager &#x3D; (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+                WifiInfo wifiInfo &#x3D; wifiManager.getConnectionInfo();
+                &#x2F;&#x2F;调用方法将int转换为地址字符串
+                String ipAddress &#x3D; intIP2StringIP(wifiInfo.getIpAddress());&#x2F;&#x2F;得到IPV4地址
                 return ipAddress;
-            }
-        } else {
-            //当前无网络连接,请在设置中打开网络
-        }
+            &#125;
+        &#125; else &#123;
+            &#x2F;&#x2F;当前无网络连接,请在设置中打开网络
+        &#125;
         return null;
-    }
-    /**
+    &#125;
+    &#x2F;**
      * 将得到的int类型的IP转换为String类型
      * @param ip
      * @return
-     */
-     String intIP2StringIP(int ip) {
+     *&#x2F;
+     String intIP2StringIP(int ip) &#123;
         return (ip &amp; 0xFF) + &quot;.&quot; +
                 ((ip &gt;&gt; 8) &amp; 0xFF) + &quot;.&quot; +
                 ((ip &gt;&gt; 16) &amp; 0xFF) + &quot;.&quot; +
                 (ip &gt;&gt; 24 &amp; 0xFF);
-    }
-    class ConnectThread extends Thread{
+    &#125;
+    class ConnectThread extends Thread&#123;
         OutputStream os;
         Socket socket;
         @Override
-        public void run() {
-            try {
+        public void run() &#123;
+            try &#123;
 
-                // 1.新建ServerSocket对象，创建指定端口的连接
-                ServerSocket serverSocket = new ServerSocket(10000);
+                &#x2F;&#x2F; 1.新建ServerSocket对象，创建指定端口的连接
+                ServerSocket serverSocket &#x3D; new ServerSocket(10000);
 
-                // 2.进行监听
-                socket = serverSocket.accept();// 开始监听10000端口，并接收到此套接字的连接。
-                // 3.拿到输入流（客户端发送的信息就在这里）
+                &#x2F;&#x2F; 2.进行监听
+                socket &#x3D; serverSocket.accept();&#x2F;&#x2F; 开始监听10000端口，并接收到此套接字的连接。
+                &#x2F;&#x2F; 3.拿到输入流（客户端发送的信息就在这里）
 
                 Log.i(&quot;a&quot;,&quot;连接成功&quot;);
-                 os = socket.getOutputStream();
-                String text=&quot;我是服务器&quot;;
+                 os &#x3D; socket.getOutputStream();
+                String text&#x3D;&quot;我是服务器&quot;;
                 os.write(text.getBytes());
 
                 while (true)
-                {
-                    final byte[] buffer = new byte[1024];//创建接收缓冲区
-                   InputStream inputStream = socket.getInputStream();
-                    final int len = inputStream.read(buffer);//数据读出来，并且返回数据的长度
-                    runOnUiThread(new Runnable()//不允许其他线程直接操作组件，用提供的此方法可以
-                    {
+                &#123;
+                    final byte[] buffer &#x3D; new byte[1024];&#x2F;&#x2F;创建接收缓冲区
+                   InputStream inputStream &#x3D; socket.getInputStream();
+                    final int len &#x3D; inputStream.read(buffer);&#x2F;&#x2F;数据读出来，并且返回数据的长度
+                    runOnUiThread(new Runnable()&#x2F;&#x2F;不允许其他线程直接操作组件，用提供的此方法可以
+                    &#123;
                         public void run()
-                        {
-                            // TODO Auto-generated method stub
+                        &#123;
+                            &#x2F;&#x2F; TODO Auto-generated method stub
                             text1.append(new String(buffer,0,len)+&quot;\r\n&quot;);
-                        }
-                    });    }
+                        &#125;
+                    &#125;);	&#125;
 
 
-                // 关闭输入流
-               // socket.shutdownInput();
+                &#x2F;&#x2F; 关闭输入流
+               &#x2F;&#x2F; socket.shutdownInput();
 
 
 
-                /*os.flush();
-                // 关闭输出流
+                &#x2F;*os.flush();
+                &#x2F;&#x2F; 关闭输出流
                 socket.shutdownOutput();
                 os.close();
 
-                // 关闭IO资源
+                &#x2F;&#x2F; 关闭IO资源
                 bufReader.close();
                 reader.close();
                 is.close();
 
-                socket.close();// 关闭socket
-                serverSocket.close();// 关闭ServerSocket*/
+                socket.close();&#x2F;&#x2F; 关闭socket
+                serverSocket.close();&#x2F;&#x2F; 关闭ServerSocket*&#x2F;
 
-            } catch (IOException e) {
+            &#125; catch (IOException e) &#123;
                 e.printStackTrace();
-            } catch (Exception e) {
+            &#125; catch (Exception e) &#123;
                 e.printStackTrace();
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
-}
-</code></pre>
-<h2 id="7-参考文章"><a href="#7-参考文章" class="headerlink" title="7.参考文章"></a>7.参考文章</h2><p><a href="https://blog.csdn.net/chenxihanhui/article/details/115050849" target="_blank" rel="noopener">Android实现TCP客户端</a><br><a href="https://blog.csdn.net/pingping_010/article/details/86527609" target="_blank" rel="noopener">Android网络编程之–Socket编程</a><br><a href="https://www.jb51.net/article/153245.htm" target="_blank" rel="noopener">Android获得设备状态信息、Mac地址、IP地址的方法</a><br><a href="https://blog.csdn.net/lyndon_li/article/details/82263172?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160611526819725225053660%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=160611526819725225053660&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-82263172.first_rank_ecpm_v3_pc_rank_v2&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF&spm=1018.2118.3001.4449" target="_blank" rel="noopener">Android 一步步实现TCP客户端</a></p>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="7-参考文章"><a href="#7-参考文章" class="headerlink" title="7.参考文章"></a>7.参考文章</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenxihanhui/article/details/115050849">Android实现TCP客户端</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/pingping_010/article/details/86527609">Android网络编程之–Socket编程</a><br><a target="_blank" rel="noopener" href="https://www.jb51.net/article/153245.htm">Android获得设备状态信息、Mac地址、IP地址的方法</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyndon_li/article/details/82263172?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160611526819725225053660%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=160611526819725225053660&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-82263172.first_rank_ecpm_v3_pc_rank_v2&utm_term=android%20tcp%E5%AE%A2%E6%88%B7%E7%AB%AF&spm=1018.2118.3001.4449">Android 一步步实现TCP客户端</a></p>
 
                 
             </div>
@@ -1373,7 +1373,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.8k</span>&nbsp;字
+                class="white-color">29.6k</span>&nbsp;字
             
             
             
