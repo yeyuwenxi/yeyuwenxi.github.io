@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeyuwenxi.github.io/2021/04/25/android-shi-xian-mqtt-ke-hu-duan/</loc>
+    
+    <lastmod>2021-04-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yeyuwenxi.github.io/2021/04/25/mqtt-fu-wu-qi-de-da-jian/</loc>
     
     <lastmod>2021-04-25</lastmod>
@@ -327,6 +334,13 @@
   
   <url>
     <loc>http://yeyuwenxi.github.io/tags/mqtt/</loc>
+    <lastmod>2021-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yeyuwenxi.github.io/tags/Android/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
