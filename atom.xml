@@ -50,15 +50,16 @@
     <link href="http://yeyuwenxi.github.io/2021/04/27/chang-yong-pai-xu-suan-fa-zong-jie/"/>
     <id>http://yeyuwenxi.github.io/2021/04/27/chang-yong-pai-xu-suan-fa-zong-jie/</id>
     <published>2021-04-27T13:29:49.000Z</published>
-    <updated>2021-05-03T09:21:09.127Z</updated>
+    <updated>2021-05-17T07:19:26.471Z</updated>
     
-    <content type="html"><![CDATA[<p>总结一些常用的排序算法。</p>]]></content>
+    <content type="html"><![CDATA[<p>总结一些常用的排序算法。</p><p>先定义一个数组用来进行接下来的排序</p><pre class="line-numbers language-none"><code class="language-none">int num[] &#x3D; &#123; 4,9,7,15,67,89,97,123,468,12,34,76,8,9,4,1,80,100 &#125;;&#x2F;&#x2F;获取数组长度int length;length &#x3D; sizeof(num) &#x2F; sizeof(int);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>以下皆为从小到大的排序</p><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><pre class="line-numbers language-none"><code class="language-none">for (int i &#x3D; 0; i &lt; length - 1; i++) &#123;for (int j &#x3D; 0; j &lt; length - 1-i; j++) &#123;if (num[j] &gt; num[j + 1]) &#123;int t &#x3D; num[j];num[j] &#x3D; num[j + 1];num[j + 1] &#x3D; t;&#125;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><pre class="line-numbers language-none"><code class="language-none">for (int i &#x3D; 0; i &lt; length; i++) &#123;int min &#x3D; num[i];for (int j &#x3D; i; j &lt; length; j++) &#123;if (min &gt; num[j]) &#123;int t &#x3D; min;min &#x3D; num[j];num[j] &#x3D; t;&#125;&#125;num[i] &#x3D; min;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;先定义一个交换函数void exchange(int* p, int* q) &#123;int temp &#x3D; *p;*p &#x3D; *q;*q &#x3D; temp;&#125;int quaipai(int left, int right) &#123;&#x2F;&#x2F;双指针相遇，排序结束if (left &gt;&#x3D; right) &#123;return 0;&#125;int i,j, t;&#x2F;&#x2F;左右指针及基准i &#x3D; left;j &#x3D; right;t &#x3D; num[left];&#x2F;&#x2F;移动函数while (i !&#x3D; j) &#123;while (i &lt; j &amp;&amp; num[j] &gt;&#x3D; t) &#123;j--;&#125;exchange(&amp;num[i], &amp;num[j]);        while (i &lt; j &amp;&amp; num[i] &lt;&#x3D; t) &#123;i++;                                     &#125;exchange(&amp;num[i], &amp;num[j]);&#125;&#x2F;&#x2F;递归此过程quaipai(i + 1, right);quaipai(left, i - 1);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;总结一些常用的排序算法。&lt;/p&gt;
-</summary>
+&lt;p&gt;先定义一个数组用来进行接下来的排序&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;int num[] &amp;#x3D; &amp;#123; 4,9</summary>
       
     
     
