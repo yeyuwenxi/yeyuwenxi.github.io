@@ -122,7 +122,7 @@
     <link href="http://yeyuwenxi.github.io/2021/04/27/c-stl-xue-xi-bi-ji/"/>
     <id>http://yeyuwenxi.github.io/2021/04/27/c-stl-xue-xi-bi-ji/</id>
     <published>2021-04-27T13:02:25.000Z</published>
-    <updated>2021-04-27T13:27:03.930Z</updated>
+    <updated>2021-05-03T09:20:56.216Z</updated>
     
     <content type="html"><![CDATA[<p>最近开始刷leetcode了，发现很多题目还是有现成的数据结构和相关方法比较好，c语言啥都自己造太费劲了。<br>Java有些东西太啰嗦了，自己也不是特别熟练，还是C/C++用的比较顺手，于是打算学学C++的STL模板库。<br>写个帖子，做一些记录。</p><h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>见得最多的容器，还是数vector.<br>vector可以看做是一个动态的数组。</p><ul><li>常见用法<br>初始化<br>vector<int> a;<br>a.size();<br>a.empty();</li></ul><h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><p>queue<int> a;<br>a.pop();<br>a.push(x);<br>a.front();<br>a.empty();<br>a.size();</p><h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p>stack<int> a;<br>a.pop();<br>a.push(x);<br>a.top();<br>a.empty();<br>a.size();</p>]]></content>
     
@@ -189,9 +189,9 @@
     <category term="mqtt" scheme="http://yeyuwenxi.github.io/categories/mqtt/"/>
     
     
-    <category term="mqtt" scheme="http://yeyuwenxi.github.io/tags/mqtt/"/>
-    
     <category term="Android" scheme="http://yeyuwenxi.github.io/tags/Android/"/>
+    
+    <category term="mqtt" scheme="http://yeyuwenxi.github.io/tags/mqtt/"/>
     
   </entry>
   
