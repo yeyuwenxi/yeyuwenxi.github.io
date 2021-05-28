@@ -6,7 +6,7 @@
   <link href="http://yeyuwenxi.github.io/atom.xml" rel="self"/>
   
   <link href="http://yeyuwenxi.github.io/"/>
-  <updated>2021-05-24T08:57:41.742Z</updated>
+  <updated>2021-05-28T09:08:28.609Z</updated>
   <id>http://yeyuwenxi.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一次PCB打板</title>
+    <link href="http://yeyuwenxi.github.io/2021/05/28/di-yi-ci-pcb-da-ban/"/>
+    <id>http://yeyuwenxi.github.io/2021/05/28/di-yi-ci-pcb-da-ban/</id>
+    <published>2021-05-28T08:41:34.000Z</published>
+    <updated>2021-05-28T09:08:28.609Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一下第一次打PCB板。<br>虽然之前用AD画过原理图和PCB版图，但还一直没有真正打过板，碰巧捷配在搞活动，每月领券免费打板，就试着打了一次PCB板。<br>第一次打板，没搞什么特别复杂的电路，一是怕出错，二是手上没有特别多的器件可以焊在PCB板上验证。<br>这次板子主要就是一个简单的流水灯和4x4的矩阵键盘，自己手动画了画四角按键的封装。<br>画完之后就向捷配上传了工程文件和生产文件，几天后收到了板子，没想到的是居然发了六块。<br>下面直接放图</p><ul><li>PCB板<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210528_1.jpg" width="60%" height="60%" style="transform:rotate(270deg)"   ></li><li>焊接成品<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210528_2.jpg" width="60%" height="60%" style="transform:rotate(270deg)"></li></ul><p>总的来说，这次打板还是比较成功的，当然也有一些小细节做的不是很好</p><ul><li>流水灯和矩阵按键的接口排针放在了两侧，相对来说还是放在一侧比较好。</li><li>矩阵键盘行与行之间间隙略大</li><li>布线不是特别好看</li><li>流水灯其实可以放8个的，比6个更好写程序</li></ul><p>另外本次打板没有铺铜，主要是没有确定的地，也没有哪个网络比其他网络要大很多。问了一些专业人士，简单的二层板不铺铜的话，也没有特别大的影响。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;记录一下第一次打PCB板。&lt;br&gt;虽然之前用AD画过原理图和PCB版图，但还一直没有真正打过板，碰巧捷配在搞活动，每月领券免费打板，就试着打了一次PCB板。&lt;br&gt;第一次打板，没搞什么特别复杂的电路，一是怕出错，二是手上没有特别多的器件可以焊在PCB板上验证。&lt;br&gt;这次板</summary>
+      
+    
+    
+    
+    <category term="PCB" scheme="http://yeyuwenxi.github.io/categories/PCB/"/>
+    
+    
+    <category term="PCB" scheme="http://yeyuwenxi.github.io/tags/PCB/"/>
+    
+    <category term="矩阵键盘" scheme="http://yeyuwenxi.github.io/tags/%E7%9F%A9%E9%98%B5%E9%94%AE%E7%9B%98/"/>
+    
+  </entry>
   
   <entry>
     <title>esp32入门</title>
@@ -492,32 +518,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;第一章-系统整体概述&quot;&gt;&lt;a href=&quot;#第一章-系统整体概述&quot; class=&quot;headerlink&quot; title=&quot;第一章 系统整体概述&quot;&gt;&lt;/a&gt;第一章 系统整体概述&lt;/h3&gt;&lt;p&gt;本次实验模块将通过矩阵键盘来控制字符的显示输出，分别采用了LED数码显示管及</summary>
-      
-    
-    
-    
-    <category term="51单片机" scheme="http://yeyuwenxi.github.io/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-    
-    <category term="单片机" scheme="http://yeyuwenxi.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-    <category term="汇编" scheme="http://yeyuwenxi.github.io/tags/%E6%B1%87%E7%BC%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>51单片机最小系统</title>
-    <link href="http://yeyuwenxi.github.io/2021/04/11/51-dan-pian-ji-zui-xiao-xi-tong/"/>
-    <id>http://yeyuwenxi.github.io/2021/04/11/51-dan-pian-ji-zui-xiao-xi-tong/</id>
-    <published>2021-04-11T11:47:56.000Z</published>
-    <updated>2021-04-11T14:49:24.770Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="第一章-系统整体概述"><a href="#第一章-系统整体概述" class="headerlink" title="第一章 系统整体概述"></a>第一章 系统整体概述</h3><p>单片机最小系统就是能够使单片机正常工作的完整的最小的电路系统。构成80C51单片机最小系统包括电源电路、时钟电路、复位电路以及51单片机。<br>对单片机的I/O口读写操作是单片机最基本的使用方法。本次设计利用51单片机的I/O口驱动点亮LED灯，使LED灯闪烁。</p><ul><li>电源电路：80C51单片机常用的电源直流5v电源.选用电源时要选用波纹小，电压稳定的电源。</li><li>时钟电路：最小系统采用11.0592MHz晶振，30pF电容。</li><li>复位电路：复位是单片机的初始化操作。单片机运行时，都需要先复位，<br>使CPU和系统中其他部件处于一个确定的初始状态，并从这个状态开始工作。因而，复位是一个很重要的操作方式。当单片机稳定，RST保持两个机器周期以上的高电平时自动复位。但单片机本身是不能自动进行复位的，必须配合相应的外部电路才能实现。上电或开关复位要求电源接通后，单片机自动复位，并且在单片机运行期间，用开关操作也能使单片机复位。本次设计采用了外部电路进行上电复位，单片机供电时会自行复位。<h3 id="第二章-硬件设计与实现"><a href="#第二章-硬件设计与实现" class="headerlink" title="第二章 硬件设计与实现"></a>第二章 硬件设计与实现</h3></li></ul><p>1.准备电路元器件及焊接工具：STC89C51RC芯片一个、IC插座、40p排针1个、11.0592MHz晶振一个、30pF瓷片电容2个、10uF电解电容一个、1kΩ电阻一个、10kΩ电阻一个、LED灯一个、7*9cm洞洞板一个、电源线、下载器，电烙铁、焊锡丝等。<br>2.焊接电路板：按照设计好的原理图进行焊接<br>3.调试：下载程序，测试LED灯是否闪烁。</p><ul><li>自己焊接制作的电源<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_1.jpg" width="60%" height="60%"></li><li>单片机最小系统<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_2.jpg" width="60%" height="60%"></li></ul><h3 id="第三章-软件设计与编程"><a href="#第三章-软件设计与编程" class="headerlink" title="第三章 软件设计与编程"></a>第三章 软件设计与编程</h3><p>1.编写代码：利用keil软件进行编程，本次设计使用了汇编语言来进行编写<br>2.设计仿真电路图：参考书上给出的电路图并且适当修改，将电源、时钟电路、复位电路、51单片机、LED灯正确连接。电源选用+5v，晶振选用11.0592MHz，时钟电路选用30pF电容，复位电路选用10kΩ电阻、10uF电容，LED灯串联一个1kΩ电阻接在P1.0引脚，电阻的作用为保护电路,防止led灯被击穿。<br>3.仿真调试：用proteus进行仿真测试，将事先编好的程序导入51单片机中，以测试程序是否符合LED灯闪烁的要求。</p><ul><li>编程<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_3.jpg"></li><li>Proteus 仿真电路图<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_4.jpg"><h3 id="第四章-作品调试与分析"><a href="#第四章-作品调试与分析" class="headerlink" title="第四章 作品调试与分析"></a>第四章 作品调试与分析</h3></li></ul><p>1.用proteus进行仿真时出现了led灯不亮的情况，我反复检查自己编写的程序和设计的电路，都没有发现问题，最后重头做了一遍才发现原来时晶振的频率写成了11.0592Hz。<br>2.使用烧录程序进行烧录时，烧录软件显示握手失败，于是我更新了驱动和烧录软件的版本，最后成功地把程序烧录进了单片机。<br>3.第一次通电观测时，发现led灯闪烁过快，于是我修改了程序，将闪烁频率调低了一些。<br>4.在最小系统的基础上，我又自己焊接制作了利用单片机实现的流水灯。</p><ul><li>软件<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_5.jpg"></li><li>硬件<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_6.jpg" width="60%" height="60%"></li></ul><h3 id="第五章-制作感受"><a href="#第五章-制作感受" class="headerlink" title="第五章 制作感受"></a>第五章 制作感受</h3><p>本次制作的51单片机最小系统是让单片机能正常工作并发挥其功能的时所必需的组成部分。从电路设计到电路焊接整个过程，我学会了Keil和proteus两个软件的基本使用方法，对汇编语言以及单片机的仿真有了初步认识。<br>第一次自己挑选购买元器件，第一次进行汇编语言的编程，第一次使用电烙铁进行焊接，第一次烧录单片机……整个实验过程都充满了新奇，充满了兴趣，更重要的是，自己通过这个过程，收获了更多新的技能，对单片机有了更加深入而全面的认识，为以后的理论学习和课程实践打下了一个稳健的基础。<br>虽然在整个设计制作中遇到了很多困难与挫折，自己也常常被一些小问题而困扰，但当自己从百思不得其解中顿悟时，所有的烦恼与困惑都变成了兴奋与激动，就觉得所有的努力和付出在看到自己的成果时都是值得的。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;第一章-系统整体概述&quot;&gt;&lt;a href=&quot;#第一章-系统整体概述&quot; class=&quot;headerlink&quot; title=&quot;第一章 系统整体概述&quot;&gt;&lt;/a&gt;第一章 系统整体概述&lt;/h3&gt;&lt;p&gt;单片机最小系统就是能够使单片机正常工作的完整的最小的电路系统。构成80C51</summary>
       
     
     
