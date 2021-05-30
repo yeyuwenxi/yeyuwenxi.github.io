@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="AD之PCB画板初探, 夜雨闻曦">
+    <meta name="keywords" content="STM32实现矩阵键盘, 夜雨闻曦">
     <meta name="description" content="在读大学生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>AD之PCB画板初探 | 夜雨闻曦</title>
+    <title>STM32实现矩阵键盘 | 夜雨闻曦</title>
     <link rel="icon" type="image/png" href="/heart.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">AD之PCB画板初探</h1>
+                    <h1 class="description center-align post-title">STM32实现矩阵键盘</h1>
                 </div>
             </div>
         </div>
@@ -454,12 +454,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/PCB/">
-                                <span class="chip bg-color">PCB</span>
+                            <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                                <span class="chip bg-color">单片机</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">
-                                <span class="chip bg-color">数字电路</span>
+                            <a href="/tags/%E7%9F%A9%E9%98%B5%E9%94%AE%E7%9B%98/">
+                                <span class="chip bg-color">矩阵键盘</span>
                             </a>
                         
                     </div>
@@ -470,8 +470,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/PCB/" class="post-category">
-                                PCB
+                            <a href="/categories/STM32%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                STM32单片机
                             </a>
                         
                     </div>
@@ -483,28 +483,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-15
+                    2021-05-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-16
+                    2021-05-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    615
+                    933
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -522,36 +522,129 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近由于选修课的要求，速成了一波AD，这两天完成了自己的第一个PCB板的绘制。</p>
-<h3 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h3><p>1.三个开关控制一盏灯<br>2.使用按钮实现开关的功能</p>
-<h3 id="实验思路"><a href="#实验思路" class="headerlink" title="实验思路"></a>实验思路</h3><p>1.三个开关控制一盏灯，算是比较基础的数电问题了，这里我采用了74LS86（异或门）来实现这一逻辑功能。</p>
-<p>2.按钮实现开关的功能，这一点我上网查资料发现都是采用模拟电路实现的，采用电容充放电实现开关的功能，电路较为复杂，实现原理也较为复杂，这里就不讲了。</p>
-<p>分享一篇文章，有兴趣的可以自己看看<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1603206971622118062&wfr=spider&for=pc&qq-pf-to=pcqq.group">点按式轻触开关如何实现自锁轻触开关带锁按键开关功能？</a><br>3.后来想了想，还是采用数字电路实现比较简单，通过JK触发器的电平翻转来实现电路开关的功能，最后通过带JK触发器的74LS109实现了这一功能。</p>
-<h3 id="PCB绘制流程"><a href="#PCB绘制流程" class="headerlink" title="PCB绘制流程"></a>PCB绘制流程</h3><p>1.原理图库的绘制<br>由于官方封装库中的门电路芯片都是只显示部分的，所以这里我自己绘制了74LS86和74LS109芯片的原理图。</p>
-<ul>
-<li>74LS86<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210416_1.png" ></li>
-<li>74LS109<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210416_1.png" ></li>
-</ul>
-<p>2.原理图的绘制</p>
-<ul>
-<li>原理图<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210416_4.png" ></li>
-</ul>
-<p><strong>ps:</strong> 经老师提醒，原理图中按钮部分存在问题，TTL芯片悬空时为高电平，所以芯片的CLK端口需要接一个下拉电阻。</p>
-<p>3.PCB封装库的绘制<br>这里偷了点懒，直接采用了TI官方的封装库。</p>
-<ul>
-<li>D014_N封装<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210416_3.png" ></li>
-</ul>
-<p>4.PCB图的绘制</p>
-<p>这一步才算是到了PCB绘制的核心部分。</p>
-<h4 id="器件摆放"><a href="#器件摆放" class="headerlink" title="器件摆放"></a>器件摆放</h4><p>AD会将原理图中用到所有器件直接转移到PCB文件中，我们需要将各个器件以合适的位置摆放好。</p>
-<h4 id="布线"><a href="#布线" class="headerlink" title="布线"></a>布线</h4><p>AD有自动布线功能，但还是推荐手动布线。<br>布线拐角采用钝角，降低电磁干扰。<br>多层板可能需要过孔，将各个板层进行电气连接。</p>
-<h4 id="铺铜"><a href="#铺铜" class="headerlink" title="铺铜"></a>铺铜</h4><p>将没有导线的地方铺铜，提高抗干扰能力。</p>
-<h4 id="丝印"><a href="#丝印" class="headerlink" title="丝印"></a>丝印</h4><p>添加需要的标记符号和个性化定制文字内容。</p>
-<h4 id="版型设计"><a href="#版型设计" class="headerlink" title="版型设计"></a>版型设计</h4><p>对PCB板进行裁剪，打定位孔等操作，推荐矩形版型。</p>
-<ul>
-<li>最后贴上我的第一个PCB板<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210416_5.png" >
-(空白处有姓名等相关信息，已打码)</li>
-</ul>
+                <p>最近打了块矩阵按键的PCB板，焊完之后，打算写段代码，用STM32的单片机试试。<br>虽然没用32的单片机写过矩阵键盘的代码，但感觉不就是线反转法分别扫描行和列吗，也没啥难度，写的过程中才发现遇到了点问题。<br>相比于51单片机，32的io口是要考虑io方向和io模式的。<br>自己参考网上的一个例子写的代码，没想到被误导了，将4个io口设为上拉输入，另外4个io口设为下拉输入，按键按下的时候先检测行，再检测列，没想到遇到了点莫名奇妙的问题，不管怎么接线，总有两行按键检测不到。<br>于是我怀疑是不是io模式的问题，上拉输入和下拉输入接在一起，产生的情况可能是无法预测的。<br>我修改io模式为4个下拉输入，另外4个推挽输出高电平之后，果然解决了这一问题。<br>对于某些细节方面的东西，有时候还是不能想当然地认为会怎么样啊。</p>
+<h3 id="下附代码"><a href="#下附代码" class="headerlink" title="下附代码"></a>下附代码</h3><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;低四位输出高，高四位下拉输入
+void KEY_Init1(void)
+&#123;
+	
+	GPIO_InitTypeDef  GPIO_InitStructure1;
+GPIO_InitTypeDef  GPIO_InitStructure2;
+
+  	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	 
+	GPIO_InitStructure1.GPIO_Pin &#x3D; GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3;	 
+ 	GPIO_InitStructure1.GPIO_Mode &#x3D; GPIO_Mode_Out_PP; 		 
+	GPIO_InitStructure1.GPIO_Speed &#x3D; GPIO_Speed_50MHz;
+ 	GPIO_Init(GPIOA, &amp;GPIO_InitStructure1);	  
+ 		GPIO_SetBits(GPIOA,GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3);
+
+
+  	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	 
+	GPIO_InitStructure2.GPIO_Pin &#x3D; GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7;	 
+ 	GPIO_InitStructure2.GPIO_Mode &#x3D; GPIO_Mode_IPD; 		 
+	GPIO_InitStructure2.GPIO_Speed &#x3D; GPIO_Speed_50MHz;
+ 	GPIO_Init(GPIOA, &amp;GPIO_InitStructure2);	
+&#125; 
+&#x2F;&#x2F;低四位下拉输入，高四位输出高
+void KEY_Init2(void)
+&#123;
+	
+	GPIO_InitTypeDef  GPIO_InitStructure1;
+
+ 		GPIO_InitTypeDef  GPIO_InitStructure2;
+
+  	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	 
+	GPIO_InitStructure1.GPIO_Pin &#x3D; GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3;	 
+ 	GPIO_InitStructure1.GPIO_Mode &#x3D; GPIO_Mode_IPD; 		 
+	GPIO_InitStructure1.GPIO_Speed &#x3D; GPIO_Speed_50MHz;
+ 	GPIO_Init(GPIOA, &amp;GPIO_InitStructure1);	
+  
+  	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	 
+	GPIO_InitStructure2.GPIO_Pin &#x3D; GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7;	 
+ 	GPIO_InitStructure2.GPIO_Mode &#x3D; GPIO_Mode_Out_PP; 		 
+	GPIO_InitStructure2.GPIO_Speed &#x3D; GPIO_Speed_50MHz;
+ 	GPIO_Init(GPIOA, &amp;GPIO_InitStructure2);	
+	GPIO_SetBits(GPIOA,GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7);
+&#125; 
+&#x2F;&#x2F;函数名：扫描函数
+&#x2F;&#x2F;返回值：有效键值或-1
+&#x2F;&#x2F;功能：矩阵按键扫描，返回一个值
+short KeyPad_Scan(void)
+&#123;
+	short num &#x3D; -1; &#x2F;&#x2F;保持按键值返回
+	
+	u16 readvalue &#x3D; 0;
+	u16 re&#x3D;0;
+	u16 re1&#x3D;0;
+	u16 re2&#x3D;0;
+	KEY_Init1();					&#x2F;&#x2F;低4位引脚输出高，高4位引脚下拉输入
+	readvalue &#x3D; GPIO_ReadInputData(GPIOA);	&#x2F;&#x2F;读GPIOA引脚电平
+	readvalue &amp;&#x3D; 0x00ff;				&#x2F;&#x2F;保留低8位的值（PA7-PA0）
+	if(readvalue !&#x3D; 0x000f) 				&#x2F;&#x2F;高4位引脚有一个被按下
+	&#123;
+		delay_ms(10);&#x2F;&#x2F;消抖10ms
+		readvalue &#x3D; GPIO_ReadInputData(GPIOA);	&#x2F;&#x2F;读GPIOA引脚电平
+		readvalue &amp;&#x3D; 0x00ff;
+		if(readvalue !&#x3D; 0x000f)
+		&#123;
+			re1 &#x3D; GPIO_ReadInputData(GPIOA);	&#x2F;&#x2F;再次读取状态
+			re1 &amp;&#x3D; 0x00f0;  				&#x2F;&#x2F;保留PA4-PA7的值
+
+			KEY_Init2();  				&#x2F;&#x2F;低4位引脚下拉输入，高4位输出高
+			delay_ms(10);
+			re2 &#x3D; GPIO_ReadInputData(GPIOA);	&#x2F;&#x2F;再次读取状态
+			re2 &amp;&#x3D; 0x000f;				&#x2F;&#x2F;保留PA0-PA3的值
+			
+			while((GPIO_ReadInputData(GPIOA)&amp;0x00ff)!&#x3D;0x00f0);
+			&#x2F;&#x2F;等待按键松开
+			
+			re&#x3D;re1|re2;					&#x2F;&#x2F;取或，就知道哪一行哪一列被按下啦
+			
+			switch(re)
+			&#123;
+			case 0x0011: num &#x3D; 12;break;  
+			case 0x0012: num &#x3D; 8;break;  
+			case 0x0014: num &#x3D; 4;break; 
+			case 0x0018: num &#x3D; 0;break;  
+			case 0x0021: num &#x3D; 13;break;  
+			case 0x0022: num &#x3D; 9;break; 
+			case 0x0024: num &#x3D; 5;break;  
+			case 0x0028: num &#x3D; 1;break;  
+			case 0x0041: num &#x3D; 14;break;  
+			case 0x0042: num &#x3D; 10;break;  
+			case 0x0044: num &#x3D; 6;break;  
+			case 0x0048: num &#x3D; 2;break;  
+			case 0x0081: num &#x3D; 15;break;  
+			case 0x0082: num &#x3D; 11;break;  
+			case 0x0084: num &#x3D; 7;break;  
+			case 0x0088: num &#x3D; 3;break;  
+			&#125;
+			return num;
+		&#125;
+	&#125;
+	return -1;
+&#125;
+
+
+int main()&#123;
+	
+	
+	  delay_init();	    	 &#x2F;&#x2F;延时函数初始化	  
+		NVIC_Configuration(); 	 &#x2F;&#x2F;设置NVIC中断分组2:2位抢占优先级，2位响应优先级 	LED_Init();			     &#x2F;&#x2F;LED端口初始化
+	  
+	&#x2F;&#x2F;	OLED_Init();			&#x2F;&#x2F;初始化OLED  
+		&#x2F;&#x2F;OLED_Clear()  	; 
+	 uart_init(115200);	 				&#x2F;&#x2F;串口初始化为115200
+	while(1)&#123;
+		short key&#x3D;0;
+	key&#x3D;KeyPad_Scan();
+		if(key!&#x3D;-1)&#123;
+		printf(&quot;key&#x3D;&quot;);
+	printf(&quot;%d\n&quot;,key);&#125;
+		
+	&#125;
+	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Daniel__Lai/article/details/108916185?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162237210816780271566581%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162237210816780271566581&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-8-108916185.first_rank_v2_pc_rank_v29&utm_term=STM32%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E6%8C%89%E9%94%AE&spm=1018.2226.3001.4187">STM32的矩阵键盘扫描及处理</a></p>
 
                 
             </div>
@@ -578,7 +671,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yeyuwenxi.github.io/2021/04/15/ad-zhi-pcb-hua-ban-chu-tan/">http://yeyuwenxi.github.io/2021/04/15/ad-zhi-pcb-hua-ban-chu-tan/</a>
+                    <a href="http://yeyuwenxi.github.io/2021/05/30/stm32-shi-xian-ju-zhen-jian-pan/">http://yeyuwenxi.github.io/2021/05/30/stm32-shi-xian-ju-zhen-jian-pan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -616,12 +709,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/PCB/">
-                                    <span class="chip bg-color">PCB</span>
+                                <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                                    <span class="chip bg-color">单片机</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">
-                                    <span class="chip bg-color">数字电路</span>
+                                <a href="/tags/%E7%9F%A9%E9%98%B5%E9%94%AE%E7%9B%98/">
+                                    <span class="chip bg-color">矩阵键盘</span>
                                 </a>
                             
                         </div>
@@ -925,17 +1018,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/15/msp432-ru-men-zhi-liu-shui-deng-shi-yan/">
+                <a href="/2021/05/30/stm32-shi-xian-ju-zhen-jian-pan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MSP432入门之流水灯实验">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="STM32实现矩阵键盘">
                         
-                        <span class="card-title">MSP432入门之流水灯实验</span>
+                        <span class="card-title">STM32实现矩阵键盘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -945,21 +1039,22 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MSP432%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
-                                    MSP432单片机
+                            <a href="/categories/STM32%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                    STM32单片机
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -967,8 +1062,8 @@
                         <span class="chip bg-color">单片机</span>
                     </a>
                     
-                    <a href="/tags/MSP432/">
-                        <span class="chip bg-color">MSP432</span>
+                    <a href="/tags/%E7%9F%A9%E9%98%B5%E9%94%AE%E7%9B%98/">
+                        <span class="chip bg-color">矩阵键盘</span>
                     </a>
                     
                 </div>
@@ -982,13 +1077,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/15/bo-ke-yu-ming-da-shang/">
+                <a href="/2021/05/28/di-yi-ci-pcb-da-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="博客域名大赏">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="第一次PCB打板">
                         
-                        <span class="card-title">博客域名大赏</span>
+                        <span class="card-title">第一次PCB打板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -999,14 +1094,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                    博客搭建
+                            <a href="/categories/PCB/" class="post-category">
+                                    PCB
                                 </a>
                             
                             
@@ -1016,8 +1111,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
+                    <a href="/tags/PCB/">
+                        <span class="chip bg-color">PCB</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%9F%A9%E9%98%B5%E9%94%AE%E7%9B%98/">
+                        <span class="chip bg-color">矩阵键盘</span>
                     </a>
                     
                 </div>
