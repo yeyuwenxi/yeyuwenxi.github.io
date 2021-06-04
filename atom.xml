@@ -6,7 +6,7 @@
   <link href="http://yeyuwenxi.github.io/atom.xml" rel="self"/>
   
   <link href="http://yeyuwenxi.github.io/"/>
-  <updated>2021-05-30T10:58:45.486Z</updated>
+  <updated>2021-06-04T13:30:33.205Z</updated>
   <id>http://yeyuwenxi.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>51单片机最小系统pcb板</title>
+    <link href="http://yeyuwenxi.github.io/2021/06/03/51-dan-pian-ji-zui-xiao-xi-tong-pcb-ban/"/>
+    <id>http://yeyuwenxi.github.io/2021/06/03/51-dan-pian-ji-zui-xiao-xi-tong-pcb-ban/</id>
+    <published>2021-06-03T05:34:47.000Z</published>
+    <updated>2021-06-04T13:30:33.205Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近画了块51单片机的最小系统，然后到捷配上把他打了出来。<br>下面直接放图</p><ul><li>原理图<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210603_1.png" ></li><li>PCB正面<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210603_2.jpg" width="60%" height="60%" style="transform:rotate(270deg)"></li><li>PCB背面<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210603_3.jpg" width="60%" height="60%" style="transform:rotate(270deg)">总的来说，板子打的还可以，当然仍然避免不了某些小问题，系统库自己提供的电容封装不是很好，孔距有点大，焊盘有点小，另外布线也不是特别好。### 做个总结PCB画板还是一个比较靠经验的活，各种常见的封装，常见的库，这些都是要靠经验来一步步熟悉的。自己技术方向也不是做硬件，这方面估计也就浅尝辄止了，各种线宽，电磁兼容，信号完整性的东西应该也不会去学，画画板子，更多的还是拓展一下视野，平时有精力，还是应该多学一些软件方面的东西。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近画了块51单片机的最小系统，然后到捷配上把他打了出来。&lt;br&gt;下面直接放图&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;原理图&lt;img src=&quot;https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210603_1.png&quot; </summary>
+      
+    
+    
+    
+    <category term="51单片机" scheme="http://yeyuwenxi.github.io/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+    <category term="单片机" scheme="http://yeyuwenxi.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    <category term="PCB" scheme="http://yeyuwenxi.github.io/tags/PCB/"/>
+    
+  </entry>
   
   <entry>
     <title>STM32实现矩阵键盘</title>
@@ -492,32 +520,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;第一章-系统整体概述&quot;&gt;&lt;a href=&quot;#第一章-系统整体概述&quot; class=&quot;headerlink&quot; title=&quot;第一章 系统整体概述&quot;&gt;&lt;/a&gt;第一章 系统整体概述&lt;/h3&gt;&lt;p&gt;本次单片机温度、压力信息采集与电机控制系统实验是基于模数转换，数模转换，LC</summary>
-      
-    
-    
-    
-    <category term="51单片机" scheme="http://yeyuwenxi.github.io/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-    
-    <category term="单片机" scheme="http://yeyuwenxi.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-    <category term="汇编" scheme="http://yeyuwenxi.github.io/tags/%E6%B1%87%E7%BC%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UART实现51单片机双机串行通信</title>
-    <link href="http://yeyuwenxi.github.io/2021/04/11/uart-shi-xian-51-dan-pian-ji-shuang-ji-chuan-xing-tong-xin/"/>
-    <id>http://yeyuwenxi.github.io/2021/04/11/uart-shi-xian-51-dan-pian-ji-shuang-ji-chuan-xing-tong-xin/</id>
-    <published>2021-04-11T13:39:02.000Z</published>
-    <updated>2021-04-11T14:51:04.992Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="第一章-系统整体概述"><a href="#第一章-系统整体概述" class="headerlink" title="第一章 系统整体概述"></a>第一章 系统整体概述</h3><p>本次单片机双机通讯系统设计实验是通过单片机间的串行通讯控制两个单片机进行通信的设计与制作。一个单片机系统做为发送端，从键盘输入自己的班级和姓名同时显示在 LCD 显示屏上并发送给另外一个单片机，另一个单片机系统作为接收端，把接收到的信息显示在 LCD 显示屏上。通过判断两个单片机系统中LCD屏幕显示的信息是否相同即可判断双机系统之间的串行通讯是否正常进行。<br>本次双机通讯系统采用了串行口方式1进行通讯，一帧信息为10位，其中有一个起始位，8个数据位和1个停止位。通讯的波特率位2400波特，T1工作在定时器方式2，震荡频率选用11.0592MH，通过计算可得TH1=TL1=0F4H,PCON寄存器的SMOD位为0。<br>整个系统的硬件部分是由两个单片机最小系统，两个 LCD 显示屏以及一个矩阵键盘构成。</p><h3 id="第二章-硬件设计与实现"><a href="#第二章-硬件设计与实现" class="headerlink" title="第二章 硬件设计与实现"></a>第二章 硬件设计与实现</h3><p>1.准备电路元器件及焊接工具：STC89C51RC芯片2个、IC插座、40p排针2个、11.0592MHz晶振2个、30pF瓷片电容4个、10uF电解电容2个、排阻一个、电阻若干、LCD1602A显示屏2个、10*15cm洞洞板一个、电源线、杜邦线、下载器、电烙铁、焊锡丝等。<br>2.焊接电路板：按照设计好的原理图进行焊接。<br>3.调试：下载程序，将两个单片机系统进行连接，通过按键测试双机通讯能否正常进行，若通讯正常，则两个单片机西铜所连接的lcd屏幕将随着按键按下而显示相同的字符，若不显示或字符紊乱，则双机通讯存在故障。</p><ul><li>焊接成果图<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_10.jpg" width="60%" height="60%"></li></ul><h3 id="第三章-软件设计与编程"><a href="#第三章-软件设计与编程" class="headerlink" title="第三章 软件设计与编程"></a>第三章 软件设计与编程</h3><p>1.编写代码：利用keil软件进行编程，本次设计使用了汇编语言来进行编写<br>2.设计仿真电路图：将电源、时钟电路、复位电路、51单片机、LED数码管及LCD1602显示屏正确连接。电源选用+5v，晶振选用11.0592MHz，时钟电路选用30pF电容，复位电路选用10kΩ电阻、10uF电容，LED数码管串联470Ω电阻接在P2引脚，电阻的作用为保护电路,防止led灯被击穿，将键盘矩阵接在P0口，LCD1602A的D0-D7接口接在P1口。<br>3.仿真调试：用proteus进行仿真测试，将事先编好的程序导入51单片机中，以测试程序是否能达到目标要求。</p><ul><li>编程</li><li>发送端程序<br>ORG 0000H<br>LJMP MAIN<br>MAIN:<br>RS EQU P3.7<br>RW EQU P3.6<br>E EQU P3.5<br>MOV P1,#00000001B    ;清屏<br>ACALL ENABLE<br>MOV P1,#00111100B    ;  功能设定<br>ACALL ENABLE<br>MOV P1,#00001100B     ; 开关控制<br>ACALL ENABLE<br>MOV P1,#00000110B     ;模式设置<br>ACALL ENABLE<br>MOV P1,#80H<br>ACALL ENABLE<br>MOV R2,#00H<br>MOV DPTR,#TABLE3<br>MOV R1,#00H<br>;OR0:MOV A,R1<br>;MOVC A,@A+DPTR<br>;MOV P2,A<br>;ACALL WRITE<br>;INC R1<br>;CJNE A,#00H,OR0<br>MOV P1,#80H<br>ACALL ENABLE</li></ul><p>ORI:MOV P0,#0FH<br>MOV A,P0<br>CJNE A,#0FH,ORII<br>LJMP ORI<br>ORII:<br>ACALL KEYSCAN<br>MOV A,30H</p><p>ASTART:CLR EA<br>MOV TMOD,#20H<br>MOV TH1,#0F4H<br>MOV TL1,#0F4H<br>MOV PCON,#00H<br>SETB TR1<br>MOV SCON,#50H<br>ALOOP1:MOV SBUF,#0E1H<br>JNB TI,$<br>CLR TI<br>JNB RI,$<br>CLR RI<br>MOV A,SBUF<br>XRL A,#0E2H<br>JNZ ALOOP1</p><p>ALOOP2:MOV R0,#30H<br>;MOV R7,#01H<br>MOV R6,#00H<br>ALOOP3:MOV SBUF,@R0<br>MOV A,R6<br>ADD A,@R0<br>MOV R6,A<br>;INC R0<br>JNB TI,$<br>CLR TI<br>;DJNZ R7,ALOOP3<br>MOV SBUF,R6<br>JNB TI,$<br>CLR TI<br>JNB RI,$<br>CLR RI<br>MOV A,SBUF<br>JNZ ALOOP2<br>;RET</p><p>;MOV P2,#0C0H<br>;ACALL ENABLE<br>MOV A,30H<br>MOV DPTR,#TABLE1<br>MOVC A,@A+DPTR<br>MOV P1,A      ;lcd的显示<br>ACALL WRITE<br>INC R1;<br>CJNE R1,#04H,JISHU<br>MOV P1,#0C0H<br>ACALL ENABLE<br>MOV R1,#05H<br>JISHU:<br>ACALL DELAY</p><p>SJMP ORI</p><p>AJMP $<br>WRITE:SETB RS<br>CLR RW<br>CLR E<br>ACALL DELAY<br>SETB E<br>RET</p><p>ENABLE:CLR RS<br>CLR RW<br>CLR E<br>ACALL DELAY<br>SETB E<br>RET<br>KEYSCAN:MOV P0,#0FH<br>        MOV A,P0<br>ANL A,#0FH<br>MOV R3,A<br>MOV P0,#0F0H<br>MOV A,P0<br>ANL A,#0F0H<br>ORL A,R3<br>CJNE A,#0FFH,KEYPRO<br>RET<br>KEYPRO:MOV R3,A      ;R3放键值<br>       MOV DPTR,#KEYVALUE<br>   MOV R4,#0FFH<br>KEY1:INC R4       ;从1到16查找键值<br>     MOV A,R4    ;R4放偏移量<br> MOVC A,@A+DPTR<br> MOV 31H,R3<br> CJNE A,31H,KEY1  ;判断是否与键值相等<br> MOV A,R4<br> MOV 30H,A<br> RET<br>DELAY:<br>MOV R4,#60<br>D1:MOV R5,#60<br>D2:MOV R6,#30<br>DJNZ R6,$<br>DJNZ R5,D2<br>DJNZ R4,D1<br>RET<br>KEYVALUE: DB 77H,7BH,7DH,7EH,0B7H,0BBH,0BDH,0BEH,0D7H,0DBH,0DDH,0DEH,0E7H,0EBH,0EDH,0EEH<br>TABLE: DB  30H, 31H, 32H, 33H ,34H ,35H ,36H, 37H, 38H, 39H ,41H, 42H, 43H, 44H, 45H, 46H<br>TABLE1:DB ‘1’,’8’,’0’,’3’,’P’,’E’,’N’,’G’,’C’,’H’,’E’,’N’,’L’,’I’,’A’,’G’<br>TABLE2:  DB 0C0H,0F9H,0A4H,0B0H,99H,92H,82H,0F8H,80H,90H,88H,83H,0C6H,0A1H,86H,8EH<br>TABLE3: DB “ PENG CHENLIANG “,00H<br>END</p><ul><li>接收端程序<br>ORG 0000H<br>RS EQU P3.7<br>RW EQU P3.6<br>E EQU P3.5<br>MOV P1,#00000001B    ;清屏<br>ACALL ENABLE<br>MOV P1,#00111100B    ;  功能设定<br>ACALL ENABLE<br>MOV P1,#00001100B     ; 开关控制<br>ACALL ENABLE<br>MOV P1,#00000110B     ;模式设置<br>ACALL ENABLE<br>MOV P1,#80H<br>ACALL ENABLE<br>MOV R1,#00H<br>BSTART:CLR EA<br>MOV TMOD,#20H<br>MOV TH1,#0F4H<br>MOV TL1,#0F4H<br>MOV PCON,#00H<br>SETB TR1<br>MOV SCON,#50H<br>BLOOP1:     JNB RI,$<br>CLR RI<br>MOV A,SBUF<br>XRL A,#0E1H<br>JNZ BLOOP1<br>MOV SBUF,#0E2H<br>JNB TI,$<br>CLR TI<br>MOV R0,#30H<br>;MOV R7,#01H<br>MOV R6,#00H</li></ul><p>BLOOP2:JNB RI,$<br>CLR RI<br>MOV A,SBUF<br>MOV @R0,A<br>;INC R0<br>ADD A,R6<br>MOV R6,A</p><p>;DJNZ R7,BLOOP2</p><p>JNB RI,$<br>CLR RI<br>MOV A,SBUF<br>XRL A,R6</p><p>JZ END1<br>MOV SBUF,#0FFH<br>JNB TI,$<br>CLR TI<br>SJMP BLOOP1<br>END1:MOV SBUF,#00H    </p><p>;MOV P2,#0C0H<br>;ACALL ENABLE<br>MOV A,30H<br>MOV DPTR,#TABLE1<br>MOVC A,@A+DPTR<br>MOV P1,A      ;lcd的显示<br>ACALL WRITE<br>INC R1;<br>CJNE R1,#04H,JISHU<br>MOV P1,#0C0H<br>ACALL ENABLE<br>MOV R1,#05H</p><p>JISHU:LJMP BSTART</p><p>WRITE:SETB RS<br>CLR RW<br>CLR E<br>ACALL DELAY<br>SETB E<br>RET</p><p>ENABLE:CLR RS<br>CLR RW<br>CLR E<br>ACALL DELAY<br>SETB E<br>RET</p><p>DELAY:<br>MOV R4,#60<br>D1:MOV R5,#60<br>D2:MOV R6,#30<br>DJNZ R6,$<br>DJNZ R5,D2<br>DJNZ R4,D1<br>RET<br>KEYVALUE: DB 77H,7BH,7DH,7EH,0B7H,0BBH,0BDH,0BEH,0D7H,0DBH,0DDH,0DEH,0E7H,0EBH,0EDH,0EEH<br>TABLE: DB  30H, 31H, 32H, 33H ,34H ,35H ,36H, 37H, 38H, 39H ,41H, 42H, 43H, 44H, 45H, 46H<br>TABLE1:DB ‘1’,’8’,’0’,’3’,’P’,’E’,’N’,’G’,’C’,’H’,’E’,’N’,’L’,’I’,’A’,’G’<br>TABLE2:  DB 0C0H,0F9H,0A4H,0B0H,99H,92H,82H,0F8H,80H,90H,88H,83H,0C6H,0A1H,86H,8EH<br>TABLE3: DB “ PENG CHENLIANG “,00H<br>END</p><ul><li>Proteus 仿真电路图<img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210411_11.jpg"></li></ul><h3 id="第四章-作品调试与分析"><a href="#第四章-作品调试与分析" class="headerlink" title="第四章 作品调试与分析"></a>第四章 作品调试与分析</h3><p>本次制作的双机通讯系统是在键盘显示模块之后的又一个更加复杂的模块，不得不说双机通讯系统的设计确实比之前的两个模块难了很多难了很多。从发送端与接收端通讯协议的构建，到键盘扫描，键码获取和键码的发送与传输，每一步都存在很多问题，更加麻烦的是，如何把LCD的显示和通讯系统结合起来。<br>虽然硬件部分并没有遇到什么困难，但软件部分通讯协议的构建和通讯系统与LCD显示如何相结合的问题确实很让人困扰。经过反复思考后，在发送端的程序中，我把通讯信息发送的部分放在了键盘扫描的循环中，每按下一次键盘，系统就把扫描到的键码转换为键值，发送给接收端，并在发送端的LCD上把键值显示出来。而在接收端，我把LCD显示的程序放在了通讯接受的循环里，系统每接收到一个字符，就把字符显示到接收端的LCD上。由于每按下一次键盘只显示一个字符，故每次只发送一个字符即可。<br>在LCD显示时我还发现，两个LCDv0口需要的电压居然不一样，起初我还以为是两个LCD颜色不同，所以特性存在些许的差距，后来仔细检查后才发现，原来是两个单片机系统的GND没有接到一起，所以接在两个LCD的v0口接在同一个单片机系统的电位器上并不能正常运行。之后我把两个单片机系统的GND连到了一起，采用同一个电源供电，解决了这一问题。</p><h3 id="第五章-制作感受"><a href="#第五章-制作感受" class="headerlink" title="第五章 制作感受"></a>第五章 制作感受</h3><p> 本次实验模块的设计与制作确实比之前的复杂了很多，但我自己在这个过程中也得到了很大的提高与成长。<br>从通讯系统的构建，两个系统之间的应答，校验和的检验，到如何把键盘输入的字符正确地发送并正确地显示在LCD屏幕上，每一步充满了各种挫折和困顿。虽然硬件上利用了之前的系统，但软件上协议部分确实很让人头疼。写代码的过程中虽然遇到过很多挫败，也有过很多心情沮丧的时候，但更多的是知识的成长以及心中不断燃烧的好奇与热情，在这样的热情和兴趣下，自己一步步克服障碍，完成了双机通讯系统的设计制作。 虽然每一次看到bug是都很失落，但当最后看到自己的名字成功地显示到两个LCD的屏幕上时，就觉得所有的努力和付出都是值得的。<br>通过双机通讯系统的设计与制作，自己的的确确学到了很多。从知识方面来看，自己对通讯协议的构建有了初步的认识，了解到了如何在单片机之间进行串行通讯。另外，自己也对汇编语言有了更加深入而细致的认识，看到了汇编语言相对其他语言在单片机操作上的优势，看到了汇编语言的形象化与底层化。除此之外，自己通过这个过程，也收获了更多新的技能，对单片机有了更加深入而全面的认识，为以后的理论学习和课程实践打下了一个稳健的基础。自己也十分期待下一次的实验模块制作，期待自己可以更好地运用所学的知识，制作出更好的作品。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;第一章-系统整体概述&quot;&gt;&lt;a href=&quot;#第一章-系统整体概述&quot; class=&quot;headerlink&quot; title=&quot;第一章 系统整体概述&quot;&gt;&lt;/a&gt;第一章 系统整体概述&lt;/h3&gt;&lt;p&gt;本次单片机双机通讯系统设计实验是通过单片机间的串行通讯控制两个单片机进行通信</summary>
       
     
     
