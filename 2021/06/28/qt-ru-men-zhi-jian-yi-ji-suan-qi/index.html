@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++ STL学习笔记, 夜雨闻曦">
+    <meta name="keywords" content="qt入门之简易计算器, 夜雨闻曦">
     <meta name="description" content="在读大学生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++ STL学习笔记 | 夜雨闻曦</title>
+    <title>qt入门之简易计算器 | 夜雨闻曦</title>
     <link rel="icon" type="image/png" href="/heart.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++ STL学习笔记</h1>
+                    <h1 class="description center-align post-title">qt入门之简易计算器</h1>
                 </div>
             </div>
         </div>
@@ -454,12 +454,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
-                            </a>
-                        
-                            <a href="/tags/STL/">
-                                <span class="chip bg-color">STL</span>
+                            <a href="/tags/qt/">
+                                <span class="chip bg-color">qt</span>
                             </a>
                         
                     </div>
@@ -470,8 +466,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/qt/" class="post-category">
+                                qt
                             </a>
                         
                     </div>
@@ -483,28 +479,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-27
+                    2021-06-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-03
+                    2021-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    156
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -522,13 +518,232 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近开始刷leetcode了，发现很多题目还是有现成的数据结构和相关方法比较好，c语言啥都自己造太费劲了。<br>Java有些东西太啰嗦了，自己也不是特别熟练，还是C/C++用的比较顺手，于是打算学学C++的STL模板库。<br>写个帖子，做一些记录。</p>
-<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>见得最多的容器，还是数vector.<br>vector可以看做是一个动态的数组。</p>
-<ul>
-<li>常见用法<br>初始化<br>vector<int> a;<br>a.size();<br>a.empty();</li>
-</ul>
-<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><p>queue<int> a;<br>a.pop();<br>a.push(x);<br>a.front();<br>a.empty();<br>a.size();</p>
-<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p>stack<int> a;<br>a.pop();<br>a.push(x);<br>a.top();<br>a.empty();<br>a.size();</p>
+                <p>最近考完试比较闲了，简单学了一下qt,做了个最基本的计算器。</p>
+<h3 id="界面设计"><a href="#界面设计" class="headerlink" title="界面设计"></a>界面设计</h3><p>通过可视化的方法，拖动实现界面<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_1.png" ></p>
+<h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><p>在头文件中实现类的定义和类内成员的声明</p>
+<pre class="line-numbers language-none"><code class="language-none">
+class MainWindow : public QMainWindow
+&#123;
+    Q_OBJECT
+
+public:
+    explicit MainWindow(QWidget *parent &#x3D; 0);
+    ~MainWindow();
+    int num1;
+    int num2;
+    double result;
+    int op;
+
+private slots:
+    void on_button_1_clicked();
+
+    void on_button_2_clicked();
+
+    void on_button_3_clicked();
+
+    void on_button_add_clicked();
+
+    void on_button_4_clicked();
+
+    void on_button_5_clicked();
+
+    void on_button_6_clicked();
+
+    void on_button_sub_clicked();
+
+    void on_button_7_clicked();
+
+    void on_button_8_clicked();
+
+    void on_button_9_clicked();
+
+    void on_button_mult_clicked();
+
+    void on_button_clear_clicked();
+
+    void on_button_0_clicked();
+
+    void on_button_equal_clicked();
+
+    void on_button_div_clicked();
+
+private:
+    Ui::MainWindow *ui;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在cpp文件中实现类内成员的定义</p>
+<pre class="line-numbers language-none"><code class="language-none">#include &quot;mainwindow.h&quot;
+#include &quot;ui_mainwindow.h&quot;
+#include &lt;iostream&gt;
+using namespace std;
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+&#123;
+    ui-&gt;setupUi(this);
+    this-&gt;setWindowTitle(&quot;计算器1.0&quot;);
+&#125;
+
+MainWindow::~MainWindow()
+&#123;
+    delete ui;
+&#125;
+
+void MainWindow::on_button_1_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;1&quot;);
+&#125;
+
+void MainWindow::on_button_2_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;2&quot;);
+&#125;
+
+void MainWindow::on_button_3_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;3&quot;);
+&#125;
+
+void MainWindow::on_button_add_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;+&quot;);
+&#125;
+
+void MainWindow::on_button_4_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;4&quot;);
+&#125;
+
+void MainWindow::on_button_5_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;5&quot;);
+&#125;
+
+void MainWindow::on_button_6_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;6&quot;);
+&#125;
+
+void MainWindow::on_button_sub_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;-&quot;);
+&#125;
+
+void MainWindow::on_button_7_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;7&quot;);
+&#125;
+
+void MainWindow::on_button_8_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;8&quot;);
+&#125;
+
+void MainWindow::on_button_9_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;9&quot;);
+&#125;
+
+void MainWindow::on_button_mult_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;*&quot;);
+&#125;
+
+void MainWindow::on_button_clear_clicked()
+&#123;
+ ui-&gt;textEdit-&gt;setText(&quot;&quot;);
+&#125;
+
+void MainWindow::on_button_0_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;0&quot;);
+&#125;
+
+void MainWindow::on_button_equal_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;&#x3D;&quot;);
+       QString text &#x3D; ui-&gt;textEdit-&gt;toPlainText();
+       string text1&#x3D;text.toStdString();
+       &#x2F;&#x2F;cout&lt;&lt;text1&lt;&lt;endl;
+       &#x2F;&#x2F;cout&lt;&lt;text1[1]&lt;&lt;endl;
+       int len&#x3D;text1.size();
+       const char * text2&#x3D;text1.c_str();
+       cout&lt;&lt;text2;
+       int flag&#x3D;0;
+       num1&#x3D;0;
+       num2&#x3D;0;
+       op&#x3D;0;
+       result&#x3D;0;
+       for(int i&#x3D;0;i&lt;len;i++)&#123;
+       if(text2[i]&gt;&#x3D;&#39;0&#39;&amp;&amp;text2[i]&lt;&#x3D;&#39;9&#39;)&#123;
+       if(flag&#x3D;&#x3D;0)&#123;
+           num1&#x3D;num1*10+text2[i]-&#39;0&#39;;
+       &#125;
+       if(flag&#x3D;&#x3D;1)&#123;
+           num2&#x3D;num2*10+text2[i]-&#39;0&#39;;
+       &#125;
+       &#125;else if(text2[i]&#x3D;&#x3D;&#39;+&#39;)&#123;
+           flag&#x3D;1;
+           op&#x3D;1;
+           cout&lt;&lt;&quot;+++&quot;&lt;&lt;endl;
+       &#125;
+       else if(text2[i]&#x3D;&#x3D;&#39;-&#39;)&#123;
+           flag&#x3D;1;
+           op&#x3D;2;
+       &#125;
+       else if(text2[i]&#x3D;&#x3D;&#39;*&#39;)&#123;
+           flag&#x3D;1;
+           op&#x3D;3;
+       &#125;
+       else if(text2[i]&#x3D;&#x3D;&#39;&#x2F;&#39;)&#123;
+           flag&#x3D;1;
+           op&#x3D;4;
+       &#125;
+       else if(text2[i]&#x3D;&#x3D;&#39;&#x3D;&#39;)&#123;
+           if(op&#x3D;&#x3D;1)&#123;
+               result&#x3D;num1+num2;
+               cout&lt;&lt;num1&lt;&lt;endl;
+               cout&lt;&lt;num2&lt;&lt;endl;
+           &#125;
+           if(op&#x3D;&#x3D;2)&#123;
+               result&#x3D;num1-num2;
+           &#125;
+           if(op&#x3D;&#x3D;3)&#123;
+               result&#x3D;num1*num2;
+           &#125;
+           if(op&#x3D;&#x3D;4)&#123;
+               result&#x3D;(num1*1.00)&#x2F;num2;
+           &#125;
+
+              ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+              ui-&gt;textEdit-&gt;insertPlainText(QString::number(result));
+       &#125;
+       &#125;
+
+&#125;
+
+void MainWindow::on_button_div_clicked()
+&#123;
+    ui-&gt;textEdit-&gt;moveCursor(QTextCursor::End);
+       ui-&gt;textEdit-&gt;insertPlainText(&quot;&#x2F;&quot;);
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h3><p>qt整体的架构还是比较清晰的，界面和逻辑部分互相分离，又通过信号与槽进行必要的通信。<br>头文件中完成了类的定义，而对类的成员函数仅作声明，具体实现在cpp文件中完成，整个过程实现了类内声明，类外定义。<br>计算器的基本原理也比较简单，按下按钮时，字符附加到编辑框对应的字符串后，最后按下等号时读取整个字符串，分离两个操作数和一个运算符，进行计算，并将最后的计算结果显示到编辑框中。</p>
+<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><p>生成exe文件并通过命令行配置好注册表文件后，点击exe文件就可以正常运行了，运行结果如图所示。<br><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_2.png" ></p>
 
                 
             </div>
@@ -555,7 +770,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yeyuwenxi.github.io/2021/04/27/c-stl-xue-xi-bi-ji/">http://yeyuwenxi.github.io/2021/04/27/c-stl-xue-xi-bi-ji/</a>
+                    <a href="http://yeyuwenxi.github.io/2021/06/28/qt-ru-men-zhi-jian-yi-ji-suan-qi/">http://yeyuwenxi.github.io/2021/06/28/qt-ru-men-zhi-jian-yi-ji-suan-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -593,12 +808,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
-                                </a>
-                            
-                                <a href="/tags/STL/">
-                                    <span class="chip bg-color">STL</span>
+                                <a href="/tags/qt/">
+                                    <span class="chip bg-color">qt</span>
                                 </a>
                             
                         </div>
@@ -902,17 +1113,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/27/chang-yong-pai-xu-suan-fa-zong-jie/">
+                <a href="/2021/06/28/qt-ru-men-zhi-jian-yi-ji-suan-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="常用排序算法总结">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="qt入门之简易计算器">
                         
-                        <span class="card-title">常用排序算法总结</span>
+                        <span class="card-title">qt入门之简易计算器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -922,20 +1134,29 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    数据结构
+                            <a href="/categories/qt/" class="post-category">
+                                    qt
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/qt/">
+                        <span class="chip bg-color">qt</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -947,13 +1168,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/26/esp8266-tong-guo-chuan-kou-fa-song-http-qing-qiu/">
+                <a href="/2021/06/03/51-dan-pian-ji-zui-xiao-xi-tong-pcb-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="esp8266通过串口发送http请求">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="51单片机最小系统pcb板">
                         
-                        <span class="card-title">esp8266通过串口发送http请求</span>
+                        <span class="card-title">51单片机最小系统pcb板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -964,14 +1185,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/esp8266/" class="post-category">
-                                    esp8266
+                            <a href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                    51单片机
                                 </a>
                             
                             
@@ -981,8 +1202,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/esp8266/">
-                        <span class="chip bg-color">esp8266</span>
+                    <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">
+                        <span class="chip bg-color">单片机</span>
+                    </a>
+                    
+                    <a href="/tags/PCB/">
+                        <span class="chip bg-color">PCB</span>
                     </a>
                     
                 </div>
