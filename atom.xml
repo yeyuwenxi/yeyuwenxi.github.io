@@ -6,7 +6,7 @@
   <link href="http://yeyuwenxi.github.io/atom.xml" rel="self"/>
   
   <link href="http://yeyuwenxi.github.io/"/>
-  <updated>2021-06-28T07:13:35.904Z</updated>
+  <updated>2021-06-28T10:14:40.263Z</updated>
   <id>http://yeyuwenxi.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android数据库应用之单词本</title>
+    <link href="http://yeyuwenxi.github.io/2021/06/28/android-shu-ju-ku-ying-yong-zhi-dan-ci-ben/"/>
+    <id>http://yeyuwenxi.github.io/2021/06/28/android-shu-ju-ku-ying-yong-zhi-dan-ci-ben/</id>
+    <published>2021-06-28T09:38:56.000Z</published>
+    <updated>2021-06-28T10:14:40.263Z</updated>
+    
+    <content type="html"><![CDATA[<p>整理一下以前做过的一个小应用，主要是基于SQLite实现了一个简单的记录单词的app.</p><h3 id="数据库的创建"><a href="#数据库的创建" class="headerlink" title="数据库的创建"></a>数据库的创建</h3><pre class="line-numbers language-none"><code class="language-none">public class DatabaseHelper extends SQLiteOpenHelper &#123;    private static final int VERSION &#x3D; 1;    &#x2F;&#x2F; private static final String SWORD&#x3D;&quot;SWORD&quot;;    &#x2F;&#x2F;三个不同参数的构造函数    &#x2F;&#x2F;带全部参数的构造函数，此构造函数必不可少    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,                          int version) &#123;        super(context, name, factory, version);    &#125;    public DatabaseHelper(Context context,String name,int version)&#123;        this(context, name,null,version);    &#125;    &#x2F;&#x2F;创建数据库    public void onCreate(SQLiteDatabase db) &#123;        &#x2F;&#x2F;创建数据库sql语句        String sql &#x3D; &quot;create table danciben(id int,danci text,zhushi text,xiangqing text,xingbiao int,beihui int)&quot;;        &#x2F;&#x2F;执行创建数据库操作        db.execSQL(sql);    &#125;    @Override    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) &#123;        &#x2F;&#x2F;创建成功，日志输出提示    &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><pre class="line-numbers language-none"><code class="language-none">db &#x3D; new DatabaseHelper(tianjia.this,&quot;danciben&quot;, null, 1); &#x2F;&#x2F;数据库实际上是没有被创建或者打开的，直到getWritableDatabase() 或者 getReadableDatabase() 方法中的一个被调用时才会进行创建或者打开  db.getWritableDatabase();  insertData(db.getReadableDatabase(),ciyu,zhushi,xiangqing);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre class="line-numbers language-none"><code class="language-none">db.getWritableDatabase().delete(&quot;danciben&quot;,&quot;danci&#x3D;?&quot;, new String[]&#123;danci&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>使用游标进行查找<br>like关键词可支持模糊查找</p><pre class="line-numbers language-none"><code class="language-none">Cursor cursor&#x3D;db.getReadableDatabase().query(&quot;danciben&quot;,null,&quot;danci like?&quot;, new String[]&#123;key+&quot;%&quot;&#125;,null,null,null);  while(cursor.moveToNext())&#123;   String danci&#x3D;cursor.getString(cursor.getColumnIndex(&quot;danci&quot;));    String zhushi&#x3D;cursor.getString(cursor.getColumnIndex(&quot;zhushi&quot;));    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="部分功能测试结果"><a href="#部分功能测试结果" class="headerlink" title="部分功能测试结果"></a>部分功能测试结果</h3><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_3.png" ><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_4.png" ><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_5.png" ><h3 id="程序源码"><a href="#程序源码" class="headerlink" title="程序源码"></a>程序源码</h3><p><a href="https://github.com/yeyuwenxi/toolcase/blob/main/datalibrary2.zip">github下载链接</a></p><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://blog.csdn.net/midnight_time/article/details/80834198?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160522951719725222401033%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=160522951719725222401033&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-6-80834198.first_rank_ecpm_v3_pc_rank_v2&utm_term=androidSQLite&spm=1018.2118.3001.4449">【Android】SQLite数据库基本用法详解（极简洁）</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;整理一下以前做过的一个小应用，主要是基于SQLite实现了一个简单的记录单词的app.&lt;/p&gt;
+&lt;h3 id=&quot;数据库的创建&quot;&gt;&lt;a href=&quot;#数据库的创建&quot; class=&quot;headerlink&quot; title=&quot;数据库的创建&quot;&gt;&lt;/a&gt;数据库的创建&lt;/h3&gt;&lt;pre c</summary>
+      
+    
+    
+    
+    <category term="Android" scheme="http://yeyuwenxi.github.io/categories/Android/"/>
+    
+    
+    <category term="Android" scheme="http://yeyuwenxi.github.io/tags/Android/"/>
+    
+    <category term="数据库" scheme="http://yeyuwenxi.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="SQLite" scheme="http://yeyuwenxi.github.io/tags/SQLite/"/>
+    
+  </entry>
   
   <entry>
     <title>qt入门之简易计算器</title>
@@ -504,31 +533,6 @@
     
     
     <category term="Matlab" scheme="http://yeyuwenxi.github.io/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读《嘉莉妹妹》</title>
-    <link href="http://yeyuwenxi.github.io/2021/04/12/du-jia-li-mei-mei/"/>
-    <id>http://yeyuwenxi.github.io/2021/04/12/du-jia-li-mei-mei/</id>
-    <published>2021-04-12T04:54:13.000Z</published>
-    <updated>2021-04-12T04:59:57.918Z</updated>
-    
-    <content type="html"><![CDATA[<p>大二时英文选修课写的一篇小论文，这里是中文版，内容有所删减。</p><p>西奥多·德莱塞，美国伟大的现实主义作家。他的父亲是贫苦的德国移民，家里有很多的孩子，一家人生活很是拮据。德莱赛一生的大部分时间从事新闻工作，他走遍芝加哥、匹兹堡、纽约等大城市，广泛深入地观察了解社会，对资本主义制度有了很深的认识，为日后的文学创作积累了丰富的素材。</p><p>《嘉莉妹妹》是德莱赛的第一部著作，描写了农村姑娘嘉莉来到大城市芝加哥寻找幸福，为摆脱贫困，出卖自己的贞操，先后与推销员和酒店经理同居，后又凭美貌与表演才能成为演员而后走红的故事。其中，嘉莉私奔的情节来源于德莱赛妹妹的真实生活经历，他的妹妹曾跟一个偷钱潜逃的酒店经理私奔。</p><p>嘉莉是一个年轻的，纯朴的，没有经验的农村小姑娘，为了追求幸福的生活来到了大城市芝加哥。</p><p>正如作者在开篇时所写到的，一个年轻的没有经验的来自乡下的小姑娘来到大城市时，通常只有两种可能，得到善良的帮助而成为更好的人，或者被物质的诱惑影响而堕落。</p><p>很遗憾，嘉莉没有遇到能够真正在精神上帮助她的人，她的姐姐以及她的两个情人都不是那样的人，他们所教给嘉莉的，只有对物欲和名利的追求，只有物质至上的幸福观。在他们的影响下，嘉莉对上层社会，充盈的物质生活有了极大的渴望，她要拼劲全力地挤进那个社会，去享受物质上的快感与愉悦。对物欲的追求，让嘉莉迷失了初心，虚荣感让她放弃了一个人身上最淳朴的品质，就这样，嘉莉为了富裕的生活而两次出卖自己的贞操。</p><p>在德莱赛的那个时代，在垄断资本主义盛行的社会背景下，很难出现那样能给嘉莉以正确引导的人，每个人都在为自己的各种欲望而奔波。</p><p>嘉莉早期求职的过程也充分说明，在那个充满压迫，充满剥削的时代里，一个底层的普通人，靠自己的努力和勤奋是难以实现梦想的，是没有真正意义上的出路的，残酷的生活压迫着每一个普通人。</p><p>嘉莉靠美貌和运气以及出卖贞操走向了成功，而许许多多的平凡的人却只能在社会的底层不断地挣扎，承受着这个社会带给他们的苦难。从另一方面来说，获得成功的嘉莉也没有拥有真正意义上的快乐，与她相伴的只有内心的孤苦与空虚。无论成功与否，嘉莉都是痛苦的，物质上的满足并没有带给嘉莉真正的幸福感。</p><p>嘉莉正是作者所处那个时代的一个缩影，作者借嘉莉的视角，展现了资本主义带给人的种种苦难，揭露了资本主义社会的弊端，批判了金钱至上，物欲横流的社会现状。</p><p>在一个病态的资本主义社会里，在物质至上的时代里，是没有真正的幸福可言的。我想，这正是作者想要告诉我们的东西，一个人哪怕有了物质上的充盈，也会因为精神上的匮乏而陷入空虚。这一点对现在的我们也是适用的，我们不能陷于物质的牢笼而忽略了那些精神上值得我们去追寻的东西，不能为了自己的虚荣与欲望而放弃那些珍贵的有价值的道德品质。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;大二时英文选修课写的一篇小论文，这里是中文版，内容有所删减。&lt;/p&gt;
-&lt;p&gt;西奥多·德莱塞，美国伟大的现实主义作家。他的父亲是贫苦的德国移民，家里有很多的孩子，一家人生活很是拮据。德莱赛一生的大部分时间从事新闻工作，他走遍芝加哥、匹兹堡、纽约等大城市，广泛深入地观察了解社会</summary>
-      
-    
-    
-    
-    <category term="读书" scheme="http://yeyuwenxi.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-    <category term="读书" scheme="http://yeyuwenxi.github.io/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   

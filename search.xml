@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Android数据库应用之单词本</title>
+      <link href="2021/06/28/android-shu-ju-ku-ying-yong-zhi-dan-ci-ben/"/>
+      <url>2021/06/28/android-shu-ju-ku-ying-yong-zhi-dan-ci-ben/</url>
+      
+        <content type="html"><![CDATA[<p>整理一下以前做过的一个小应用，主要是基于SQLite实现了一个简单的记录单词的app.</p><h3 id="数据库的创建"><a href="#数据库的创建" class="headerlink" title="数据库的创建"></a>数据库的创建</h3><pre class="line-numbers language-none"><code class="language-none">public class DatabaseHelper extends SQLiteOpenHelper &#123;    private static final int VERSION &#x3D; 1;    &#x2F;&#x2F; private static final String SWORD&#x3D;&quot;SWORD&quot;;    &#x2F;&#x2F;三个不同参数的构造函数    &#x2F;&#x2F;带全部参数的构造函数，此构造函数必不可少    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,                          int version) &#123;        super(context, name, factory, version);    &#125;    public DatabaseHelper(Context context,String name,int version)&#123;        this(context, name,null,version);    &#125;    &#x2F;&#x2F;创建数据库    public void onCreate(SQLiteDatabase db) &#123;        &#x2F;&#x2F;创建数据库sql语句        String sql &#x3D; &quot;create table danciben(id int,danci text,zhushi text,xiangqing text,xingbiao int,beihui int)&quot;;        &#x2F;&#x2F;执行创建数据库操作        db.execSQL(sql);    &#125;    @Override    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) &#123;        &#x2F;&#x2F;创建成功，日志输出提示    &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><pre class="line-numbers language-none"><code class="language-none">db &#x3D; new DatabaseHelper(tianjia.this,&quot;danciben&quot;, null, 1); &#x2F;&#x2F;数据库实际上是没有被创建或者打开的，直到getWritableDatabase() 或者 getReadableDatabase() 方法中的一个被调用时才会进行创建或者打开  db.getWritableDatabase();  insertData(db.getReadableDatabase(),ciyu,zhushi,xiangqing);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre class="line-numbers language-none"><code class="language-none">db.getWritableDatabase().delete(&quot;danciben&quot;,&quot;danci&#x3D;?&quot;, new String[]&#123;danci&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>使用游标进行查找<br>like关键词可支持模糊查找</p><pre class="line-numbers language-none"><code class="language-none">Cursor cursor&#x3D;db.getReadableDatabase().query(&quot;danciben&quot;,null,&quot;danci like?&quot;, new String[]&#123;key+&quot;%&quot;&#125;,null,null,null);  while(cursor.moveToNext())&#123;   String danci&#x3D;cursor.getString(cursor.getColumnIndex(&quot;danci&quot;));    String zhushi&#x3D;cursor.getString(cursor.getColumnIndex(&quot;zhushi&quot;));    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="部分功能测试结果"><a href="#部分功能测试结果" class="headerlink" title="部分功能测试结果"></a>部分功能测试结果</h3><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_3.png" ><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_4.png" ><img src="https://cdn.jsdelivr.net/gh/yeyuwenxi/images.github.io/20210628_5.png" ><h3 id="程序源码"><a href="#程序源码" class="headerlink" title="程序源码"></a>程序源码</h3><p><a href="https://github.com/yeyuwenxi/toolcase/blob/main/datalibrary2.zip">github下载链接</a></p><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://blog.csdn.net/midnight_time/article/details/80834198?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160522951719725222401033%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=160522951719725222401033&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-6-80834198.first_rank_ecpm_v3_pc_rank_v2&utm_term=androidSQLite&spm=1018.2118.3001.4449">【Android】SQLite数据库基本用法详解（极简洁）</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> SQLite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>qt入门之简易计算器</title>
       <link href="2021/06/28/qt-ru-men-zhi-jian-yi-ji-suan-qi/"/>
       <url>2021/06/28/qt-ru-men-zhi-jian-yi-ji-suan-qi/</url>
