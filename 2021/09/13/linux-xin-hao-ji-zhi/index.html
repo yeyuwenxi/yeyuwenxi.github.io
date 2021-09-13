@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据结构之二叉树, 夜雨闻曦">
+    <meta name="keywords" content="linux信号机制, 夜雨闻曦">
     <meta name="description" content="在读大学生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据结构之二叉树 | 夜雨闻曦</title>
+    <title>linux信号机制 | 夜雨闻曦</title>
     <link rel="icon" type="image/png" href="/heart.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据结构之二叉树</h1>
+                    <h1 class="description center-align post-title">linux信号机制</h1>
                 </div>
             </div>
         </div>
@@ -452,12 +452,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -466,28 +479,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-09-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-09-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    541
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -505,7 +518,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>信号机制主要包括信号的发送和处理。<br>可以类比于单片机中的中断和中断服务函数，也可以类比于Qt中的信号与槽。</p>
+<h3 id="signal"><a href="#signal" class="headerlink" title="signal"></a>signal</h3><p>signal函数用来处理接受到的信号</p>
+<p><code>sighandler_t signal(int signum, sighandler_t handler);</code><br>第一个参数signum：指明了所要处理的信号类型，它可以取除了SIGKILL和SIGSTOP外的任何一种信号。 　<br>第二个参数handler：描述了与信号关联的动作，它可以取以下三种值：</p>
+<ul>
+<li>SIG_IGN 　<br>忽略此信号</li>
+<li>SIG_DFL 　<br>执行系统默认操作</li>
+<li>sighandler_t类型的函数指针<br>执行函数指针所指向的函数<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3>kill函数用来发送信号</li>
+</ul>
+<p><code>int kill(pid_t pid, int signo);</code><br>pid参数存在四种情况</p>
+<ul>
+<li> pid大于零时，将该信号发送给进程ID为pid的进程</li>
+<li> pid等于零时，信号将送往所有与调用kill()的那个进程属同一个使用组的进程。</li>
+<li> pid等于-1时，信号将送往所有调用进程有权给其发送信号的进程，除了进程1(init)。</li>
+<li> pid小于-1时，信号将送往以-pid为组标识的进程。</li>
+</ul>
+<p>sig：准备发送的信号代码，假如其值为零则没有任何信号送出，但是系统会执行错误检查，通常会利用sig值为零来检验某个进程是否仍在执行。</p>
+<h3 id="raise"><a href="#raise" class="headerlink" title="raise"></a>raise</h3><p>kill函数将信号发送给进程和进程组，raise函数则允许进程向自身发送信号。<br>调用raise(signo)<br>等价于调用<br>kill(getpid(),signo)</p>
+<h3 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h3><p>send.c</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;signal.h></span></span>
+ <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> pid<span class="token punctuation">;</span>
+	pid<span class="token operator">=</span><span class="token number">18411</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">//SIGUSR1是系统保留给用户使用的信号</span>
+	<span class="token function">kill</span><span class="token punctuation">(</span>pid<span class="token punctuation">,</span> SIGUSR1<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span>
+	
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>recv.c</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;signal.h></span></span>
+<span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello world\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token function">signal</span><span class="token punctuation">(</span>SIGUSR1<span class="token punctuation">,</span> hello<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>首先运行recv程序，使用ps -a命令查寻得pid<br>再运行send程序向该pid的进程发送信号<br>可以看到recv程序以一秒为周期向屏幕打印hello world</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>《UNIX环境高级编程》<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yockie/article/details/51729774?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162969933616780255238561%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=162969933616780255238561&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-51729774.first_rank_v2_pc_rank_v29&utm_term=linux%20signal%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187">【Linux函数】Signal ()函数详细介绍</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sweetfather/article/details/79462559?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162969932716780269892963%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=162969932716780269892963&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-79462559.first_rank_v2_pc_rank_v29&utm_term=linux%20kill%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187">Linux 下的KILL函数的用法</a></p>
+
                 
             </div>
             <hr/>
@@ -531,7 +589,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yeyuwenxi.github.io/2021/08/09/shu-ju-jie-gou-zhi-er-cha-shu/">http://yeyuwenxi.github.io/2021/08/09/shu-ju-jie-gou-zhi-er-cha-shu/</a>
+                    <a href="http://yeyuwenxi.github.io/2021/09/13/linux-xin-hao-ji-zhi/">http://yeyuwenxi.github.io/2021/09/13/linux-xin-hao-ji-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -568,7 +626,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -870,17 +932,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/08/09/dui-zhan-ying-yong-zhi-biao-da-shi-you-xian-ji/">
+                <a href="/2021/09/13/linux-xin-hao-ji-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="堆栈应用之表达式优先级">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="linux信号机制">
                         
-                        <span class="card-title">堆栈应用之表达式优先级</span>
+                        <span class="card-title">linux信号机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -890,16 +953,29 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-13
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            pcl
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -911,13 +987,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/09/lian-biao-de-shi-xian/">
+                <a href="/2021/09/13/linux-duo-xian-cheng-bian-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="链表的实现">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="linux多线程编程">
                         
-                        <span class="card-title">链表的实现</span>
+                        <span class="card-title">linux多线程编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -928,15 +1004,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-13
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            pcl
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1083,7 +1171,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">39.2k</span>&nbsp;字
+                class="white-color">42.3k</span>&nbsp;字
             
             
             
